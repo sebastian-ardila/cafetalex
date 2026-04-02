@@ -6,9 +6,11 @@
   height: 0;
 }
 
-/* Filters: same layout always, position toggles via JS */
+/* Filters: always sticky via CSS, JS only controls visual */
 .category-filters {
-  position: relative;
+  position: sticky;
+  top: var(--navbar-h);
+  z-index: 89;
   margin-bottom: 40px;
   margin-left: -20px;
   margin-right: -20px;
@@ -17,21 +19,17 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  background: transparent;
+  background: var(--bg);
   border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .category-filters::-webkit-scrollbar {
   display: none;
 }
 
-/* Sticky: position + visual */
+/* Sticky visual: border appears */
 .category-filters--sticky {
-  position: sticky;
-  top: var(--navbar-h);
-  z-index: 89;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
 }
 
