@@ -1,14 +1,13 @@
 .footer {
   border-top: 1px solid var(--border);
   margin-top: 80px;
-  padding: 20px 0 60px;
 }
 
 .footer-main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
-  padding: 50px 20px;
+  padding: 80px 20px 80px;
 }
 
 .footer-col h4 {
@@ -97,7 +96,8 @@
 
 .footer-bottom {
   border-top: 1px solid var(--border);
-  padding: 16px 0 40px;
+  padding: 20px 0;
+  margin-bottom: 40px;
 }
 
 .footer-bottom-inner {
