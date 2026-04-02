@@ -6,11 +6,9 @@
   height: 0;
 }
 
-/* Filters: always sticky, visual state toggles */
+/* Filters: same layout always, position toggles via JS */
 .category-filters {
-  position: sticky;
-  top: var(--navbar-h);
-  z-index: 89;
+  position: relative;
   margin-bottom: 40px;
   margin-left: -20px;
   margin-right: -20px;
@@ -21,15 +19,17 @@
   scrollbar-width: none;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .category-filters::-webkit-scrollbar {
   display: none;
 }
 
-/* Sticky visual: dark bg + border */
+/* Sticky: position + visual */
 .category-filters--sticky {
+  position: sticky;
+  top: var(--navbar-h);
+  z-index: 89;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
