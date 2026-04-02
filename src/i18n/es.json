@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "menu": "Carta",
+    "hours": "Horarios y Ubicaci\u00f3n",
+    "history": "Historia",
+    "contact": "Contacto",
+    "reservations": "Reservas"
+  },
+  "breadcrumb": {
+    "home": "Inicio"
+  },
+  "hero": {
+    "title": "Tienda de Caf\u00e9 Especial",
+    "viewMenu": "Ver nuestra carta",
+    "reserveTable": "Reservar mesa",
+    "reviewTripadvisor": "Opinar en TripAdvisor",
+    "reviewGoogle": "Opinar en Google"
+  },
+  "menuSection": {
+    "title": "Nuestra Carta",
+    "subtitle": "Descubre nuestras opciones de caf\u00e9 especial y m\u00e1s",
+    "all": "Todos",
+    "viewDish": "Ver plato",
+    "addToCart": "Agregar",
+    "close": "Cerrar"
+  },
+  "cart": {
+    "title": "Tu Pedido",
+    "empty": "Tu carrito est\u00e1 vac\u00edo",
+    "total": "Total",
+    "continue": "Continuar",
+    "deleteOrder": "Eliminar tu pedido",
+    "back": "Volver",
+    "customerName": "Tu nombre",
+    "customerNamePlaceholder": "Ingresa tu nombre",
+    "paymentMethod": "Forma de pago",
+    "transfer": "Transferencia",
+    "card": "Tarjeta",
+    "cash": "Efectivo",
+    "orderType": "Tipo de pedido",
+    "dineIn": "Para la mesa",
+    "delivery": "A domicilio",
+    "orderSummary": "Resumen del pedido",
+    "sendWhatsApp": "Enviar pedido por WhatsApp"
+  },
+  "reservations": {
+    "title": "Reservar Mesa",
+    "subtitle": "Reserva tu espacio en Cafetalex",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre completo",
+    "people": "N\u00famero de personas",
+    "date": "Fecha",
+    "time": "Hora",
+    "comments": "Comentarios adicionales",
+    "commentsPlaceholder": "Alguna solicitud especial...",
+    "submit": "Reservar por WhatsApp",
+    "scheduleTitle": "Horarios",
+    "locationTitle": "Ubicaci\u00f3n"
+  },
+  "hours": {
+    "title": "Horarios y Ubicaci\u00f3n",
+    "subtitle": "Enc\u00faentranos en Pereira",
+    "schedule": "Horarios",
+    "monSat": "Lunes a S\u00e1bado",
+    "monSatHours": "2:00 PM - 10:00 PM",
+    "sunHolidays": "Domingos y Festivos",
+    "closed": "Cerrado",
+    "location": "Ubicaci\u00f3n",
+    "address": "Calle 21 bis #17B-03, Barrio La Lorena, Pereira",
+    "deliveryNote": "Domicilios a todo Pereira",
+    "howToGet": "C\u00f3mo llegar",
+    "openWaze": "Abrir en Waze",
+    "openGoogleMaps": "Abrir en Google Maps",
+    "reserveTable": "Reservar mesa",
+    "orderWhatsApp": "Pedir por WhatsApp"
+  },
+  "history": {
+    "title": "Nuestra Historia",
+    "subtitle": "Conoce la historia detr\u00e1s de Cafetalex",
+    "content": "Cafetalex naci\u00f3 de la pasi\u00f3n por el caf\u00e9 de origen en el coraz\u00f3n del Eje Cafetero colombiano. Ubicados en Pereira, nos dedicamos a ofrecer una experiencia \u00fanica de caf\u00e9 especial, donde cada taza cuenta una historia de dedicaci\u00f3n, desde la finca hasta tu mesa.\n\nNuestro compromiso es con la calidad, la tradici\u00f3n cafetera y la innovaci\u00f3n en cada preparaci\u00f3n. Trabajamos directamente con caficultores locales para garantizar que cada grano refleje lo mejor de nuestra tierra.\n\nEn Cafetalex no solo servimos caf\u00e9, creamos momentos. Un espacio donde la cultura del caf\u00e9 especial se encuentra con la calidez de nuestra gente.",
+    "ctaTitle": "\u00bfListo para probar?",
+    "ctaText": "Descubre nuestra carta completa",
+    "ctaButton": "Ver nuestra carta",
+    "ctaReserve": "Reservar mesa"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos sobre c\u00f3mo trabajar juntos",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre completo",
+    "email": "Correo electr\u00f3nico",
+    "emailPlaceholder": "tu@email.com",
+    "phone": "Tel\u00e9fono",
+    "phonePlaceholder": "Tu n\u00famero de tel\u00e9fono",
+    "interestType": "Tipo de inter\u00e9s",
+    "franchise": "Franquicia",
+    "supplier": "Proveedor",
+    "collaboration": "Colaboraci\u00f3n",
+    "events": "Eventos",
+    "birthday": "Cumplea\u00f1os",
+    "other": "Otros",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cu\u00e9ntanos m\u00e1s...",
+    "submit": "Enviar por WhatsApp"
+  },
+  "footer": {
+    "tagline": "Tienda de Caf\u00e9 Especial",
+    "deliveryNote": "Domicilios a todo Pereira",
+    "scheduleTitle": "Horarios",
+    "followUs": "S\u00edguenos",
+    "rights": "Cafetalex \u00a9 Todos los derechos reservados.",
+    "madeBy": "Sitio web creado por"
+  },
+  "categories": {
+    "hotCoffee": "Caf\u00e9 Caliente",
+    "coldCoffee": "Caf\u00e9 Fr\u00edo",
+    "specialDrinks": "Bebidas Especiales",
+    "desserts": "Postres",
+    "food": "Comidas"
+  },
+  "currency": "COP"
+}

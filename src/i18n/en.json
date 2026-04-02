@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "hours": "Hours & Location",
+    "history": "History",
+    "contact": "Contact",
+    "reservations": "Reservations"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "hero": {
+    "title": "Specialty Coffee Shop",
+    "viewMenu": "View our menu",
+    "reserveTable": "Reserve a table",
+    "reviewTripadvisor": "Review on TripAdvisor",
+    "reviewGoogle": "Review on Google"
+  },
+  "menuSection": {
+    "title": "Our Menu",
+    "subtitle": "Discover our specialty coffee options and more",
+    "all": "All",
+    "viewDish": "View dish",
+    "addToCart": "Add",
+    "close": "Close"
+  },
+  "cart": {
+    "title": "Your Order",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "continue": "Continue",
+    "deleteOrder": "Delete your order",
+    "back": "Back",
+    "customerName": "Your name",
+    "customerNamePlaceholder": "Enter your name",
+    "paymentMethod": "Payment method",
+    "transfer": "Transfer",
+    "card": "Card",
+    "cash": "Cash",
+    "orderType": "Order type",
+    "dineIn": "Dine in",
+    "delivery": "Delivery",
+    "orderSummary": "Order summary",
+    "sendWhatsApp": "Send order via WhatsApp"
+  },
+  "reservations": {
+    "title": "Reserve a Table",
+    "subtitle": "Book your spot at Cafetalex",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "people": "Number of guests",
+    "date": "Date",
+    "time": "Time",
+    "comments": "Additional comments",
+    "commentsPlaceholder": "Any special requests...",
+    "submit": "Reserve via WhatsApp",
+    "scheduleTitle": "Hours",
+    "locationTitle": "Location"
+  },
+  "hours": {
+    "title": "Hours & Location",
+    "subtitle": "Find us in Pereira",
+    "schedule": "Hours",
+    "monSat": "Monday to Saturday",
+    "monSatHours": "2:00 PM - 10:00 PM",
+    "sunHolidays": "Sundays & Holidays",
+    "closed": "Closed",
+    "location": "Location",
+    "address": "Calle 21 bis #17B-03, Barrio La Lorena, Pereira",
+    "deliveryNote": "Delivery all over Pereira",
+    "howToGet": "How to get here",
+    "openWaze": "Open in Waze",
+    "openGoogleMaps": "Open in Google Maps",
+    "reserveTable": "Reserve a table",
+    "orderWhatsApp": "Order via WhatsApp"
+  },
+  "history": {
+    "title": "Our Story",
+    "subtitle": "Learn the story behind Cafetalex",
+    "content": "Cafetalex was born from a passion for origin coffee in the heart of Colombia's Coffee Region. Located in Pereira, we are dedicated to offering a unique specialty coffee experience, where every cup tells a story of dedication, from the farm to your table.\n\nOur commitment is to quality, coffee tradition, and innovation in every preparation. We work directly with local coffee growers to ensure that every bean reflects the best of our land.\n\nAt Cafetalex, we don't just serve coffee, we create moments. A space where specialty coffee culture meets the warmth of our people.",
+    "ctaTitle": "Ready to try?",
+    "ctaText": "Discover our full menu",
+    "ctaButton": "View our menu",
+    "ctaReserve": "Reserve a table"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about how to work together",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone number",
+    "interestType": "Interest type",
+    "franchise": "Franchise",
+    "supplier": "Supplier",
+    "collaboration": "Collaboration",
+    "events": "Events",
+    "birthday": "Birthday",
+    "other": "Other",
+    "message": "Message",
+    "messagePlaceholder": "Tell us more...",
+    "submit": "Send via WhatsApp"
+  },
+  "footer": {
+    "tagline": "Specialty Coffee Shop",
+    "deliveryNote": "Delivery all over Pereira",
+    "scheduleTitle": "Hours",
+    "followUs": "Follow Us",
+    "rights": "Cafetalex \u00a9 All rights reserved.",
+    "madeBy": "Website created by"
+  },
+  "categories": {
+    "hotCoffee": "Hot Coffee",
+    "coldCoffee": "Cold Coffee",
+    "specialDrinks": "Special Drinks",
+    "desserts": "Desserts",
+    "food": "Food"
+  },
+  "currency": "COP"
+}

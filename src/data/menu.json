@@ -1,0 +1,3707 @@
+{
+  "categories": [
+    {
+      "id": "burgers",
+      "nameEs": "Hamburguesas Artesanales",
+      "nameEn": "Artisan Burgers",
+      "icon": "🍔"
+    },
+    {
+      "id": "food",
+      "nameEs": "Comidas",
+      "nameEn": "Meals",
+      "icon": "🍽️"
+    },
+    {
+      "id": "snacks",
+      "nameEs": "Para Picar",
+      "nameEn": "Snacks",
+      "icon": "🍟"
+    },
+    {
+      "id": "hotEspresso",
+      "nameEs": "Calientes — Espresso",
+      "nameEn": "Hot — Espresso",
+      "icon": "☕"
+    },
+    {
+      "id": "hotCoffeeMilk",
+      "nameEs": "Calientes con Café y Leche",
+      "nameEn": "Hot Coffee & Milk",
+      "icon": "🥛"
+    },
+    {
+      "id": "hotMilkNoCoffee",
+      "nameEs": "Calientes sin Café",
+      "nameEn": "Hot Drinks (No Coffee)",
+      "icon": "🍫"
+    },
+    {
+      "id": "coldCoffee",
+      "nameEs": "Frías con Café",
+      "nameEn": "Cold Coffee",
+      "icon": "🧊"
+    },
+    {
+      "id": "coldNoCoffee",
+      "nameEs": "Frías sin Café",
+      "nameEn": "Cold Drinks (No Coffee)",
+      "icon": "🍹"
+    },
+    {
+      "id": "herbalTea",
+      "nameEs": "Aromáticas",
+      "nameEn": "Herbal Teas",
+      "icon": "🍵"
+    },
+    {
+      "id": "coffeeLiquor",
+      "nameEs": "Café y Licor",
+      "nameEn": "Coffee & Liquor",
+      "icon": "🥃"
+    },
+    {
+      "id": "cocktails",
+      "nameEs": "Cócteles",
+      "nameEn": "Cocktails",
+      "icon": "🍸"
+    },
+    {
+      "id": "wines",
+      "nameEs": "Vinos",
+      "nameEn": "Wines",
+      "icon": "🍷"
+    },
+    {
+      "id": "micheladas",
+      "nameEs": "Micheladas",
+      "nameEn": "Micheladas",
+      "icon": "🍋"
+    },
+    {
+      "id": "beers",
+      "nameEs": "Cervezas",
+      "nameEn": "Beers",
+      "icon": "🍺"
+    },
+    {
+      "id": "bottled",
+      "nameEs": "Embotellados",
+      "nameEn": "Bottled Drinks",
+      "icon": "🥤"
+    },
+    {
+      "id": "iceCream",
+      "nameEs": "Con Helado",
+      "nameEn": "Ice Cream",
+      "icon": "🍨"
+    },
+    {
+      "id": "cakes",
+      "nameEs": "Tortas",
+      "nameEn": "Cakes",
+      "icon": "🍰"
+    },
+    {
+      "id": "coldCakes",
+      "nameEs": "Tortas Frías",
+      "nameEn": "Cold Cakes",
+      "icon": "🧁"
+    },
+    {
+      "id": "cookies",
+      "nameEs": "Galletas Artesanales",
+      "nameEn": "Artisan Cookies",
+      "icon": "🍪"
+    },
+    {
+      "id": "breakfast",
+      "nameEs": "Desayunos Corporativos",
+      "nameEn": "Corporate Breakfast",
+      "icon": "🥚"
+    }
+  ],
+  "items": [
+    {
+      "id": "hamburguesa-vegetariana",
+      "category": "burgers",
+      "nameEs": "Hamburguesa Vegetariana",
+      "nameEn": "Vegetarian Burger",
+      "price": 22900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bun"
+        },
+        {
+          "emoji": "🌱",
+          "es": "Carne vegetal",
+          "en": "Plant-based patty"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Lechuga",
+          "en": "Lettuce"
+        },
+        {
+          "emoji": "🍅",
+          "es": "Tomate",
+          "en": "Tomato"
+        },
+        {
+          "emoji": "🍍",
+          "es": "Piña calada",
+          "en": "Grilled pineapple"
+        },
+        {
+          "emoji": "🥒",
+          "es": "Pepinos caramelizados",
+          "en": "Caramelized cucumbers"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa BBQ",
+          "en": "BBQ sauce"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar combo?",
+          "stepEn": "Add combo?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "combo-papitas",
+              "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
+              "nameEn": "Fries + Small Coca Cola (+$12,900)",
+              "priceAdd": 12900
+            }
+          ]
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "hamburguesa-clasica",
+      "category": "burgers",
+      "nameEs": "Hamburguesa Clásica",
+      "nameEn": "Classic Burger",
+      "price": 23900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bun"
+        },
+        {
+          "emoji": "🥩",
+          "es": "150gr carne",
+          "en": "150g beef patty"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Lechuga",
+          "en": "Lettuce"
+        },
+        {
+          "emoji": "🍅",
+          "es": "Tomate",
+          "en": "Tomato"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa BBQ",
+          "en": "BBQ sauce"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar combo?",
+          "stepEn": "Add combo?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "combo-papitas",
+              "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
+              "nameEn": "Fries + Small Coca Cola (+$12,900)",
+              "priceAdd": 12900
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "es": "150 gramos",
+          "en": "150 grams"
+        }
+      ]
+    },
+    {
+      "id": "hamburguesa-de-la-casa",
+      "category": "burgers",
+      "nameEs": "Hamburguesa de la Casa",
+      "nameEn": "House Burger",
+      "price": 25900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bun"
+        },
+        {
+          "emoji": "🥩",
+          "es": "150gr carne",
+          "en": "150g beef patty"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🍍",
+          "es": "Piña calada",
+          "en": "Grilled pineapple"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Cebolla grillé",
+          "en": "Grilled onion"
+        },
+        {
+          "emoji": "🥒",
+          "es": "Pepinos caramelizados",
+          "en": "Caramelized cucumbers"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa BBQ",
+          "en": "BBQ sauce"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar combo?",
+          "stepEn": "Add combo?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "combo-papitas",
+              "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
+              "nameEn": "Fries + Small Coca Cola (+$12,900)",
+              "priceAdd": 12900
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "es": "150 gramos",
+          "en": "150 grams"
+        }
+      ]
+    },
+    {
+      "id": "hamburguesa-bacon",
+      "category": "burgers",
+      "nameEs": "Hamburguesa Bacon",
+      "nameEn": "Bacon Burger",
+      "price": 26900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bun"
+        },
+        {
+          "emoji": "🥩",
+          "es": "150gr carne",
+          "en": "150g beef patty"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Cebolla grillé",
+          "en": "Grilled onion"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Doble tocineta",
+          "en": "Double bacon"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa BBQ",
+          "en": "BBQ sauce"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar combo?",
+          "stepEn": "Add combo?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "combo-papitas",
+              "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
+              "nameEn": "Fries + Small Coca Cola (+$12,900)",
+              "priceAdd": 12900
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "es": "150 gramos",
+          "en": "150 grams"
+        }
+      ]
+    },
+    {
+      "id": "hamburguesa-doble-carne",
+      "category": "burgers",
+      "nameEs": "Hamburguesa Doble Carne",
+      "nameEn": "Double Beef Burger",
+      "price": 29900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bun"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Doble carne 150gr",
+          "en": "Double 150g beef patty"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Lechuga",
+          "en": "Lettuce"
+        },
+        {
+          "emoji": "🍅",
+          "es": "Tomate",
+          "en": "Tomato"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Doble queso mozzarella",
+          "en": "Double mozzarella cheese"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa BBQ",
+          "en": "BBQ sauce"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar combo?",
+          "stepEn": "Add combo?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "combo-papitas",
+              "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
+              "nameEn": "Fries + Small Coca Cola (+$12,900)",
+              "priceAdd": 12900
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "es": "2x 150 gramos",
+          "en": "2x 150 grams"
+        }
+      ]
+    },
+    {
+      "id": "la-cafetalera",
+      "category": "burgers",
+      "nameEs": "La Cafetalera",
+      "nameEn": "The Cafetalera",
+      "price": 29900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bun"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo apanado",
+          "en": "Breaded chicken"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pechuga asada",
+          "en": "Grilled chicken breast"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥒",
+          "es": "Pepinos en reducción de vino de café",
+          "en": "Cucumbers in coffee wine reduction"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar combo?",
+          "stepEn": "Add combo?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "combo-papitas",
+              "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
+              "nameEn": "Fries + Small Coca Cola (+$12,900)",
+              "priceAdd": 12900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arepa-burger",
+      "category": "food",
+      "nameEs": "Arepa Burger",
+      "nameEn": "Arepa Burger",
+      "price": 20900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Arepa casera con mantequilla",
+          "en": "Homemade arepa with butter"
+        },
+        {
+          "emoji": "🥩",
+          "es": "150gr carne",
+          "en": "150g beef patty"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🍟",
+          "es": "Papitas en fosforito",
+          "en": "Matchstick fries"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa",
+          "en": "Sauce"
+        }
+      ],
+      "badges": [
+        {
+          "es": "150 gramos",
+          "en": "150 grams"
+        }
+      ]
+    },
+    {
+      "id": "arepa-mixta",
+      "category": "food",
+      "nameEs": "Arepa Mixta",
+      "nameEn": "Mixed Arepa",
+      "price": 18900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Arepa casera con mantequilla",
+          "en": "Homemade arepa with butter"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ]
+    },
+    {
+      "id": "arepa-pollo",
+      "category": "food",
+      "nameEs": "Arepa de Pollo",
+      "nameEn": "Chicken Arepa",
+      "price": 18900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Arepa casera con mantequilla",
+          "en": "Homemade arepa with butter"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ]
+    },
+    {
+      "id": "arepa-carne",
+      "category": "food",
+      "nameEs": "Arepa de Carne",
+      "nameEn": "Beef Arepa",
+      "price": 18900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Arepa casera con mantequilla",
+          "en": "Homemade arepa with butter"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ]
+    },
+    {
+      "id": "arepa-criolla",
+      "category": "food",
+      "nameEs": "Arepa Criolla",
+      "nameEn": "Criolla Arepa",
+      "price": 20900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Arepa casera con mantequilla",
+          "en": "Homemade arepa with butter"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella fundido",
+          "en": "Melted mozzarella"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        }
+      ]
+    },
+    {
+      "id": "nachos-de-la-casa",
+      "category": "food",
+      "nameEs": "Nachos de la Casa",
+      "nameEn": "House Nachos",
+      "price": 33900,
+      "noteEs": "Perfecto para compartir",
+      "noteEn": "Perfect for sharing",
+      "ingredients": [
+        {
+          "emoji": "🌮",
+          "es": "Tortilla de maíz",
+          "en": "Corn tortilla chips"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🫘",
+          "es": "Fríjoles",
+          "en": "Beans"
+        },
+        {
+          "emoji": "🍶",
+          "es": "Crema agria",
+          "en": "Sour cream"
+        },
+        {
+          "emoji": "🥑",
+          "es": "Guacamole",
+          "en": "Guacamole"
+        },
+        {
+          "emoji": "🍅",
+          "es": "Pico de gallo",
+          "en": "Pico de gallo"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella fundido",
+          "en": "Melted mozzarella"
+        }
+      ],
+      "badges": [
+        {
+          "es": "Para compartir",
+          "en": "For sharing"
+        }
+      ]
+    },
+    {
+      "id": "chuzo-mixto",
+      "category": "food",
+      "nameEs": "Chuzo Desgranado Mixto",
+      "nameEn": "Mixed Chuzo Platter",
+      "price": 27900,
+      "ingredients": [
+        {
+          "emoji": "🍗",
+          "es": "Pollo en trozos",
+          "en": "Chicken pieces"
+        },
+        {
+          "emoji": "🐷",
+          "es": "Cerdo en trozos",
+          "en": "Pork pieces"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos desgranados",
+          "en": "Corn kernels"
+        },
+        {
+          "emoji": "🍟",
+          "es": "Papitas en fosforitos",
+          "en": "Matchstick fries"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso cuajada",
+          "en": "Fresh cheese"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa rosada y blanca",
+          "en": "Pink & white sauce"
+        }
+      ]
+    },
+    {
+      "id": "chuzo-pollo",
+      "category": "food",
+      "nameEs": "Chuzo Desgranado de Pollo",
+      "nameEn": "Chicken Chuzo Platter",
+      "price": 27900,
+      "ingredients": [
+        {
+          "emoji": "🍗",
+          "es": "Pollo en trozos",
+          "en": "Chicken pieces"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos desgranados",
+          "en": "Corn kernels"
+        },
+        {
+          "emoji": "🍟",
+          "es": "Papitas en fosforitos",
+          "en": "Matchstick fries"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso cuajada",
+          "en": "Fresh cheese"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa rosada y blanca",
+          "en": "Pink & white sauce"
+        }
+      ]
+    },
+    {
+      "id": "chuzo-cerdo",
+      "category": "food",
+      "nameEs": "Chuzo Desgranado de Cerdo",
+      "nameEn": "Pork Chuzo Platter",
+      "price": 27900,
+      "ingredients": [
+        {
+          "emoji": "🐷",
+          "es": "Cerdo en trozos",
+          "en": "Pork pieces"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos desgranados",
+          "en": "Corn kernels"
+        },
+        {
+          "emoji": "🍟",
+          "es": "Papitas en fosforitos",
+          "en": "Matchstick fries"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso cuajada",
+          "en": "Fresh cheese"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa rosada y blanca",
+          "en": "Pink & white sauce"
+        }
+      ]
+    },
+    {
+      "id": "wrap-mixto",
+      "category": "food",
+      "nameEs": "Wrap Mixto",
+      "nameEn": "Mixed Wrap",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Tortilla suave",
+          "en": "Soft tortilla"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa",
+          "en": "Sauce"
+        }
+      ]
+    },
+    {
+      "id": "wrap-pollo",
+      "category": "food",
+      "nameEs": "Wrap de Pollo",
+      "nameEn": "Chicken Wrap",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Tortilla suave",
+          "en": "Soft tortilla"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa",
+          "en": "Sauce"
+        }
+      ]
+    },
+    {
+      "id": "wrap-carne",
+      "category": "food",
+      "nameEs": "Wrap de Carne",
+      "nameEn": "Beef Wrap",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Tortilla suave",
+          "en": "Soft tortilla"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa",
+          "en": "Sauce"
+        }
+      ]
+    },
+    {
+      "id": "sandwich-mixto",
+      "category": "food",
+      "nameEs": "Sandwich Mixto",
+      "nameEn": "Mixed Sandwich",
+      "price": 20900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal con orégano",
+          "en": "Artisan oregano bread"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada con hogao",
+          "en": "Shredded beef with hogao"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ]
+    },
+    {
+      "id": "sandwich-pollo",
+      "category": "food",
+      "nameEs": "Sandwich de Pollo",
+      "nameEn": "Chicken Sandwich",
+      "price": 20900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal con orégano",
+          "en": "Artisan oregano bread"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao",
+          "en": "Hogao"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ]
+    },
+    {
+      "id": "sandwich-carne",
+      "category": "food",
+      "nameEs": "Sandwich de Carne",
+      "nameEn": "Beef Sandwich",
+      "price": 20900,
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal con orégano",
+          "en": "Artisan oregano bread"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao",
+          "en": "Hogao"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella cheese"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ]
+    },
+    {
+      "id": "ensalada-gourmet",
+      "category": "food",
+      "nameEs": "Ensalada Gourmet",
+      "nameEn": "Gourmet Salad",
+      "price": 20900,
+      "ingredients": [
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        },
+        {
+          "emoji": "🧄",
+          "es": "Salsa de ajo",
+          "en": "Garlic sauce"
+        }
+      ]
+    },
+    {
+      "id": "papas-francesa",
+      "category": "snacks",
+      "nameEs": "Papas a la Francesa",
+      "nameEn": "French Fries",
+      "price": 16900,
+      "ingredients": [
+        {
+          "emoji": "🍟",
+          "es": "300gr de papas",
+          "en": "300g fries"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ],
+      "badges": [
+        {
+          "es": "300 gramos",
+          "en": "300 grams"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "papas-bacon",
+      "category": "snacks",
+      "nameEs": "Papas Bacon",
+      "nameEn": "Bacon Fries",
+      "price": 18900,
+      "ingredients": [
+        {
+          "emoji": "🍟",
+          "es": "Papas a la francesa (300gr)",
+          "en": "French fries (300g)"
+        },
+        {
+          "emoji": "🥓",
+          "es": "Tocineta",
+          "en": "Bacon"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ],
+      "badges": [
+        {
+          "es": "300 gramos",
+          "en": "300 grams"
+        }
+      ]
+    },
+    {
+      "id": "salchipapas",
+      "category": "snacks",
+      "nameEs": "Salchipapas",
+      "nameEn": "Salchipapas",
+      "price": 18900,
+      "ingredients": [
+        {
+          "emoji": "🍟",
+          "es": "Papas a la francesa (300gr)",
+          "en": "French fries (300g)"
+        },
+        {
+          "emoji": "🌭",
+          "es": "Salchichas",
+          "en": "Sausages"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de la casa",
+          "en": "House sauce"
+        }
+      ],
+      "badges": [
+        {
+          "es": "300 gramos",
+          "en": "300 grams"
+        }
+      ]
+    },
+    {
+      "id": "patacones-hogao",
+      "category": "snacks",
+      "nameEs": "Patacones con Hogao",
+      "nameEn": "Patacones with Hogao",
+      "price": 16900,
+      "ingredients": [
+        {
+          "emoji": "🍌",
+          "es": "6 patacones fritos",
+          "en": "6 fried plantain patties"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ],
+      "badges": [
+        {
+          "es": "6 unidades",
+          "en": "6 pieces"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "patacones-mixtos",
+      "category": "snacks",
+      "nameEs": "Patacones Mixtos",
+      "nameEn": "Mixed Patacones",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🍌",
+          "es": "6 patacones",
+          "en": "6 plantain patties"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ],
+      "badges": [
+        {
+          "es": "6 unidades",
+          "en": "6 pieces"
+        }
+      ]
+    },
+    {
+      "id": "patacones-pollo",
+      "category": "snacks",
+      "nameEs": "Patacones de Pollo",
+      "nameEn": "Chicken Patacones",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🍌",
+          "es": "6 patacones",
+          "en": "6 plantain patties"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ],
+      "badges": [
+        {
+          "es": "6 unidades",
+          "en": "6 pieces"
+        }
+      ]
+    },
+    {
+      "id": "patacones-carne",
+      "category": "snacks",
+      "nameEs": "Patacones de Carne",
+      "nameEn": "Beef Patacones",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🍌",
+          "es": "6 patacones",
+          "en": "6 plantain patties"
+        },
+        {
+          "emoji": "🥩",
+          "es": "Carne desmechada",
+          "en": "Shredded beef"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao de la casa",
+          "en": "House hogao"
+        }
+      ],
+      "badges": [
+        {
+          "es": "6 unidades",
+          "en": "6 pieces"
+        }
+      ]
+    },
+    {
+      "id": "empanaditas-fritas",
+      "category": "snacks",
+      "nameEs": "Empanaditas Fritas",
+      "nameEn": "Fried Empanadas",
+      "price": 16900,
+      "ingredients": [
+        {
+          "emoji": "🥟",
+          "es": "6 empanaditas caseras",
+          "en": "6 homemade mini empanadas"
+        },
+        {
+          "emoji": "🍅",
+          "es": "Pico de gallo",
+          "en": "Pico de gallo"
+        }
+      ],
+      "badges": [
+        {
+          "es": "6 unidades",
+          "en": "6 pieces"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "empanada-paraguaya",
+      "category": "snacks",
+      "nameEs": "Empanada Paraguaya Horneada",
+      "nameEn": "Baked Paraguayan Empanada",
+      "price": 6900,
+      "ingredients": [
+        {
+          "emoji": "🥟",
+          "es": "Empanada rellena de carne molida",
+          "en": "Empanada stuffed with ground beef"
+        }
+      ]
+    },
+    {
+      "id": "cafe-espresso",
+      "category": "hotEspresso",
+      "nameEs": "Café Espresso",
+      "nameEn": "Espresso",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café especial de nuestra región",
+          "en": "Regional specialty coffee"
+        }
+      ]
+    },
+    {
+      "id": "americano",
+      "category": "hotEspresso",
+      "nameEs": "Americano",
+      "nameEn": "Americano",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso de café",
+          "en": "Coffee espresso"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "americano-doble",
+      "category": "hotEspresso",
+      "nameEs": "Americano Doble",
+      "nameEn": "Double Americano",
+      "price": 6500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso doble de café",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "cafe-campesino",
+      "category": "hotEspresso",
+      "nameEs": "Café Campesino",
+      "nameEn": "Campesino Coffee",
+      "price": 7500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso de café",
+          "en": "Coffee espresso"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Panela",
+          "en": "Raw cane sugar"
+        },
+        {
+          "emoji": "✨",
+          "es": "Canela y especias",
+          "en": "Cinnamon & spices"
+        }
+      ]
+    },
+    {
+      "id": "latte",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Latte",
+      "nameEn": "Latte",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso de café",
+          "en": "Coffee espresso"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        }
+      ]
+    },
+    {
+      "id": "cappuccino",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Cappuccino",
+      "nameEn": "Cappuccino",
+      "price": 8900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso doble de café",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        }
+      ]
+    },
+    {
+      "id": "mocaccino",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Mocaccino",
+      "nameEn": "Mochaccino",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso doble de café",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Chocolate",
+          "en": "Chocolate"
+        }
+      ]
+    },
+    {
+      "id": "cappuccino-italiano",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Cappuccino Italiano",
+      "nameEn": "Italian Cappuccino",
+      "price": 9500,
+      "ingredients": [
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        },
+        {
+          "emoji": "☕",
+          "es": "Espresso doble de café",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "✨",
+          "es": "Toque de canela",
+          "en": "Touch of cinnamon"
+        }
+      ]
+    },
+    {
+      "id": "cafe-bombon",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Café Bombón",
+      "nameEn": "Café Bombón",
+      "price": 7500,
+      "noteEs": "Vaso pequeño",
+      "noteEn": "Small glass",
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso de café",
+          "en": "Coffee espresso"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Leche condensada",
+          "en": "Condensed milk"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Toque de leche cremada",
+          "en": "Touch of steamed milk"
+        }
+      ]
+    },
+    {
+      "id": "cafe-chai",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Café Chai",
+      "nameEn": "Chai Coffee",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso de café",
+          "en": "Coffee espresso"
+        },
+        {
+          "emoji": "🍵",
+          "es": "Té chai (especias exóticas)",
+          "en": "Chai tea (exotic spices)"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Vainilla y miel",
+          "en": "Vanilla & honey"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        }
+      ]
+    },
+    {
+      "id": "latte-masmelos",
+      "category": "hotCoffeeMilk",
+      "nameEs": "Latte con Masmelos",
+      "nameEn": "Marshmallow Latte",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso de café",
+          "en": "Coffee espresso"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        },
+        {
+          "emoji": "☁️",
+          "es": "Masmelos",
+          "en": "Marshmallows"
+        }
+      ]
+    },
+    {
+      "id": "te-chai-caliente",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Té Chai Caliente",
+      "nameEn": "Hot Chai Tea",
+      "price": 9500,
+      "ingredients": [
+        {
+          "emoji": "🍵",
+          "es": "Té, especias exóticas",
+          "en": "Tea, exotic spices"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Vainilla y miel",
+          "en": "Vanilla & honey"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche cremada",
+          "en": "Steamed milk"
+        }
+      ]
+    },
+    {
+      "id": "milo-caliente",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Milo Caliente",
+      "nameEn": "Hot Milo",
+      "price": 8900,
+      "ingredients": [
+        {
+          "emoji": "🍫",
+          "es": "Milo",
+          "en": "Milo"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche entera o deslactosada",
+          "en": "Whole or lactose-free milk"
+        }
+      ]
+    },
+    {
+      "id": "coladita-natural",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Coladita de Maicena Natural con Galletas",
+      "nameEn": "Natural Cornstarch Drink with Cookies",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "🥣",
+          "es": "Colada de maicena",
+          "en": "Cornstarch drink"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Galletas",
+          "en": "Cookies"
+        },
+        {
+          "emoji": "✨",
+          "es": "Sabor natural",
+          "en": "Natural flavor"
+        }
+      ]
+    },
+    {
+      "id": "coladita-arequipe",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Coladita de Maicena de Arequipe con Galletas",
+      "nameEn": "Caramel Cornstarch Drink with Cookies",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "🥣",
+          "es": "Colada de maicena",
+          "en": "Cornstarch drink"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Galletas",
+          "en": "Cookies"
+        },
+        {
+          "emoji": "🍮",
+          "es": "Arequipe",
+          "en": "Caramel spread"
+        }
+      ]
+    },
+    {
+      "id": "coladita-fresa",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Coladita de Maicena de Fresa con Galletas",
+      "nameEn": "Strawberry Cornstarch Drink with Cookies",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "🥣",
+          "es": "Colada de maicena",
+          "en": "Cornstarch drink"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Galletas",
+          "en": "Cookies"
+        },
+        {
+          "emoji": "🍓",
+          "es": "Fresa",
+          "en": "Strawberry"
+        }
+      ]
+    },
+    {
+      "id": "coladita-vainilla",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Coladita de Maicena de Vainilla con Galletas",
+      "nameEn": "Vanilla Cornstarch Drink with Cookies",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "🥣",
+          "es": "Colada de maicena",
+          "en": "Cornstarch drink"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Galletas",
+          "en": "Cookies"
+        },
+        {
+          "emoji": "✨",
+          "es": "Vainilla",
+          "en": "Vanilla"
+        }
+      ]
+    },
+    {
+      "id": "chocolate-leche",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Chocolate con Leche",
+      "nameEn": "Hot Chocolate with Milk",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "🍫",
+          "es": "Chocolate",
+          "en": "Chocolate"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        }
+      ]
+    },
+    {
+      "id": "chocolate-masmelos",
+      "category": "hotMilkNoCoffee",
+      "nameEs": "Chocolate con Masmelos",
+      "nameEn": "Hot Chocolate with Marshmallows",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "🍫",
+          "es": "Chocolate",
+          "en": "Chocolate"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        },
+        {
+          "emoji": "☁️",
+          "es": "Masmelos",
+          "en": "Marshmallows"
+        }
+      ]
+    },
+    {
+      "id": "cold-brew",
+      "category": "coldCoffee",
+      "nameEs": "Cold Brew",
+      "nameEn": "Cold Brew",
+      "price": 10900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Extracción por goteo 24 horas",
+          "en": "24-hour drip extraction"
+        }
+      ]
+    },
+    {
+      "id": "americano-frio",
+      "category": "coldCoffee",
+      "nameEs": "Americano Frío",
+      "nameEn": "Iced Americano",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso doble de café",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Rocas de hielo",
+          "en": "Ice rocks"
+        }
+      ]
+    },
+    {
+      "id": "te-de-cafe",
+      "category": "coldCoffee",
+      "nameEs": "Té de Café",
+      "nameEn": "Coffee Tea",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café",
+          "en": "Coffee"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🍵",
+          "es": "Té verde",
+          "en": "Green tea"
+        },
+        {
+          "emoji": "✨",
+          "es": "Toque especial de la casa",
+          "en": "House special touch"
+        }
+      ]
+    },
+    {
+      "id": "cafe-vietnamita",
+      "category": "coldCoffee",
+      "nameEs": "Café Vietnamita",
+      "nameEn": "Vietnamese Coffee",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso",
+          "en": "Espresso"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Leche condensada",
+          "en": "Condensed milk"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Rocas de hielo",
+          "en": "Ice rocks"
+        }
+      ]
+    },
+    {
+      "id": "latte-frio",
+      "category": "coldCoffee",
+      "nameEs": "Latte Frío",
+      "nameEn": "Iced Latte",
+      "price": 9500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café espresso",
+          "en": "Espresso coffee"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche fría",
+          "en": "Cold milk"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Rocas de hielo",
+          "en": "Ice rocks"
+        }
+      ]
+    },
+    {
+      "id": "granizado-cafe",
+      "category": "coldCoffee",
+      "nameEs": "Granizado de Café",
+      "nameEn": "Coffee Granita",
+      "price": 12500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso doble",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielo",
+          "en": "Ice"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche pulverizada",
+          "en": "Powdered milk"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Salsa de chocolate",
+          "en": "Chocolate sauce"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Chantillí",
+          "en": "Whipped cream"
+        }
+      ]
+    },
+    {
+      "id": "granizado-cafe-moca",
+      "category": "coldCoffee",
+      "nameEs": "Granizado Café-Moca",
+      "nameEn": "Mocha Coffee Granita",
+      "price": 13500,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso doble",
+          "en": "Double espresso"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Milo",
+          "en": "Milo"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielo",
+          "en": "Ice"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche pulverizada",
+          "en": "Powdered milk"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Chantillí",
+          "en": "Whipped cream"
+        }
+      ]
+    },
+    {
+      "id": "jugo-guanabana",
+      "category": "coldNoCoffee",
+      "nameEs": "Jugo Natural de Guanábana en Agua",
+      "nameEn": "Natural Soursop Juice",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "🍈",
+          "es": "Guanábana",
+          "en": "Soursop"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "jugo-mora",
+      "category": "coldNoCoffee",
+      "nameEs": "Jugo Natural de Mora en Agua",
+      "nameEn": "Natural Blackberry Juice",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "🫐",
+          "es": "Mora",
+          "en": "Blackberry"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "jugo-fresa",
+      "category": "coldNoCoffee",
+      "nameEs": "Jugo Natural de Fresa en Agua",
+      "nameEn": "Natural Strawberry Juice",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "🍓",
+          "es": "Fresa",
+          "en": "Strawberry"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "jugo-maracuya",
+      "category": "coldNoCoffee",
+      "nameEs": "Jugo Natural de Maracuyá en Agua",
+      "nameEn": "Natural Passion Fruit Juice",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "🍊",
+          "es": "Maracuyá",
+          "en": "Passion fruit"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "jugo-mango",
+      "category": "coldNoCoffee",
+      "nameEs": "Jugo Natural de Mango en Agua",
+      "nameEn": "Natural Mango Juice",
+      "price": 8500,
+      "ingredients": [
+        {
+          "emoji": "🥭",
+          "es": "Mango",
+          "en": "Mango"
+        },
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "jugo-leche",
+      "category": "coldNoCoffee",
+      "nameEs": "Jugo Natural en Leche",
+      "nameEn": "Natural Juice in Milk",
+      "price": 9500,
+      "ingredients": [
+        {
+          "emoji": "🍹",
+          "es": "Fruta natural",
+          "en": "Natural fruit"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        }
+      ]
+    },
+    {
+      "id": "frappe-fruta",
+      "category": "coldNoCoffee",
+      "nameEs": "Frappe de Fruta",
+      "nameEn": "Fruit Frappe",
+      "price": 9900,
+      "ingredients": [
+        {
+          "emoji": "🍹",
+          "es": "Granizado de fruta natural",
+          "en": "Natural fruit granita"
+        }
+      ]
+    },
+    {
+      "id": "frappe-fruta-leche",
+      "category": "coldNoCoffee",
+      "nameEs": "Frappe de Fruta en Leche",
+      "nameEn": "Fruit Frappe in Milk",
+      "price": 10500,
+      "ingredients": [
+        {
+          "emoji": "🍹",
+          "es": "Granizado de fruta natural",
+          "en": "Natural fruit granita"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Leche condensada",
+          "en": "Condensed milk"
+        }
+      ]
+    },
+    {
+      "id": "limonada-natural",
+      "category": "coldNoCoffee",
+      "nameEs": "Limonada Natural",
+      "nameEn": "Natural Lemonade",
+      "price": 7500,
+      "ingredients": [
+        {
+          "emoji": "🍋",
+          "es": "Limón natural",
+          "en": "Fresh lemon"
+        }
+      ]
+    },
+    {
+      "id": "limonada-cerezada",
+      "category": "coldNoCoffee",
+      "nameEs": "Limonada Cerezada",
+      "nameEn": "Cherry Lemonade",
+      "price": 10900,
+      "ingredients": [
+        {
+          "emoji": "🍒",
+          "es": "Cerezas",
+          "en": "Cherries"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Leche condensada",
+          "en": "Condensed milk"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielos",
+          "en": "Ice"
+        }
+      ]
+    },
+    {
+      "id": "limonada-coco",
+      "category": "coldNoCoffee",
+      "nameEs": "Limonada de Coco",
+      "nameEn": "Coconut Lemonade",
+      "price": 10900,
+      "ingredients": [
+        {
+          "emoji": "🥥",
+          "es": "Leche de coco",
+          "en": "Coconut milk"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "✨",
+          "es": "Toque de la casa",
+          "en": "House touch"
+        }
+      ]
+    },
+    {
+      "id": "milo-frio",
+      "category": "coldNoCoffee",
+      "nameEs": "Milo Frío",
+      "nameEn": "Cold Milo",
+      "price": 10900,
+      "ingredients": [
+        {
+          "emoji": "🍫",
+          "es": "Milo",
+          "en": "Milo"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche entera o deslactosada",
+          "en": "Whole or lactose-free milk"
+        }
+      ]
+    },
+    {
+      "id": "te-chai-frio",
+      "category": "coldNoCoffee",
+      "nameEs": "Té Chai Frío",
+      "nameEn": "Iced Chai Tea",
+      "price": 10900,
+      "ingredients": [
+        {
+          "emoji": "🍵",
+          "es": "Té, especias exóticas",
+          "en": "Tea, exotic spices"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Vainilla y miel",
+          "en": "Vanilla & honey"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Rocas de hielo",
+          "en": "Ice rocks"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-hierbabuena",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Hierbabuena",
+      "nameEn": "Mint Herbal Tea",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🌿",
+          "es": "Infusión de hierbabuena",
+          "en": "Mint infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-jengibre",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Jengibre",
+      "nameEn": "Ginger Herbal Tea",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🫚",
+          "es": "Infusión de jengibre",
+          "en": "Ginger infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-cidron",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Cidrón",
+      "nameEn": "Lemon Verbena Tea",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🌿",
+          "es": "Infusión de cidrón",
+          "en": "Lemon verbena infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-limoncillo",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Limoncillo",
+      "nameEn": "Lemongrass Tea",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🌿",
+          "es": "Infusión de limoncillo",
+          "en": "Lemongrass infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-manzanilla",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Manzanilla",
+      "nameEn": "Chamomile Tea",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🌼",
+          "es": "Infusión de manzanilla",
+          "en": "Chamomile infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-panelita",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Panelita",
+      "nameEn": "Panela Herbal Tea",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🍯",
+          "es": "Infusión de panelita",
+          "en": "Raw cane sugar infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-frutos-rojos",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Frutos Rojos",
+      "nameEn": "Mixed Berry Herbal Tea",
+      "price": 8900,
+      "ingredients": [
+        {
+          "emoji": "🍓",
+          "es": "Infusión con frutos rojos naturales",
+          "en": "Natural mixed berry infusion"
+        }
+      ]
+    },
+    {
+      "id": "aromatica-frutos-secos",
+      "category": "herbalTea",
+      "nameEs": "Aromática de Frutos Secos",
+      "nameEn": "Dried Fruit Herbal Tea",
+      "price": 8900,
+      "ingredients": [
+        {
+          "emoji": "🥜",
+          "es": "Infusión de frutos deshidratados",
+          "en": "Dehydrated fruit infusion"
+        }
+      ]
+    },
+    {
+      "id": "cafe-irlandes",
+      "category": "coffeeLiquor",
+      "nameEs": "Café Irlandés",
+      "nameEn": "Irish Coffee",
+      "price": 17900,
+      "noteEs": "Bebida caliente",
+      "noteEn": "Hot drink",
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso",
+          "en": "Espresso"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Licor",
+          "en": "Liquor"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Chantillí",
+          "en": "Whipped cream"
+        }
+      ]
+    },
+    {
+      "id": "carajillo-brandy",
+      "category": "coffeeLiquor",
+      "nameEs": "Carajillo Brandy",
+      "nameEn": "Brandy Carajillo",
+      "price": 17500,
+      "noteEs": "Bebida caliente",
+      "noteEn": "Hot drink",
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Americano",
+          "en": "Americano"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Brandy",
+          "en": "Brandy"
+        }
+      ]
+    },
+    {
+      "id": "carajillo-whisky",
+      "category": "coffeeLiquor",
+      "nameEs": "Carajillo Whisky",
+      "nameEn": "Whisky Carajillo",
+      "price": 17500,
+      "noteEs": "Bebida caliente",
+      "noteEn": "Hot drink",
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Americano",
+          "en": "Americano"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Whisky",
+          "en": "Whisky"
+        }
+      ]
+    },
+    {
+      "id": "cappuccino-licor",
+      "category": "coffeeLiquor",
+      "nameEs": "Cappuccino con Licor",
+      "nameEn": "Cappuccino with Liquor",
+      "price": 17900,
+      "noteEs": "Escoge: Amaretto, Baileys, Tequila, Whisky, Brandy o Ron Bacardí. Bebida caliente",
+      "noteEn": "Choose: Amaretto, Baileys, Tequila, Whisky, Brandy or Bacardi Rum. Hot drink",
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Cappuccino",
+          "en": "Cappuccino"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Licor a elección",
+          "en": "Liquor of choice"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "Selecciona tu licor",
+          "stepEn": "Select your liquor",
+          "type": "select",
+          "required": true,
+          "choices": [
+            {
+              "id": "amaretto",
+              "nameEs": "Amaretto",
+              "nameEn": "Amaretto",
+              "priceAdd": 0
+            },
+            {
+              "id": "baileys",
+              "nameEs": "Baileys",
+              "nameEn": "Baileys",
+              "priceAdd": 0
+            },
+            {
+              "id": "tequila",
+              "nameEs": "Tequila",
+              "nameEn": "Tequila",
+              "priceAdd": 0
+            },
+            {
+              "id": "whisky",
+              "nameEs": "Whisky",
+              "nameEn": "Whisky",
+              "priceAdd": 0
+            },
+            {
+              "id": "brandy",
+              "nameEs": "Brandy",
+              "nameEn": "Brandy",
+              "priceAdd": 0
+            },
+            {
+              "id": "ron-bacardi",
+              "nameEs": "Ron Bacardí",
+              "nameEn": "Bacardi Rum",
+              "priceAdd": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cafe-acapulco",
+      "category": "coffeeLiquor",
+      "nameEs": "Café Acapulco",
+      "nameEn": "Acapulco Coffee",
+      "price": 17900,
+      "noteEs": "Bebida fría",
+      "noteEn": "Cold drink",
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Espresso",
+          "en": "Espresso"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Ron Bacardí",
+          "en": "Bacardi Rum"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Rocas de hielo",
+          "en": "Ice rocks"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        }
+      ]
+    },
+    {
+      "id": "cuba-libre",
+      "category": "cocktails",
+      "nameEs": "Cuba Libre",
+      "nameEn": "Cuba Libre",
+      "price": 22900,
+      "ingredients": [
+        {
+          "emoji": "🥃",
+          "es": "Ron Bacardí",
+          "en": "Bacardi Rum"
+        },
+        {
+          "emoji": "🥤",
+          "es": "Coca-Cola o Ginger",
+          "en": "Coca-Cola or Ginger"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielos",
+          "en": "Ice"
+        }
+      ]
+    },
+    {
+      "id": "mojito",
+      "category": "cocktails",
+      "nameEs": "Mojito",
+      "nameEn": "Mojito",
+      "price": 22900,
+      "ingredients": [
+        {
+          "emoji": "🥃",
+          "es": "Ron Bacardí",
+          "en": "Bacardi Rum"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🌿",
+          "es": "Hierbabuena",
+          "en": "Mint"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielos",
+          "en": "Ice"
+        }
+      ]
+    },
+    {
+      "id": "margarita",
+      "category": "cocktails",
+      "nameEs": "Margarita",
+      "nameEn": "Margarita",
+      "price": 22900,
+      "ingredients": [
+        {
+          "emoji": "🥃",
+          "es": "Tequila",
+          "en": "Tequila"
+        },
+        {
+          "emoji": "🍊",
+          "es": "Triple sec",
+          "en": "Triple sec"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        }
+      ]
+    },
+    {
+      "id": "daiquiri-fresa",
+      "category": "cocktails",
+      "nameEs": "Daiquirí de Fresa",
+      "nameEn": "Strawberry Daiquiri",
+      "price": 22900,
+      "ingredients": [
+        {
+          "emoji": "🍓",
+          "es": "Frappe de fresa",
+          "en": "Strawberry frappe"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Ron Bacardí",
+          "en": "Bacardi Rum"
+        },
+        {
+          "emoji": "🍊",
+          "es": "Triple sec",
+          "en": "Triple sec"
+        }
+      ]
+    },
+    {
+      "id": "vino-maracuya",
+      "category": "wines",
+      "nameEs": "Vino de Maracuyá",
+      "nameEn": "Passion Fruit Wine",
+      "price": 14500,
+      "noteEs": "Desarrollado por emprendedor regional (Alexis Valverde)",
+      "noteEn": "Developed by regional entrepreneur (Alexis Valverde)",
+      "ingredients": [
+        {
+          "emoji": "🍷",
+          "es": "Vino de maracuyá regional",
+          "en": "Regional passion fruit wine"
+        }
+      ]
+    },
+    {
+      "id": "vino-cafe",
+      "category": "wines",
+      "nameEs": "Vino de Café",
+      "nameEn": "Coffee Wine",
+      "price": 14500,
+      "noteEs": "Variedad Borbón Papayo, cultivado en Balboa, Risaralda",
+      "noteEn": "Bourbon Papayo variety, grown in Balboa, Risaralda",
+      "ingredients": [
+        {
+          "emoji": "🍷",
+          "es": "Vino de pulpa de café",
+          "en": "Coffee pulp wine"
+        }
+      ]
+    },
+    {
+      "id": "granizado-vino-cafe",
+      "category": "wines",
+      "nameEs": "Granizado de Vino Café",
+      "nameEn": "Coffee Wine Granita",
+      "price": 19900,
+      "ingredients": [
+        {
+          "emoji": "🍷",
+          "es": "Vino",
+          "en": "Wine"
+        },
+        {
+          "emoji": "🍯",
+          "es": "Almíbar",
+          "en": "Syrup"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Zumo de limón",
+          "en": "Lemon juice"
+        },
+        {
+          "emoji": "✨",
+          "es": "Toque de la casa",
+          "en": "House touch"
+        }
+      ]
+    },
+    {
+      "id": "vino-cafe-caliente",
+      "category": "wines",
+      "nameEs": "Vino de Café Caliente",
+      "nameEn": "Hot Coffee Wine",
+      "price": 21900,
+      "ingredients": [
+        {
+          "emoji": "🍷",
+          "es": "Vino caliente",
+          "en": "Hot wine"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Toque de licor",
+          "en": "Touch of liquor"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Zumo de limón",
+          "en": "Lemon juice"
+        },
+        {
+          "emoji": "✨",
+          "es": "Canela",
+          "en": "Cinnamon"
+        }
+      ]
+    },
+    {
+      "id": "copa-licor",
+      "category": "wines",
+      "nameEs": "Copa de Licor",
+      "nameEn": "Liquor Glass",
+      "price": 14500,
+      "noteEs": "Copa de 2 oz. Escoge: Amaretto, Baileys, Tequila, Whisky, Brandy, Ron o Ron Bacardí",
+      "noteEn": "2 oz glass. Choose: Amaretto, Baileys, Tequila, Whisky, Brandy, Rum or Bacardi Rum",
+      "ingredients": [
+        {
+          "emoji": "🥃",
+          "es": "Licor a elección (2 oz)",
+          "en": "Liquor of choice (2 oz)"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "Selecciona tu licor",
+          "stepEn": "Select your liquor",
+          "type": "select",
+          "required": true,
+          "choices": [
+            {
+              "id": "amaretto",
+              "nameEs": "Amaretto",
+              "nameEn": "Amaretto",
+              "priceAdd": 0
+            },
+            {
+              "id": "baileys",
+              "nameEs": "Baileys",
+              "nameEn": "Baileys",
+              "priceAdd": 0
+            },
+            {
+              "id": "tequila",
+              "nameEs": "Tequila",
+              "nameEn": "Tequila",
+              "priceAdd": 0
+            },
+            {
+              "id": "whisky",
+              "nameEs": "Whisky",
+              "nameEn": "Whisky",
+              "priceAdd": 0
+            },
+            {
+              "id": "brandy",
+              "nameEs": "Brandy",
+              "nameEn": "Brandy",
+              "priceAdd": 0
+            },
+            {
+              "id": "ron",
+              "nameEs": "Ron",
+              "nameEn": "Rum",
+              "priceAdd": 0
+            },
+            {
+              "id": "ron-bacardi",
+              "nameEs": "Ron Bacardí",
+              "nameEn": "Bacardi Rum",
+              "priceAdd": 0
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "es": "2 onzas",
+          "en": "2 ounces"
+        }
+      ]
+    },
+    {
+      "id": "tamarindo-michelada",
+      "category": "micheladas",
+      "nameEs": "Tamarindo Michelada",
+      "nameEn": "Tamarind Michelada",
+      "price": 7900,
+      "ingredients": [
+        {
+          "emoji": "🍹",
+          "es": "Tamarindo",
+          "en": "Tamarind"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielo",
+          "en": "Ice"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🧂",
+          "es": "Sal",
+          "en": "Salt"
+        }
+      ]
+    },
+    {
+      "id": "soda-michelada",
+      "category": "micheladas",
+      "nameEs": "Soda Michelada",
+      "nameEn": "Soda Michelada",
+      "price": 7900,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Soda Bretaña",
+          "en": "Bretaña Soda"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielo",
+          "en": "Ice"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🧂",
+          "es": "Sal",
+          "en": "Salt"
+        }
+      ]
+    },
+    {
+      "id": "ginger-michelada",
+      "category": "micheladas",
+      "nameEs": "Ginger Michelada",
+      "nameEn": "Ginger Michelada",
+      "price": 7900,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Canada Dry",
+          "en": "Canada Dry"
+        },
+        {
+          "emoji": "🧊",
+          "es": "Hielo",
+          "en": "Ice"
+        },
+        {
+          "emoji": "🍋",
+          "es": "Limón",
+          "en": "Lemon"
+        },
+        {
+          "emoji": "🧂",
+          "es": "Sal",
+          "en": "Salt"
+        }
+      ]
+    },
+    {
+      "id": "cerveza-nacional",
+      "category": "beers",
+      "nameEs": "Cerveza Nacional",
+      "nameEn": "Domestic Beer",
+      "price": 8900,
+      "noteEs": "Escoge: Águila Light, Club Dorada, Club Roja. Michelada opcional (+$2.900)",
+      "noteEn": "Choose: Águila Light, Club Dorada, Club Roja. Optional michelada (+$2,900)",
+      "ingredients": [
+        {
+          "emoji": "🍺",
+          "es": "Cerveza nacional a elección",
+          "en": "Domestic beer of choice"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "Selecciona tu cerveza",
+          "stepEn": "Select your beer",
+          "type": "select",
+          "required": true,
+          "choices": [
+            {
+              "id": "aguila",
+              "nameEs": "Águila Light",
+              "nameEn": "Águila Light",
+              "priceAdd": 0
+            },
+            {
+              "id": "club-dorada",
+              "nameEs": "Club Dorada",
+              "nameEn": "Club Dorada",
+              "priceAdd": 0
+            },
+            {
+              "id": "club-roja",
+              "nameEs": "Club Roja",
+              "nameEn": "Club Roja",
+              "priceAdd": 0
+            }
+          ]
+        },
+        {
+          "stepEs": "¿Agregar michelada?",
+          "stepEn": "Add michelada?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "michelada",
+              "nameEs": "Michelada (+$2.900)",
+              "nameEn": "Michelada (+$2,900)",
+              "priceAdd": 2900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerveza-corona",
+      "category": "beers",
+      "nameEs": "Cerveza Internacional (Corona)",
+      "nameEn": "International Beer (Corona)",
+      "price": 11900,
+      "noteEs": "Michelada opcional (+$2.900)",
+      "noteEn": "Optional michelada (+$2,900)",
+      "ingredients": [
+        {
+          "emoji": "🍺",
+          "es": "Corona",
+          "en": "Corona"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "¿Agregar michelada?",
+          "stepEn": "Add michelada?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "michelada",
+              "nameEs": "Michelada (+$2.900)",
+              "nameEn": "Michelada (+$2,900)",
+              "priceAdd": 2900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerveza-artesanal",
+      "category": "beers",
+      "nameEs": "Cerveza Artesanal",
+      "nameEn": "Craft Beer",
+      "price": 10900,
+      "noteEs": "Escoge: 3 Cordilleras Negra, 3 Cordilleras Rosada. Michelada opcional (+$2.900)",
+      "noteEn": "Choose: 3 Cordilleras Negra, 3 Cordilleras Rosada. Optional michelada (+$2,900)",
+      "ingredients": [
+        {
+          "emoji": "🍺",
+          "es": "Cerveza artesanal a elección",
+          "en": "Craft beer of choice"
+        }
+      ],
+      "options": [
+        {
+          "stepEs": "Selecciona tu cerveza",
+          "stepEn": "Select your beer",
+          "type": "select",
+          "required": true,
+          "choices": [
+            {
+              "id": "3c-negra",
+              "nameEs": "3 Cordilleras Negra",
+              "nameEn": "3 Cordilleras Negra",
+              "priceAdd": 0
+            },
+            {
+              "id": "3c-rosada",
+              "nameEs": "3 Cordilleras Rosada",
+              "nameEn": "3 Cordilleras Rosada",
+              "priceAdd": 0
+            }
+          ]
+        },
+        {
+          "stepEs": "¿Agregar michelada?",
+          "stepEn": "Add michelada?",
+          "type": "addon",
+          "required": false,
+          "choices": [
+            {
+              "id": "michelada",
+              "nameEs": "Michelada (+$2.900)",
+              "nameEn": "Michelada (+$2,900)",
+              "priceAdd": 2900
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soda-bretana",
+      "category": "bottled",
+      "nameEs": "Soda Bretaña",
+      "nameEn": "Bretaña Soda",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Soda Bretaña",
+          "en": "Bretaña Soda"
+        }
+      ]
+    },
+    {
+      "id": "tamarindo-botella",
+      "category": "bottled",
+      "nameEs": "Tamarindo",
+      "nameEn": "Tamarind",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Tamarindo",
+          "en": "Tamarind"
+        }
+      ]
+    },
+    {
+      "id": "ginger-botella",
+      "category": "bottled",
+      "nameEs": "Ginger",
+      "nameEn": "Ginger Ale",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Ginger",
+          "en": "Ginger Ale"
+        }
+      ]
+    },
+    {
+      "id": "coca-cola",
+      "category": "bottled",
+      "nameEs": "Coca Cola",
+      "nameEn": "Coca Cola",
+      "price": 5900,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Coca Cola",
+          "en": "Coca Cola"
+        }
+      ]
+    },
+    {
+      "id": "coca-cola-pequena",
+      "category": "bottled",
+      "nameEs": "Coca Cola Pequeña",
+      "nameEn": "Small Coca Cola",
+      "price": 3500,
+      "ingredients": [
+        {
+          "emoji": "🥤",
+          "es": "Coca Cola pequeña",
+          "en": "Small Coca Cola"
+        }
+      ]
+    },
+    {
+      "id": "agua-botella",
+      "category": "bottled",
+      "nameEs": "Agua en Botella",
+      "nameEn": "Bottled Water",
+      "price": 3500,
+      "ingredients": [
+        {
+          "emoji": "💧",
+          "es": "Agua",
+          "en": "Water"
+        }
+      ]
+    },
+    {
+      "id": "affogato",
+      "category": "iceCream",
+      "nameEs": "Affogato",
+      "nameEn": "Affogato",
+      "price": 13900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café espresso",
+          "en": "Espresso coffee"
+        },
+        {
+          "emoji": "🍨",
+          "es": "Helado de vainilla",
+          "en": "Vanilla ice cream"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Salsa de chocolate",
+          "en": "Chocolate sauce"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "malteada-oreo",
+      "category": "iceCream",
+      "nameEs": "Malteada Oreo",
+      "nameEn": "Oreo Milkshake",
+      "price": 15500,
+      "ingredients": [
+        {
+          "emoji": "🍨",
+          "es": "Helado de vainilla",
+          "en": "Vanilla ice cream"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Galletas Oreo",
+          "en": "Oreo cookies"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Chantillí",
+          "en": "Whipped cream"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "malteada-frutos-rojos",
+      "category": "iceCream",
+      "nameEs": "Malteada Frutos Rojos",
+      "nameEn": "Mixed Berry Milkshake",
+      "price": 15500,
+      "ingredients": [
+        {
+          "emoji": "🍓",
+          "es": "Frutos rojos",
+          "en": "Mixed berries"
+        },
+        {
+          "emoji": "🍨",
+          "es": "Helado de vainilla",
+          "en": "Vanilla ice cream"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Chantillí",
+          "en": "Whipped cream"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "malteada-cafe",
+      "category": "iceCream",
+      "nameEs": "Malteada de Café",
+      "nameEn": "Coffee Milkshake",
+      "price": 15500,
+      "ingredients": [
+        {
+          "emoji": "🍨",
+          "es": "Helado de vainilla",
+          "en": "Vanilla ice cream"
+        },
+        {
+          "emoji": "🥛",
+          "es": "Leche",
+          "en": "Milk"
+        },
+        {
+          "emoji": "☕",
+          "es": "Café espresso",
+          "en": "Espresso coffee"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Salsa de chocolate",
+          "en": "Chocolate sauce"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Chantillí",
+          "en": "Whipped cream"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "copa-helado-vainilla",
+      "category": "iceCream",
+      "nameEs": "Copa de Helado Vainilla",
+      "nameEn": "Vanilla Ice Cream Cup",
+      "price": 10900,
+      "ingredients": [
+        {
+          "emoji": "🍨",
+          "es": "2 bolas de helado de vainilla",
+          "en": "2 scoops vanilla ice cream"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Salsa de chocolate",
+          "en": "Chocolate sauce"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Galletas",
+          "en": "Cookies"
+        },
+        {
+          "emoji": "🎉",
+          "es": "Grajeas de colores",
+          "en": "Sprinkles"
+        }
+      ],
+      "badges": [
+        {
+          "es": "2 bolas",
+          "en": "2 scoops"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "copa-helado-frutos-rojos",
+      "category": "iceCream",
+      "nameEs": "Copa de Helado con Frutos Rojos",
+      "nameEn": "Ice Cream Cup with Berries",
+      "price": 13900,
+      "ingredients": [
+        {
+          "emoji": "🍨",
+          "es": "2 bolas de helado de vainilla",
+          "en": "2 scoops vanilla ice cream"
+        },
+        {
+          "emoji": "🍓",
+          "es": "Frutos rojos naturales",
+          "en": "Natural mixed berries"
+        }
+      ],
+      "badges": [
+        {
+          "es": "2 bolas",
+          "en": "2 scoops"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "brownie-helado",
+      "category": "iceCream",
+      "nameEs": "Brownie con Helado",
+      "nameEn": "Brownie with Ice Cream",
+      "price": 13900,
+      "ingredients": [
+        {
+          "emoji": "🍨",
+          "es": "Helado de vainilla",
+          "en": "Vanilla ice cream"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Brownie caliente",
+          "en": "Warm brownie"
+        },
+        {
+          "emoji": "🫗",
+          "es": "Salsa de chocolate",
+          "en": "Chocolate sauce"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "torta-zanahoria",
+      "category": "cakes",
+      "nameEs": "Torta de Zanahoria con Nueces",
+      "nameEn": "Carrot Cake with Walnuts",
+      "price": 11900,
+      "ingredients": [
+        {
+          "emoji": "🥕",
+          "es": "Zanahoria",
+          "en": "Carrot"
+        },
+        {
+          "emoji": "🥜",
+          "es": "Nueces",
+          "en": "Walnuts"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "almojabana",
+      "category": "cakes",
+      "nameEs": "Almojábana con Bocadillo",
+      "nameEn": "Almojábana with Guava Paste",
+      "price": 11900,
+      "ingredients": [
+        {
+          "emoji": "🧀",
+          "es": "Almojábana",
+          "en": "Cheese bread"
+        },
+        {
+          "emoji": "🍬",
+          "es": "Bocadillo",
+          "en": "Guava paste"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "torta-chocolate-maracuya",
+      "category": "coldCakes",
+      "nameEs": "Torta Chocolate - Maracuyá",
+      "nameEn": "Chocolate - Passion Fruit Cake",
+      "price": 12900,
+      "ingredients": [
+        {
+          "emoji": "🍫",
+          "es": "Chocolate",
+          "en": "Chocolate"
+        },
+        {
+          "emoji": "🍊",
+          "es": "Maracuyá",
+          "en": "Passion fruit"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "torta-genovesa",
+      "category": "coldCakes",
+      "nameEs": "Torta Genovesa",
+      "nameEn": "Genovesa Cake",
+      "price": 12900,
+      "ingredients": [
+        {
+          "emoji": "🍰",
+          "es": "Torta genovesa",
+          "en": "Genovesa cake"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "tiramisu",
+      "category": "coldCakes",
+      "nameEs": "Tiramisú",
+      "nameEn": "Tiramisu",
+      "price": 12900,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café",
+          "en": "Coffee"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Mascarpone",
+          "en": "Mascarpone"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "galleta-tiramisu",
+      "category": "cookies",
+      "nameEs": "Galleta de Tiramisú",
+      "nameEn": "Tiramisu Cookie",
+      "price": 11500,
+      "ingredients": [
+        {
+          "emoji": "🧈",
+          "es": "Mantequilla",
+          "en": "Butter"
+        },
+        {
+          "emoji": "☕",
+          "es": "Café",
+          "en": "Coffee"
+        },
+        {
+          "emoji": "🥃",
+          "es": "Toque de licor",
+          "en": "Touch of liquor"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "galleta-chocolate",
+      "category": "cookies",
+      "nameEs": "Galleta de Chips de Chocolate",
+      "nameEn": "Chocolate Chip Cookie",
+      "price": 11500,
+      "ingredients": [
+        {
+          "emoji": "🧈",
+          "es": "Mantequilla",
+          "en": "Butter"
+        },
+        {
+          "emoji": "✨",
+          "es": "Vainilla",
+          "en": "Vanilla"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Trozos de chocolate semi amargo",
+          "en": "Semi-sweet chocolate chunks"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "galleta-cheesecake-oreo",
+      "category": "cookies",
+      "nameEs": "Galleta de Cheesecake de Oreo",
+      "nameEn": "Oreo Cheesecake Cookie",
+      "price": 11500,
+      "ingredients": [
+        {
+          "emoji": "🧈",
+          "es": "Mantequilla",
+          "en": "Butter"
+        },
+        {
+          "emoji": "🍪",
+          "es": "Oreo triturada",
+          "en": "Crushed Oreo"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Chocolate blanco",
+          "en": "White chocolate"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Rellena de queso crema",
+          "en": "Cream cheese filling"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "galleta-cinnamon-roll",
+      "category": "cookies",
+      "nameEs": "Galleta Cinnamon Roll (Canela)",
+      "nameEn": "Cinnamon Roll Cookie",
+      "price": 11500,
+      "ingredients": [
+        {
+          "emoji": "🧈",
+          "es": "Mantequilla",
+          "en": "Butter"
+        },
+        {
+          "emoji": "✨",
+          "es": "Canela",
+          "en": "Cinnamon"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Rellena de queso crema",
+          "en": "Cream cheese filling"
+        },
+        {
+          "emoji": "🍦",
+          "es": "Frosting",
+          "en": "Frosting"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "galleta-red-velvet",
+      "category": "cookies",
+      "nameEs": "Galleta Red Velvet",
+      "nameEn": "Red Velvet Cookie",
+      "price": 11500,
+      "ingredients": [
+        {
+          "emoji": "🧈",
+          "es": "Mantequilla",
+          "en": "Butter"
+        },
+        {
+          "emoji": "🍫",
+          "es": "Cacao suave",
+          "en": "Mild cocoa"
+        }
+      ],
+      "vegetarian": true
+    },
+    {
+      "id": "desayuno-cafetalex",
+      "category": "breakfast",
+      "nameEs": "Desayuno Cafetalex",
+      "nameEn": "Cafetalex Breakfast",
+      "price": 17900,
+      "noteEs": "Bajo reserva (mín. 10 personas). Incluye bebida a elección: americano, café con leche, Milo, chocolate o jugo natural. Huevos: revueltos, fritos, pericos, rancheros, con tocineta o maicitos",
+      "noteEn": "By reservation (min. 10 guests). Includes drink of choice: americano, café latte, Milo, chocolate or natural juice. Eggs: scrambled, fried, pericos, rancheros, with bacon or corn",
+      "ingredients": [
+        {
+          "emoji": "🍉",
+          "es": "Fruta",
+          "en": "Fruit"
+        },
+        {
+          "emoji": "🥚",
+          "es": "Huevos a elección",
+          "en": "Eggs of choice"
+        },
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal",
+          "en": "Artisan bread"
+        },
+        {
+          "emoji": "🫓",
+          "es": "Arepa con mantequilla",
+          "en": "Arepa with butter"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso fresco",
+          "en": "Fresh cheese"
+        },
+        {
+          "emoji": "☕",
+          "es": "Bebida a elección",
+          "en": "Drink of choice"
+        }
+      ]
+    },
+    {
+      "id": "desayuno-sandwich-pollo",
+      "category": "breakfast",
+      "nameEs": "Sandwich de Pollo",
+      "nameEn": "Chicken Sandwich",
+      "price": 20900,
+      "noteEs": "Bajo reserva (mín. 10 personas)",
+      "noteEn": "By reservation (min. 10 guests)",
+      "ingredients": [
+        {
+          "emoji": "🍞",
+          "es": "Pan artesanal con orégano",
+          "en": "Artisan oregano bread"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧅",
+          "es": "Hogao",
+          "en": "Hogao"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        }
+      ]
+    },
+    {
+      "id": "desayuno-wrap-pollo",
+      "category": "breakfast",
+      "nameEs": "Wrap de Pollo",
+      "nameEn": "Chicken Wrap",
+      "price": 19900,
+      "noteEs": "Bajo reserva (mín. 10 personas)",
+      "noteEn": "By reservation (min. 10 guests)",
+      "ingredients": [
+        {
+          "emoji": "🫓",
+          "es": "Tortilla suave",
+          "en": "Soft tortilla"
+        },
+        {
+          "emoji": "🍗",
+          "es": "Pollo desmechado",
+          "en": "Shredded chicken"
+        },
+        {
+          "emoji": "🌽",
+          "es": "Maicitos",
+          "en": "Corn"
+        },
+        {
+          "emoji": "🧀",
+          "es": "Queso mozzarella",
+          "en": "Mozzarella"
+        },
+        {
+          "emoji": "🥬",
+          "es": "Vegetales frescos",
+          "en": "Fresh vegetables"
+        }
+      ]
+    },
+    {
+      "id": "desayuno-empanadas",
+      "category": "breakfast",
+      "nameEs": "2 Empanadas Paraguayas Horneadas",
+      "nameEn": "2 Baked Paraguayan Empanadas",
+      "price": 13000,
+      "noteEs": "Bajo reserva (mín. 10 personas)",
+      "noteEn": "By reservation (min. 10 guests)",
+      "ingredients": [
+        {
+          "emoji": "🥟",
+          "es": "2 empanadas rellenas de carne molida",
+          "en": "2 empanadas stuffed with ground beef"
+        }
+      ],
+      "badges": [
+        {
+          "es": "2 unidades",
+          "en": "2 pieces"
+        }
+      ]
+    }
+  ]
+}

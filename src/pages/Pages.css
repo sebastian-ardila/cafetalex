@@ -1,0 +1,192 @@
+/* Info cards (reservations, etc.) */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  text-align: center;
+  padding: 24px;
+}
+
+.info-icon {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.info-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Form card - same width as info-cards */
+.form-card {
+  padding: 30px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* Sections - full width */
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+/* Schedule cards - full width */
+.schedule-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.schedule-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px;
+}
+
+.schedule-card.closed {
+  opacity: 0.6;
+}
+
+.schedule-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.schedule-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Location card - full width */
+.location-card {
+  padding: 24px;
+}
+
+.location-address {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.location-delivery {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Directions buttons */
+.directions-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* CTA buttons */
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* History */
+.history-content {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.history-content p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* CTA Card */
+.cta-card {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.cta-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.cta-card p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.cta-card-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .directions-btns {
+    flex-direction: column;
+  }
+
+  .directions-btns .btn {
+    width: 100%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-card-buttons {
+    flex-direction: column;
+  }
+}
