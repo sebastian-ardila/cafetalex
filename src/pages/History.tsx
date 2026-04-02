@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { UtensilsCrossed, CalendarCheck } from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
 import './Pages.css'
 
 export default function History() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
+
+  const goToMenu = () => {
+    navigate('/')
+    setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
+  }
 
   return (
     <main className="page">
@@ -26,10 +32,10 @@ export default function History() {
           <h3>{t('history.ctaTitle')}</h3>
           <p>{t('history.ctaText')}</p>
           <div className="cta-card-buttons">
-            <Link to="/" className="btn btn-primary">
+            <button onClick={goToMenu} className="btn btn-primary">
               <UtensilsCrossed size={18} />
               {t('history.ctaButton')}
-            </Link>
+            </button>
             <Link to="/reservations" className="btn btn-outline">
               <CalendarCheck size={18} />
               {t('history.ctaReserve')}

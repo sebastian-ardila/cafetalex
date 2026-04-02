@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   UtensilsCrossed,
   MapPin,
@@ -28,7 +28,15 @@ export default function Navbar() {
   const location = useLocation()
   const openCart = useCartStore((s) => s.openCart)
   const cartCount = useCartStore((s) => s.getCount())
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const handleNavClick = (to: string) => {
+    if (to === '/') {
+      navigate('/')
+      setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
+    }
+  }
 
   return (
     <>
@@ -44,6 +52,7 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`navbar-link ${location.pathname === link.to ? 'active' : ''}`}
+                onClick={() => handleNavClick(link.to)}
               >
                 <link.icon size={16} />
                 <span>{t(link.labelKey)}</span>
@@ -84,7 +93,7 @@ export default function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={`mobile-menu-link ${location.pathname === link.to ? 'active' : ''}`}
-                onClick={() => setMobileOpen(false)}
+                onClick={() => { setMobileOpen(false); handleNavClick(link.to) }}
               >
                 <link.icon size={22} />
                 <span>{t(link.labelKey)}</span>

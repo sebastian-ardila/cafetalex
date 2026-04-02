@@ -84,7 +84,7 @@ ${itemLines}
                 <div className="cart-empty-actions">
                   <button
                     className="btn btn-primary btn-sm"
-                    onClick={() => { closeCart(); navigate('/') }}
+                    onClick={() => { closeCart(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }}
                   >
                     <UtensilsCrossed size={16} />
                     {t('hero.viewMenu')}
