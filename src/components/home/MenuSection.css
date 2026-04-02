@@ -6,11 +6,8 @@
   height: 0;
 }
 
-/* Filters: always same layout, sticky adds background */
+/* Filters: same layout in both states */
 .category-filters {
-  position: sticky;
-  top: var(--navbar-h);
-  z-index: 89;
   margin-bottom: 40px;
   margin-left: -20px;
   margin-right: -20px;
@@ -21,14 +18,17 @@
   scrollbar-width: none;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .category-filters::-webkit-scrollbar {
   display: none;
 }
 
+/* Only sticky when scrolled past sentinel */
 .category-filters--sticky {
+  position: sticky;
+  top: var(--navbar-h);
+  z-index: 89;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
