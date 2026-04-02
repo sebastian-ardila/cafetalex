@@ -75,6 +75,11 @@ export default function MenuSection() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Clear active pill when on the hero (filters not fixed)
+  useEffect(() => {
+    if (!showFixed) setActiveId('')
+  }, [showFixed])
+
   // Track which category section is visible
   useEffect(() => {
     const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
