@@ -2,15 +2,8 @@
   padding: 40px 0 60px;
 }
 
-.filters-sentinel {
-  height: 0;
-}
-
-/* Filters: always sticky via CSS, JS only controls visual */
+/* ===== Filters: normal flow, horizontal scroll ===== */
 .category-filters {
-  position: sticky;
-  top: var(--navbar-h);
-  z-index: 89;
   margin-bottom: 40px;
   margin-left: -20px;
   margin-right: -20px;
@@ -19,20 +12,33 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  background: var(--bg);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
 }
 
 .category-filters::-webkit-scrollbar {
   display: none;
 }
 
-/* Sticky visual: border appears */
-.category-filters--sticky {
-  border-bottom-color: var(--border);
+/* ===== Fixed clone: appears on top when scrolled ===== */
+.category-filters--fixed {
+  position: fixed;
+  top: var(--navbar-h);
+  left: 0;
+  right: 0;
+  z-index: 89;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  animation: filtersSlideDown 0.25s ease-out;
 }
 
+@keyframes filtersSlideDown {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Inner wrapper ===== */
 .filters-inner {
   display: flex;
   flex-direction: column;
@@ -48,6 +54,7 @@
   flex-wrap: nowrap;
 }
 
+/* ===== Pills ===== */
 .filter-pill {
   display: inline-flex;
   align-items: center;
@@ -93,6 +100,7 @@
   text-shadow: 0 0 0.5px #fff;
 }
 
+/* ===== Category sections ===== */
 .category-group {
   margin-bottom: 40px;
 }
@@ -114,12 +122,17 @@
   gap: 16px;
 }
 
+/* ===== Mobile ===== */
 @media (max-width: 768px) {
   .category-filters {
     margin-left: -16px;
     margin-right: -16px;
     padding: 8px 0;
     margin-bottom: 24px;
+  }
+
+  .category-filters--fixed {
+    padding: 8px 0;
   }
 
   .filters-inner {
