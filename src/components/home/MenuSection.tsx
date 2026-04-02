@@ -47,13 +47,12 @@ const categoryIcons: Record<string, typeof Coffee> = {
   coldCakes: CakeSlice,
   cookies: Cookie,
   breakfast: Egg,
+  vegetarian: Vegan,
 }
 
 export default function MenuSection() {
   const { t, lang } = useTranslation()
-  const [activeCategory, setActiveCategory] = useState('all')
   const [isSticky, setIsSticky] = useState(false)
-  const filtersRef = useRef<HTMLDivElement>(null)
   const sentinelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -67,30 +66,62 @@ export default function MenuSection() {
     return () => observer.disconnect()
   }, [])
 
-  const isVegFilter = activeCategory === 'vegetarian'
+  const vegetarianItems = menuItems.filter((item) => item.vegetarian)
 
-  const baseItems = isVegFilter
-    ? menuItems.filter((item) => item.vegetarian)
-    : activeCategory === 'all'
-      ? menuItems
-      : menuItems.filter((item) => item.category === activeCategory)
+  const categoryGroups = categories
+    .map((cat) => ({
+      ...cat,
+      items: menuItems.filter((item) => item.category === cat.id),
+    }))
+    .filter((g) => g.items.length > 0)
 
-  const grouped = activeCategory === 'all'
-  const categoryGroups = grouped
-    ? categories
-        .map((cat) => ({
-          ...cat,
-          items: menuItems.filter((item) => item.category === cat.id),
-        }))
-        .filter((g) => g.items.length > 0)
-    : isVegFilter
-      ? categories
-          .map((cat) => ({
-            ...cat,
-            items: baseItems.filter((item) => item.category === cat.id),
-          }))
-          .filter((g) => g.items.length > 0)
-      : []
+  const scrollToCategory = (id: string) => {
+    const el = document.getElementById(`cat-${id}`)
+    if (el) {
+      const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
+      const stickyH = 120
+      const y = el.getBoundingClientRect().top + window.scrollY - navbarH - stickyH
+      window.scrollTo({ top: y, behavior: 'smooth' })
+    }
+  }
+
+  // All nav pills: vegetarian + categories
+  const allPillDefs = [
+    { id: 'vegetarian', labelEs: 'Vegetariano', labelEn: 'Vegetarian', isVeg: true },
+    ...categories.map((cat) => ({ id: cat.id, labelEs: cat.nameEs, labelEn: cat.nameEn, isVeg: false })),
+  ]
+
+  const renderPills = (inSticky: boolean) => {
+    const pills = allPillDefs.map((def) => {
+      const Icon = categoryIcons[def.id] || Coffee
+      return (
+        <button
+          key={def.id}
+          className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''}`}
+          onClick={() => scrollToCategory(def.id)}
+        >
+          <Icon size={14} />
+          {lang === 'es' ? def.labelEs : def.labelEn}
+        </button>
+      )
+    })
+
+    if (!inSticky) return pills
+
+    const rowCount = window.innerWidth <= 768 ? 3 : 2
+    const perRow = Math.ceil(pills.length / rowCount)
+    const rows: typeof pills[] = []
+    for (let i = 0; i < pills.length; i += perRow) {
+      rows.push(pills.slice(i, i + perRow))
+    }
+    return (
+      <div className="filters-inner">
+        {rows.map((row, i) => (
+          <div key={i} className="filters-row">{row}</div>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <section id="menu-section" className="menu-section">
@@ -100,73 +131,44 @@ export default function MenuSection() {
           <p>{t('menuSection.subtitle')}</p>
         </div>
 
-        {/* Sentinel: when this goes out of view, filters become sticky */}
         <div ref={sentinelRef} className="filters-sentinel" />
 
-        <div
-          ref={filtersRef}
-          className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}
-        >
-          {(() => {
-            const allPills = [
-              <button key="all" className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`} onClick={() => setActiveCategory('all')}>
-                <UtensilsCrossed size={14} />{t('menuSection.all')}
-              </button>,
-              <button key="veg" className={`filter-pill filter-pill-veg ${activeCategory === 'vegetarian' ? 'active' : ''}`} onClick={() => setActiveCategory('vegetarian')}>
-                <Vegan size={14} />{lang === 'es' ? 'Vegetariano' : 'Vegetarian'}
-              </button>,
-              ...categories.map((cat) => {
-                const Icon = categoryIcons[cat.id] || Coffee
-                return (
-                  <button key={cat.id} className={`filter-pill ${activeCategory === cat.id ? 'active' : ''}`} onClick={() => setActiveCategory(cat.id)}>
-                    <Icon size={14} />{lang === 'es' ? cat.nameEs : cat.nameEn}
-                  </button>
-                )
-              }),
-            ]
-
-            if (!isSticky) return allPills
-
-            const rowCount = window.innerWidth <= 768 ? 3 : 2
-            const perRow = Math.ceil(allPills.length / rowCount)
-            const rows: typeof allPills[] = []
-            for (let i = 0; i < allPills.length; i += perRow) {
-              rows.push(allPills.slice(i, i + perRow))
-            }
-            return (
-              <div className="filters-inner">
-                {rows.map((row, i) => (
-                  <div key={i} className="filters-row">{row}</div>
-                ))}
-              </div>
-            )
-          })()}
+        <div className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}>
+          {renderPills(isSticky)}
         </div>
 
-        {grouped || isVegFilter ? (
-          categoryGroups.map((group) => {
-            const Icon = categoryIcons[group.id] || Coffee
-            return (
-              <div key={group.id} className="category-group">
-                <h3 className="category-title">
-                  <Icon size={20} />
-                  {lang === 'es' ? group.nameEs : group.nameEn}
-                </h3>
-                <div className="products-grid">
-                  {group.items.map((item) => (
-                    <ProductCard key={item.id} item={item} />
-                  ))}
-                </div>
-              </div>
-            )
-          })
-        ) : (
-          <div className="products-grid">
-            {baseItems.map((item) => (
-              <ProductCard key={item.id} item={item} />
-            ))}
+        {/* Vegetarian section */}
+        {vegetarianItems.length > 0 && (
+          <div id="cat-vegetarian" className="category-group">
+            <h3 className="category-title">
+              <Vegan size={20} />
+              {lang === 'es' ? 'Vegetariano' : 'Vegetarian'}
+            </h3>
+            <div className="products-grid">
+              {vegetarianItems.map((item) => (
+                <ProductCard key={`veg-${item.id}`} item={item} />
+              ))}
+            </div>
           </div>
         )}
+
+        {/* All category sections */}
+        {categoryGroups.map((group) => {
+          const Icon = categoryIcons[group.id] || Coffee
+          return (
+            <div key={group.id} id={`cat-${group.id}`} className="category-group">
+              <h3 className="category-title">
+                <Icon size={20} />
+                {lang === 'es' ? group.nameEs : group.nameEn}
+              </h3>
+              <div className="products-grid">
+                {group.items.map((item) => (
+                  <ProductCard key={item.id} item={item} />
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )
