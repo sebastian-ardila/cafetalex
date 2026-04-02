@@ -119,10 +119,27 @@
 
 
 @media (max-width: 768px) {
-  .footer-main {
+  .footer .footer-main {
     grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 30px 16px;
+    gap: 40px;
+    padding: 50px 20px;
+  }
+
+  .footer-col {
+    text-align: center;
+  }
+
+  .footer-address {
+    justify-content: center;
+  }
+
+  .footer-schedule-cards {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .footer-social {
+    align-items: center;
   }
 
   .footer-bottom-inner {

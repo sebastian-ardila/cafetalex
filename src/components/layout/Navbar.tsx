@@ -42,7 +42,7 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-inner container">
-          <Link to="/" className="navbar-logo">
+          <Link to="/" className="navbar-logo" onClick={() => { navigate('/'); setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50) }}>
             <img src={import.meta.env.BASE_URL + 'cafetalex-logo.webp'} alt="Cafetalex" />
           </Link>
 
