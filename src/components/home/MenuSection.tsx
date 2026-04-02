@@ -186,31 +186,22 @@ export default function MenuSection() {
           </div>
         </div>
 
-        {vegetarianItems.length > 0 && (
-          <div id="cat-vegetarian" className="category-group">
-            <h3 className="category-title">
-              <Vegan size={20} />
-              {lang === 'es' ? 'Vegetariano' : 'Vegetarian'}
-            </h3>
-            <div className="products-grid">
-              {vegetarianItems.map((item) => (
-                <ProductCard key={`veg-${item.id}`} item={item} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {categoryGroups.map((group) => {
-          const Icon = categoryIcons[group.id] || Coffee
+        {allPillDefs.map((def) => {
+          const Icon = categoryIcons[def.id] || Coffee
+          const items = def.id === 'vegetarian'
+            ? vegetarianItems
+            : categoryGroups.find((g) => g.id === def.id)?.items || []
+          if (items.length === 0) return null
+          const label = lang === 'es' ? def.labelEs : def.labelEn
           return (
-            <div key={group.id} id={`cat-${group.id}`} className="category-group">
+            <div key={def.id} id={`cat-${def.id}`} className="category-group">
               <h3 className="category-title">
                 <Icon size={20} />
-                {lang === 'es' ? group.nameEs : group.nameEn}
+                {label}
               </h3>
               <div className="products-grid">
-                {group.items.map((item) => (
-                  <ProductCard key={item.id} item={item} />
+                {items.map((item) => (
+                  <ProductCard key={`${def.id}-${item.id}`} item={item} />
                 ))}
               </div>
             </div>
