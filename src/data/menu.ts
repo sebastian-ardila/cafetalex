@@ -19,6 +19,7 @@ export interface OptionStep {
   type: 'select' | 'addon'
   required: boolean
   choices: OptionChoice[]
+  defaultChoice?: string
 }
 
 export interface MenuItem {

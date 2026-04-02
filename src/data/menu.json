@@ -174,9 +174,16 @@
         {
           "stepEs": "¿Agregar combo?",
           "stepEn": "Add combo?",
-          "type": "addon",
-          "required": false,
+          "type": "select",
+          "required": true,
+          "defaultChoice": "sin-combo",
           "choices": [
+            {
+              "id": "sin-combo",
+              "nameEs": "Sin combo",
+              "nameEn": "No combo",
+              "priceAdd": 0
+            },
             {
               "id": "combo-papitas",
               "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
@@ -230,9 +237,16 @@
         {
           "stepEs": "¿Agregar combo?",
           "stepEn": "Add combo?",
-          "type": "addon",
-          "required": false,
+          "type": "select",
+          "required": true,
+          "defaultChoice": "sin-combo",
           "choices": [
+            {
+              "id": "sin-combo",
+              "nameEs": "Sin combo",
+              "nameEn": "No combo",
+              "priceAdd": 0
+            },
             {
               "id": "combo-papitas",
               "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
@@ -306,9 +320,16 @@
         {
           "stepEs": "¿Agregar combo?",
           "stepEn": "Add combo?",
-          "type": "addon",
-          "required": false,
+          "type": "select",
+          "required": true,
+          "defaultChoice": "sin-combo",
           "choices": [
+            {
+              "id": "sin-combo",
+              "nameEs": "Sin combo",
+              "nameEn": "No combo",
+              "priceAdd": 0
+            },
             {
               "id": "combo-papitas",
               "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
@@ -372,9 +393,16 @@
         {
           "stepEs": "¿Agregar combo?",
           "stepEn": "Add combo?",
-          "type": "addon",
-          "required": false,
+          "type": "select",
+          "required": true,
+          "defaultChoice": "sin-combo",
           "choices": [
+            {
+              "id": "sin-combo",
+              "nameEs": "Sin combo",
+              "nameEn": "No combo",
+              "priceAdd": 0
+            },
             {
               "id": "combo-papitas",
               "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
@@ -433,9 +461,16 @@
         {
           "stepEs": "¿Agregar combo?",
           "stepEn": "Add combo?",
-          "type": "addon",
-          "required": false,
+          "type": "select",
+          "required": true,
+          "defaultChoice": "sin-combo",
           "choices": [
+            {
+              "id": "sin-combo",
+              "nameEs": "Sin combo",
+              "nameEn": "No combo",
+              "priceAdd": 0
+            },
             {
               "id": "combo-papitas",
               "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",
@@ -504,9 +539,16 @@
         {
           "stepEs": "¿Agregar combo?",
           "stepEn": "Add combo?",
-          "type": "addon",
-          "required": false,
+          "type": "select",
+          "required": true,
+          "defaultChoice": "sin-combo",
           "choices": [
+            {
+              "id": "sin-combo",
+              "nameEs": "Sin combo",
+              "nameEn": "No combo",
+              "priceAdd": 0
+            },
             {
               "id": "combo-papitas",
               "nameEs": "Papitas + Coca Cola Pequeña (+$12.900)",

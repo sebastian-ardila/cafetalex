@@ -31,9 +31,13 @@ export default function ProductCard({ item }: Props) {
 
   const handleAdd = () => {
     if (hasOptions) {
+      const defaults: Record<number, string> = {}
+      item.options!.forEach((step, idx) => {
+        if (step.defaultChoice) defaults[idx] = step.defaultChoice
+      })
       setShowOptions(true)
       setShowVariants(false)
-      setSelections({})
+      setSelections(defaults)
     } else {
       addItem({ id: item.id, nameEs: item.nameEs, nameEn: item.nameEn, price: item.price, selections: [] })
     }
@@ -43,7 +47,7 @@ export default function ProductCard({ item }: Props) {
     const sels: Selection[] = []
     item.options!.forEach((step, idx) => {
       const choiceId = selections[idx]
-      if (choiceId) {
+      if (choiceId && choiceId !== step.defaultChoice) {
         const choice = step.choices.find((c) => c.id === choiceId)
         if (choice) {
           sels.push({ choiceId: choice.id, nameEs: choice.nameEs, nameEn: choice.nameEn, priceAdd: choice.priceAdd })
