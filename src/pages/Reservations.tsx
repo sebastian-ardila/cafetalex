@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Clock, MapPin, MessageCircle } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Clock, MapPin, MessageCircle, UtensilsCrossed, Mail } from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
 import { openWhatsApp } from '../utils/whatsapp'
 import './Pages.css'
@@ -10,6 +11,7 @@ export default function Reservations() {
   const [people, setPeople] = useState(2)
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
+  const navigate = useNavigate()
   const [comments, setComments] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -105,6 +107,21 @@ export default function Reservations() {
             {t('reservations.submit')}
           </button>
         </form>
+
+        <div className="card cta-card">
+          <h3>{t('history.ctaTitle')}</h3>
+          <p>{t('history.ctaText')}</p>
+          <div className="cta-card-buttons">
+            <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+              <UtensilsCrossed size={18} />
+              {t('history.ctaButton')}
+            </button>
+            <button onClick={() => navigate('/contact')} className="btn btn-outline">
+              <Mail size={18} />
+              {t('nav.contact')}
+            </button>
+          </div>
+        </div>
       </div>
     </main>
   )

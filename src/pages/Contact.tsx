@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   MessageCircle,
   Building2,
@@ -7,6 +8,8 @@ import {
   PartyPopper,
   Cake,
   HelpCircle,
+  UtensilsCrossed,
+  CalendarCheck,
 } from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
 import { openWhatsApp } from '../utils/whatsapp'
@@ -23,6 +26,7 @@ const interestOptions = [
 
 export default function Contact() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -126,6 +130,21 @@ export default function Contact() {
             {t('contact.submit')}
           </button>
         </form>
+
+        <div className="card cta-card">
+          <h3>{t('history.ctaTitle')}</h3>
+          <p>{t('history.ctaText')}</p>
+          <div className="cta-card-buttons">
+            <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+              <UtensilsCrossed size={18} />
+              {t('history.ctaButton')}
+            </button>
+            <button onClick={() => navigate('/reservations')} className="btn btn-outline">
+              <CalendarCheck size={18} />
+              {t('history.ctaReserve')}
+            </button>
+          </div>
+        </div>
       </div>
     </main>
   )
