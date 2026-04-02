@@ -191,8 +191,16 @@ h1, h2, h3, h4 {
   color: var(--text);
   font-size: 16px;
   transition: border-color 0.2s;
+}
+
+select.form-control {
   -webkit-appearance: none;
   appearance: none;
+}
+
+input[type="date"].form-control,
+input[type="time"].form-control {
+  min-height: 46px;
 }
 
 .form-control:focus {
