@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { setSkipScrollTop } from '../components/layout/ScrollToTop'
 import { UtensilsCrossed, CalendarCheck } from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
 import './Pages.css'
@@ -8,6 +9,7 @@ export default function History() {
   const navigate = useNavigate()
 
   const goToMenu = () => {
+    setSkipScrollTop()
     navigate('/')
     setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
   }

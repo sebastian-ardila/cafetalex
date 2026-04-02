@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { setSkipScrollTop } from '../components/layout/ScrollToTop'
 import { Clock, MapPin, MessageCircle, UtensilsCrossed, Mail } from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
 import { openWhatsApp } from '../utils/whatsapp'
@@ -112,7 +113,7 @@ export default function Reservations() {
           <h3>{t('history.ctaTitle')}</h3>
           <p>{t('history.ctaText')}</p>
           <div className="cta-card-buttons">
-            <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+            <button onClick={() => { setSkipScrollTop(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
               <UtensilsCrossed size={18} />
               {t('history.ctaButton')}
             </button>

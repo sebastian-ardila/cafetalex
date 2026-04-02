@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { setSkipScrollTop } from '../layout/ScrollToTop'
 import { X, ArrowLeft, MessageCircle, Trash2, UtensilsCrossed, CalendarCheck } from 'lucide-react'
 import { useTranslation } from '../../i18n/useTranslation'
 import { useCartStore } from '../../store/cartStore'
@@ -84,7 +85,7 @@ ${itemLines}
                 <div className="cart-empty-actions">
                   <button
                     className="btn btn-primary btn-sm"
-                    onClick={() => { closeCart(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }}
+                    onClick={() => { closeCart(); setSkipScrollTop(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }}
                   >
                     <UtensilsCrossed size={16} />
                     {t('hero.viewMenu')}

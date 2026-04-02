@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
+import ScrollToTop from './components/layout/ScrollToTop'
 import Home from './pages/Home'
 import Reservations from './pages/Reservations'
 import HoursLocation from './pages/HoursLocation'
@@ -9,6 +10,7 @@ import Contact from './pages/Contact'
 export default function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />

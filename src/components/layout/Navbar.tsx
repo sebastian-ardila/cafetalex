@@ -12,6 +12,7 @@ import {
   Globe,
 } from 'lucide-react'
 import { useTranslation } from '../../i18n/useTranslation'
+import { setSkipScrollTop } from './ScrollToTop'
 import { useCartStore } from '../../store/cartStore'
 import './Navbar.css'
 
@@ -33,6 +34,7 @@ export default function Navbar() {
 
   const handleNavClick = (to: string) => {
     if (to === '/') {
+      setSkipScrollTop()
       navigate('/')
       setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
     }
