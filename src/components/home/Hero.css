@@ -51,16 +51,18 @@
 .hero-logo {
   height: 140px;
   width: auto;
-  filter: drop-shadow(0 0 20px rgba(200, 149, 108, 0.5)) drop-shadow(0 0 40px rgba(200, 149, 108, 0.3));
-  animation: neonPulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(200, 149, 108, 0.6)) drop-shadow(0 0 60px rgba(200, 149, 108, 0.4)) drop-shadow(0 0 100px rgba(200, 149, 108, 0.2));
+  animation: neonPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes neonPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(200, 149, 108, 0.4)) drop-shadow(0 0 30px rgba(200, 149, 108, 0.2));
+    filter: drop-shadow(0 0 15px rgba(200, 149, 108, 0.3)) drop-shadow(0 0 35px rgba(200, 149, 108, 0.15));
+    transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 25px rgba(200, 149, 108, 0.7)) drop-shadow(0 0 50px rgba(200, 149, 108, 0.4)) drop-shadow(0 0 80px rgba(200, 149, 108, 0.2));
+    filter: drop-shadow(0 0 35px rgba(200, 149, 108, 0.9)) drop-shadow(0 0 70px rgba(200, 149, 108, 0.6)) drop-shadow(0 0 120px rgba(200, 149, 108, 0.35)) drop-shadow(0 0 180px rgba(200, 149, 108, 0.15));
+    transform: scale(1.02);
   }
 }
 
