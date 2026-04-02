@@ -28,6 +28,7 @@
   z-index: 1;
   text-align: center;
   padding: 40px;
+  padding-top: calc(var(--navbar-h) + 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
