@@ -6,83 +6,49 @@
   height: 0;
 }
 
-/* ===== Filters container: always sticky, transitions between states ===== */
+/* Filters: always same layout, sticky adds background */
 .category-filters {
   position: sticky;
   top: var(--navbar-h);
   z-index: 89;
   margin-bottom: 40px;
+  margin-left: -20px;
+  margin-right: -20px;
   padding: 12px 0;
-  /* Transition for visual state change */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Sticky visual state: dark bg + border */
+.category-filters::-webkit-scrollbar {
+  display: none;
+}
+
 .category-filters--sticky {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
-  margin-left: -20px;
-  margin-right: -20px;
-  padding: 10px 0;
-  margin-bottom: 0;
 }
 
-/* ===== Inner wrapper: holds all rows ===== */
 .filters-inner {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-/* Normal: inner is full width, rows wrap */
-.category-filters:not(.category-filters--sticky) .filters-inner {
-  width: 100%;
-}
-
-/* Sticky: inner is max-content so it can scroll */
-.category-filters--sticky .filters-inner {
+  padding: 0 20px;
   width: max-content;
   min-width: 100%;
-  padding: 0 20px;
 }
 
-/* ===== Each row of pills ===== */
 .filters-row {
   display: flex;
   gap: 8px;
-}
-
-/* Normal: rows wrap */
-.category-filters:not(.category-filters--sticky) .filters-row {
-  flex-wrap: wrap;
-}
-
-/* Sticky: rows don't wrap, pills stay in line */
-.category-filters--sticky .filters-row {
   flex-wrap: nowrap;
 }
 
-/* Sticky: horizontal scroll on the outer container */
-.category-filters--sticky {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.category-filters--sticky::-webkit-scrollbar {
-  display: none;
-}
-
-.category-filters--sticky .filter-pill {
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ===== Pills ===== */
 .filter-pill {
   display: inline-flex;
   align-items: center;
@@ -94,6 +60,8 @@
   border: 1px solid var(--border);
   color: var(--text-muted);
   transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-pill:hover {
@@ -126,7 +94,6 @@
   text-shadow: 0 0 0.5px #fff;
 }
 
-/* ===== Category sections ===== */
 .category-group {
   margin-bottom: 40px;
 }
@@ -148,29 +115,21 @@
   gap: 16px;
 }
 
-/* ===== Mobile ===== */
 @media (max-width: 768px) {
   .category-filters {
+    margin-left: -16px;
+    margin-right: -16px;
     padding: 8px 0;
     margin-bottom: 24px;
   }
 
   .filters-inner {
     gap: 5px;
+    padding: 0 16px;
   }
 
   .filters-row {
     gap: 5px;
-  }
-
-  .category-filters--sticky {
-    margin-left: -16px;
-    margin-right: -16px;
-    padding: 8px 0;
-  }
-
-  .category-filters--sticky .filters-inner {
-    padding: 0 16px;
   }
 
   .filter-pill {
