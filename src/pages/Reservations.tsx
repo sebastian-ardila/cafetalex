@@ -14,12 +14,12 @@ export default function Reservations() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const message = `Hola Cafetalex! Quiero reservar una mesa
+    const message = `👋 Hola Cafetalex! Quiero reservar una mesa
 
-Nombre: ${name}
-Personas: ${people}
-Fecha: ${date}
-Hora: ${time}${comments ? `\nComentarios: ${comments}` : ''}`
+👤 Nombre: ${name}
+👥 Personas: ${people}
+📅 Fecha: ${date}
+🕐 Hora: ${time}${comments ? `\n💬 Comentarios: ${comments}` : ''}`
 
     openWhatsApp(message)
   }

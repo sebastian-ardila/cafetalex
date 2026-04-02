@@ -42,20 +42,20 @@ export default function CartDrawer() {
           .map((s) => (lang === 'es' ? s.nameEs : s.nameEn))
           .join(', ')
         const detail = selsText ? ` (${selsText})` : ''
-        return `${item.qty}x ${itemName}${detail} ${formatCOP(itemLinePrice(item))}`
+        return `☕ ${item.qty}x ${itemName}${detail} ${formatCOP(itemLinePrice(item))}`
       })
       .join('\n')
 
-    const message = `Hola Cafetalex! Quiero hacer un pedido
+    const message = `👋 Hola Cafetalex! Quiero hacer un pedido
 
-Nombre: ${name || 'No especificado'}
-Tipo: ${orderTypeLabel}
-Pago: ${paymentLabel}
+👤 Nombre: ${name || 'No especificado'}
+🍽️ Tipo: ${orderTypeLabel}
+💳 Pago: ${paymentLabel}
 
-Pedido:
+📋 Pedido:
 ${itemLines}
 
-Total: ${formatCOP(total)}`
+💰 Total: ${formatCOP(total)}`
 
     openWhatsApp(message)
   }

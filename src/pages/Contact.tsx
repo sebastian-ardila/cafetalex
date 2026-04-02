@@ -32,14 +32,14 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const interestLabel = t(`contact.${interest}`)
-    const msg = `Hola Cafetalex! Me contacto desde su sitio web
+    const msg = `👋 Hola Cafetalex! Me contacto desde su sitio web
 
-Nombre: ${name}
-Email: ${email}
-Telefono: ${phone}
-Interes: ${interestLabel}
+👤 Nombre: ${name}
+📧 Email: ${email}
+📱 Telefono: ${phone}
+💼 Interes: ${interestLabel}
 
-Mensaje: ${message}`
+💬 Mensaje: ${message}`
 
     openWhatsApp(msg)
   }
