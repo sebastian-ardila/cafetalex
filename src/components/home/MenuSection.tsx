@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import {
   Beef,
   UtensilsCrossed,
@@ -52,6 +52,20 @@ const categoryIcons: Record<string, typeof Coffee> = {
 export default function MenuSection() {
   const { t, lang } = useTranslation()
   const [activeCategory, setActiveCategory] = useState('all')
+  const [isSticky, setIsSticky] = useState(false)
+  const filtersRef = useRef<HTMLDivElement>(null)
+  const sentinelRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current
+    if (!sentinel) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsSticky(!entry.isIntersecting),
+      { threshold: 0, rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--navbar-h').trim() || '64px'} 0px 0px 0px` }
+    )
+    observer.observe(sentinel)
+    return () => observer.disconnect()
+  }, [])
 
   const isVegFilter = activeCategory === 'vegetarian'
 
@@ -86,7 +100,13 @@ export default function MenuSection() {
           <p>{t('menuSection.subtitle')}</p>
         </div>
 
-        <div className="category-filters">
+        {/* Sentinel: when this goes out of view, filters become sticky */}
+        <div ref={sentinelRef} className="filters-sentinel" />
+
+        <div
+          ref={filtersRef}
+          className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}
+        >
           <button
             className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`}
             onClick={() => setActiveCategory('all')}

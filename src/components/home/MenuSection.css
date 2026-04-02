@@ -2,12 +2,46 @@
   padding: 40px 0 60px;
 }
 
+.filters-sentinel {
+  height: 0;
+}
+
+/* Default state: all filters visible, wrapped, left-aligned */
 .category-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 40px;
+}
+
+/* Sticky state: 2 rows max, horizontal scroll */
+.category-filters--sticky {
+  position: sticky;
+  top: var(--navbar-h);
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  max-height: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.category-filters--sticky::-webkit-scrollbar {
+  display: none;
+}
+
+.category-filters--sticky .filter-pill {
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-pill {
@@ -76,10 +110,16 @@
 
 @media (max-width: 768px) {
   .category-filters {
-    justify-content: flex-start;
     gap: 5px;
     margin-bottom: 24px;
-    flex-wrap: wrap;
+  }
+
+  .category-filters--sticky {
+    padding: 10px 0;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .filter-pill {
