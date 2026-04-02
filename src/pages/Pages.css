@@ -33,6 +33,11 @@
 /* Form card - same width as info-cards */
 .form-card {
   padding: 30px;
+  overflow: hidden;
+}
+
+.form-group {
+  overflow: hidden;
 }
 
 .form-row {
@@ -40,10 +45,6 @@
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
   overflow: hidden;
-}
-
-.form-row .form-control {
-  min-width: 0;
 }
 
 /* Sections - full width */

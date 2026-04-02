@@ -141,10 +141,15 @@ export default function ProductCard({ item }: Props) {
 
         {/* Overlay: option selection */}
         {showOptions && item.options && (
+          <>
+          <div className="product-overlay-backdrop" onClick={() => { setShowOptions(false); setSelections({}) }} />
           <div className="product-overlay">
-            <button className="overlay-close" onClick={() => { setShowOptions(false); setSelections({}) }}>
-              <X size={16} />
-            </button>
+            <div className="overlay-header">
+              <span className="overlay-title">{name}</span>
+              <button className="overlay-close" onClick={() => { setShowOptions(false); setSelections({}) }}>
+                <X size={16} />
+              </button>
+            </div>
             {item.options.map((step, idx) => (
               <div key={idx} className="option-step">
                 <p className="option-label">
@@ -177,17 +182,20 @@ export default function ProductCard({ item }: Props) {
               </button>
             </div>
           </div>
+          </>
         )}
 
         {/* Overlay: variant management (remove items) */}
         {showVariants && hasOptions && matchingItems.length > 0 && (
+          <>
+          <div className="product-overlay-backdrop" onClick={() => setShowVariants(false)} />
           <div className="product-overlay">
-            <button className="overlay-close" onClick={() => setShowVariants(false)}>
-              <X size={16} />
-            </button>
-            <p className="option-label" style={{ marginBottom: 8 }}>
-              {lang === 'es' ? 'Tu pedido' : 'Your order'}
-            </p>
+            <div className="overlay-header">
+              <span className="overlay-title">{name}</span>
+              <button className="overlay-close" onClick={() => setShowVariants(false)}>
+                <X size={16} />
+              </button>
+            </div>
             {matchingItems.map((ci) => {
               const selsLabel = ci.selections.map((s) => (lang === 'es' ? s.nameEs : s.nameEn)).join(' + ')
               return (
@@ -218,6 +226,7 @@ export default function ProductCard({ item }: Props) {
               </button>
             </div>
           </div>
+          </>
         )}
       </div>
 
