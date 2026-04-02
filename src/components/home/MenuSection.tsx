@@ -60,17 +60,19 @@ export default function MenuSection() {
   const fixedRef = useRef<HTMLDivElement>(null)
   const isScrollingRef = useRef(false)
 
-  // Show fixed bar when original filters scroll out of view
+  // Show fixed bar when original filters scroll out above the navbar
   useEffect(() => {
-    const el = filtersRef.current
-    if (!el) return
-    const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowFixed(!entry.isIntersecting),
-      { threshold: 0, rootMargin: `-${navbarH}px 0px 0px 0px` }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
+    const onScroll = () => {
+      const el = filtersRef.current
+      if (!el) return
+      const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
+      const rect = el.getBoundingClientRect()
+      // Show fixed when the bottom of original filters goes above the navbar
+      setShowFixed(rect.bottom < navbarH)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   // Track which category section is visible
