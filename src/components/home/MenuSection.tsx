@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import {
   Beef,
   UtensilsCrossed,
@@ -60,7 +60,6 @@ export default function MenuSection() {
   const stickyRef = useRef<HTMLDivElement>(null)
   const isScrollingRef = useRef(false)
 
-  // Sentinel observer for sticky state
   useEffect(() => {
     const sentinel = sentinelRef.current
     if (!sentinel) return
@@ -72,33 +71,27 @@ export default function MenuSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Track which category section is in view (only when not programmatically scrolling)
   useEffect(() => {
     const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
     const offset = navbarH + 160
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (isScrollingRef.current) return
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            const id = entry.target.id.replace('cat-', '')
-            setActiveId(id)
+            setActiveId(entry.target.id.replace('cat-', ''))
           }
         }
       },
       { rootMargin: `-${offset}px 0px -60% 0px`, threshold: 0 }
     )
-
     allCatIds.forEach((id) => {
       const el = document.getElementById(`cat-${id}`)
       if (el) observer.observe(el)
     })
-
     return () => observer.disconnect()
   }, [])
 
-  // Auto-scroll sticky panel to show active pill
   const scrollActivePillIntoView = useCallback(() => {
     if (!isSticky || !activeId) return
     const container = stickyRef.current
@@ -109,24 +102,16 @@ export default function MenuSection() {
     }
   }, [isSticky, activeId])
 
-  useEffect(() => {
-    scrollActivePillIntoView()
-  }, [scrollActivePillIntoView])
+  useEffect(() => { scrollActivePillIntoView() }, [scrollActivePillIntoView])
 
   const vegetarianItems = menuItems.filter((item) => item.vegetarian)
-
   const categoryGroups = categories
-    .map((cat) => ({
-      ...cat,
-      items: menuItems.filter((item) => item.category === cat.id),
-    }))
+    .map((cat) => ({ ...cat, items: menuItems.filter((item) => item.category === cat.id) }))
     .filter((g) => g.items.length > 0)
 
   const scrollToCategory = (id: string) => {
-    // Set active immediately and pause observer to prevent flickering
     isScrollingRef.current = true
     setActiveId(id)
-
     const el = document.getElementById(`cat-${id}`)
     if (el) {
       const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
@@ -134,32 +119,20 @@ export default function MenuSection() {
       const y = el.getBoundingClientRect().top + window.scrollY - navbarH - stickyH
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
-
-    // Re-enable observer after scroll finishes
     setTimeout(() => { isScrollingRef.current = false }, 1000)
   }
 
-  const allPillDefs = [
+  const allPillDefs = useMemo(() => [
     { id: 'vegetarian', labelEs: 'Vegetariano', labelEn: 'Vegetarian', isVeg: true },
     ...categories.map((cat) => ({ id: cat.id, labelEs: cat.nameEs, labelEn: cat.nameEn, isVeg: false })),
-  ]
+  ], [])
 
-  const renderPills = () => {
-    return allPillDefs.map((def) => {
-      const Icon = categoryIcons[def.id] || Coffee
-      const isActive = activeId === def.id
-      return (
-        <button
-          key={def.id}
-          data-cat={def.id}
-          className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''} ${isActive ? 'active' : ''}`}
-          onClick={() => scrollToCategory(def.id)}
-        >
-          <Icon size={14} />
-          {lang === 'es' ? def.labelEs : def.labelEn}
-        </button>
-      )
-    })
+  // Split pills into rows: 2 desktop, 3 mobile
+  const rowCount = typeof window !== 'undefined' && window.innerWidth <= 768 ? 3 : 2
+  const perRow = Math.ceil(allPillDefs.length / rowCount)
+  const rows: typeof allPillDefs[] = []
+  for (let i = 0; i < allPillDefs.length; i += perRow) {
+    rows.push(allPillDefs.slice(i, i + perRow))
   }
 
   return (
@@ -176,7 +149,27 @@ export default function MenuSection() {
           ref={stickyRef}
           className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}
         >
-          {renderPills()}
+          <div className="filters-inner">
+            {rows.map((row, ri) => (
+              <div key={ri} className="filters-row">
+                {row.map((def) => {
+                  const Icon = categoryIcons[def.id] || Coffee
+                  const isActive = activeId === def.id
+                  return (
+                    <button
+                      key={def.id}
+                      data-cat={def.id}
+                      className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''} ${isActive ? 'active' : ''}`}
+                      onClick={() => scrollToCategory(def.id)}
+                    >
+                      <Icon size={14} />
+                      {lang === 'es' ? def.labelEs : def.labelEn}
+                    </button>
+                  )
+                })}
+              </div>
+            ))}
+          </div>
         </div>
 
         {vegetarianItems.length > 0 && (

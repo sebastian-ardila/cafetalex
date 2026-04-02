@@ -6,35 +6,68 @@
   height: 0;
 }
 
-/* Filters: always sticky, same element in both states */
+/* ===== Filters container: always sticky, transitions between states ===== */
 .category-filters {
   position: sticky;
   top: var(--navbar-h);
   z-index: 89;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-start;
   margin-bottom: 40px;
   padding: 12px 0;
-  /* Transition properties for smooth state change */
+  /* Transition for visual state change */
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background 0.3s, border-color 0.3s, max-height 0.4s, padding 0.3s;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* When scrolled: add background, constrain height, enable scroll */
+/* Sticky visual state: dark bg + border */
 .category-filters--sticky {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
   margin-left: -20px;
   margin-right: -20px;
-  padding: 10px 20px;
-  /* 2 rows: pill ~38px + gap 8px = 46px per row, 2 rows + padding */
-  max-height: 116px;
-  overflow: hidden;
+  padding: 10px 0;
+}
+
+/* ===== Inner wrapper: holds all rows ===== */
+.filters-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Normal: inner is full width, rows wrap */
+.category-filters:not(.category-filters--sticky) .filters-inner {
+  width: 100%;
+}
+
+/* Sticky: inner is max-content so it can scroll */
+.category-filters--sticky .filters-inner {
+  width: max-content;
+  min-width: 100%;
+  padding: 0 20px;
+}
+
+/* ===== Each row of pills ===== */
+.filters-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* Normal: rows wrap */
+.category-filters:not(.category-filters--sticky) .filters-row {
   flex-wrap: wrap;
+}
+
+/* Sticky: rows don't wrap, pills stay in line */
+.category-filters--sticky .filters-row {
+  flex-wrap: nowrap;
+}
+
+/* Sticky: horizontal scroll on the outer container */
+.category-filters--sticky {
+  overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -48,6 +81,7 @@
   flex-shrink: 0;
 }
 
+/* ===== Pills ===== */
 .filter-pill {
   display: inline-flex;
   align-items: center;
@@ -91,6 +125,7 @@
   text-shadow: 0 0 0.5px #fff;
 }
 
+/* ===== Category sections ===== */
 .category-group {
   margin-bottom: 40px;
 }
@@ -112,19 +147,29 @@
   gap: 16px;
 }
 
+/* ===== Mobile ===== */
 @media (max-width: 768px) {
   .category-filters {
-    gap: 5px;
-    margin-bottom: 24px;
     padding: 8px 0;
+    margin-bottom: 24px;
+  }
+
+  .filters-inner {
+    gap: 5px;
+  }
+
+  .filters-row {
+    gap: 5px;
   }
 
   .category-filters--sticky {
     margin-left: -16px;
     margin-right: -16px;
-    padding: 8px 16px;
-    /* 3 rows: pill ~28px + gap 5px = 33px per row, 3 rows + padding */
-    max-height: 115px;
+    padding: 8px 0;
+  }
+
+  .category-filters--sticky .filters-inner {
+    padding: 0 16px;
   }
 
   .filter-pill {
