@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import {
   Beef,
   UtensilsCrossed,
@@ -50,11 +50,16 @@ const categoryIcons: Record<string, typeof Coffee> = {
   vegetarian: Vegan,
 }
 
+const allCatIds = ['vegetarian', ...categories.map((c) => c.id)]
+
 export default function MenuSection() {
   const { t, lang } = useTranslation()
   const [isSticky, setIsSticky] = useState(false)
+  const [activeId, setActiveId] = useState<string>('')
   const sentinelRef = useRef<HTMLDivElement>(null)
+  const stickyRef = useRef<HTMLDivElement>(null)
 
+  // Sentinel observer for sticky state
   useEffect(() => {
     const sentinel = sentinelRef.current
     if (!sentinel) return
@@ -66,6 +71,46 @@ export default function MenuSection() {
     return () => observer.disconnect()
   }, [])
 
+  // Track which category section is in view
+  useEffect(() => {
+    const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
+    const offset = navbarH + 160
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id.replace('cat-', '')
+            setActiveId(id)
+          }
+        }
+      },
+      { rootMargin: `-${offset}px 0px -60% 0px`, threshold: 0 }
+    )
+
+    allCatIds.forEach((id) => {
+      const el = document.getElementById(`cat-${id}`)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  // Auto-scroll sticky panel to show active pill
+  const scrollActivePillIntoView = useCallback(() => {
+    if (!isSticky || !activeId) return
+    const container = stickyRef.current
+    if (!container) return
+    const pill = container.querySelector(`[data-cat="${activeId}"]`) as HTMLElement
+    if (pill) {
+      pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    }
+  }, [isSticky, activeId])
+
+  useEffect(() => {
+    scrollActivePillIntoView()
+  }, [scrollActivePillIntoView])
+
   const vegetarianItems = menuItems.filter((item) => item.vegetarian)
 
   const categoryGroups = categories
@@ -76,16 +121,16 @@ export default function MenuSection() {
     .filter((g) => g.items.length > 0)
 
   const scrollToCategory = (id: string) => {
+    setActiveId(id)
     const el = document.getElementById(`cat-${id}`)
     if (el) {
       const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
-      const stickyH = 120
+      const stickyH = 140
       const y = el.getBoundingClientRect().top + window.scrollY - navbarH - stickyH
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
 
-  // All nav pills: vegetarian + categories
   const allPillDefs = [
     { id: 'vegetarian', labelEs: 'Vegetariano', labelEn: 'Vegetarian', isVeg: true },
     ...categories.map((cat) => ({ id: cat.id, labelEs: cat.nameEs, labelEn: cat.nameEn, isVeg: false })),
@@ -94,10 +139,12 @@ export default function MenuSection() {
   const renderPills = (inSticky: boolean) => {
     const pills = allPillDefs.map((def) => {
       const Icon = categoryIcons[def.id] || Coffee
+      const isActive = activeId === def.id
       return (
         <button
           key={def.id}
-          className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''}`}
+          data-cat={def.id}
+          className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''} ${isActive ? 'active' : ''}`}
           onClick={() => scrollToCategory(def.id)}
         >
           <Icon size={14} />
@@ -133,11 +180,13 @@ export default function MenuSection() {
 
         <div ref={sentinelRef} className="filters-sentinel" />
 
-        <div className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}>
+        <div
+          ref={stickyRef}
+          className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}
+        >
           {renderPills(isSticky)}
         </div>
 
-        {/* Vegetarian section */}
         {vegetarianItems.length > 0 && (
           <div id="cat-vegetarian" className="category-group">
             <h3 className="category-title">
@@ -152,7 +201,6 @@ export default function MenuSection() {
           </div>
         )}
 
-        {/* All category sections */}
         {categoryGroups.map((group) => {
           const Icon = categoryIcons[group.id] || Coffee
           return (
