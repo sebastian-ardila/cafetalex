@@ -139,8 +139,7 @@
 
 /* CTA Card */
 .cta-card {
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 40px 0 0;
   text-align: center;
   padding: 30px;
 }
