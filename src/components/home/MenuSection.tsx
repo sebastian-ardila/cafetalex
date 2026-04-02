@@ -56,9 +56,17 @@ export default function MenuSection() {
   const { t, lang } = useTranslation()
   const [isSticky, setIsSticky] = useState(false)
   const [activeId, setActiveId] = useState<string>('')
+  const [filtersHeight, setFiltersHeight] = useState(0)
   const sentinelRef = useRef<HTMLDivElement>(null)
   const stickyRef = useRef<HTMLDivElement>(null)
   const isScrollingRef = useRef(false)
+
+  // Measure natural height of filters before they become sticky
+  useEffect(() => {
+    if (stickyRef.current && !isSticky) {
+      setFiltersHeight(stickyRef.current.offsetHeight)
+    }
+  })
 
   useEffect(() => {
     const sentinel = sentinelRef.current
@@ -144,6 +152,11 @@ export default function MenuSection() {
         </div>
 
         <div ref={sentinelRef} className="filters-sentinel" />
+
+        {/* Spacer to prevent content jump when filters shrink in sticky mode */}
+        {isSticky && filtersHeight > 0 && (
+          <div style={{ height: filtersHeight, marginBottom: 40 }} />
+        )}
 
         <div
           ref={stickyRef}
