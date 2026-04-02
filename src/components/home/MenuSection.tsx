@@ -58,6 +58,7 @@ export default function MenuSection() {
   const [activeId, setActiveId] = useState<string>('')
   const sentinelRef = useRef<HTMLDivElement>(null)
   const stickyRef = useRef<HTMLDivElement>(null)
+  const isScrollingRef = useRef(false)
 
   // Sentinel observer for sticky state
   useEffect(() => {
@@ -71,13 +72,14 @@ export default function MenuSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Track which category section is in view
+  // Track which category section is in view (only when not programmatically scrolling)
   useEffect(() => {
     const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
     const offset = navbarH + 160
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (isScrollingRef.current) return
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const id = entry.target.id.replace('cat-', '')
@@ -121,7 +123,10 @@ export default function MenuSection() {
     .filter((g) => g.items.length > 0)
 
   const scrollToCategory = (id: string) => {
+    // Set active immediately and pause observer to prevent flickering
+    isScrollingRef.current = true
     setActiveId(id)
+
     const el = document.getElementById(`cat-${id}`)
     if (el) {
       const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
@@ -129,6 +134,9 @@ export default function MenuSection() {
       const y = el.getBoundingClientRect().top + window.scrollY - navbarH - stickyH
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
+
+    // Re-enable observer after scroll finishes
+    setTimeout(() => { isScrollingRef.current = false }, 1000)
   }
 
   const allPillDefs = [
