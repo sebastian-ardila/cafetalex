@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Breadcrumb from './Breadcrumb'
 import Footer from './Footer'
 import CartDrawer from '../cart/CartDrawer'
+import CartFab from '../cart/CartFab'
 import ScrollButtons from './ScrollButtons'
 
 export default function Layout() {
@@ -13,6 +14,7 @@ export default function Layout() {
       <Outlet />
       <Footer />
       <CartDrawer />
+      <CartFab />
       <ScrollButtons />
     </>
   )

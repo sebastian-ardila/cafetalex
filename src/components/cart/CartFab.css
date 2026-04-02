@@ -1,0 +1,63 @@
+.cart-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #1a0e06;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 149, 108, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fabIn 0.3s ease-out;
+}
+
+.cart-fab:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(200, 149, 108, 0.5);
+}
+
+.cart-fab:active {
+  transform: translateX(-50%) scale(0.97);
+}
+
+.cart-fab-badge {
+  background: #e74c3c;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+@keyframes fabIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-fab {
+    bottom: 16px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
