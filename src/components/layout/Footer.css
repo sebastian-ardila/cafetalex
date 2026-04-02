@@ -3,11 +3,11 @@
   margin-top: 80px;
 }
 
-.footer-main {
+.footer .footer-main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
-  padding: 80px 20px 80px;
+  padding: 80px 20px;
 }
 
 .footer-col h4 {
