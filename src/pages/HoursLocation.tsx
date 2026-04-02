@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
-import { Clock, MapPin, Navigation, CalendarCheck, MessageCircle, Truck } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Clock, MapPin, Navigation, UtensilsCrossed, CalendarCheck, Truck } from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
-import { openWhatsApp } from '../utils/whatsapp'
 import './Pages.css'
 
 export default function HoursLocation() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   return (
     <main className="page">
@@ -73,18 +73,19 @@ export default function HoursLocation() {
           </div>
         </section>
 
-        <div className="cta-buttons">
-          <Link to="/reservations" className="btn btn-primary">
-            <CalendarCheck size={18} />
-            {t('hours.reserveTable')}
-          </Link>
-          <button
-            className="btn btn-outline"
-            onClick={() => openWhatsApp('Hola Cafetalex! Quiero hacer un pedido')}
-          >
-            <MessageCircle size={18} />
-            {t('hours.orderWhatsApp')}
-          </button>
+        <div className="card cta-card">
+          <h3>{t('history.ctaTitle')}</h3>
+          <p>{t('history.ctaText')}</p>
+          <div className="cta-card-buttons">
+            <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+              <UtensilsCrossed size={18} />
+              {t('history.ctaButton')}
+            </button>
+            <button onClick={() => navigate('/reservations')} className="btn btn-outline">
+              <CalendarCheck size={18} />
+              {t('history.ctaReserve')}
+            </button>
+          </div>
         </div>
       </div>
     </main>
