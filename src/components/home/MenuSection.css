@@ -15,7 +15,7 @@
   margin-bottom: 40px;
 }
 
-/* Sticky state: 2 rows, horizontal scroll */
+/* Sticky state: wrapper with single horizontal scroll containing 2 rows */
 .category-filters--sticky {
   position: sticky;
   top: var(--navbar-h);
@@ -24,24 +24,37 @@
   backdrop-filter: blur(10px);
   margin-left: -20px;
   margin-right: -20px;
-  padding: 12px 20px;
   border-bottom: 1px solid var(--border);
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: auto auto;
+  padding: 10px 0;
   overflow-x: auto;
   overflow-y: hidden;
-  gap: 6px 8px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  /* Switch from flex-wrap to block so inner rows scroll together */
+  display: block;
 }
 
 .category-filters--sticky::-webkit-scrollbar {
   display: none;
 }
 
+.category-filters--sticky .filters-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 20px;
+  width: max-content;
+  min-width: 100%;
+}
+
+.category-filters--sticky .filters-row {
+  display: flex;
+  gap: 8px;
+}
+
 .category-filters--sticky .filter-pill {
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-pill {
@@ -117,8 +130,16 @@
   .category-filters--sticky {
     margin-left: -16px;
     margin-right: -16px;
-    padding: 8px 16px;
-    gap: 4px 5px;
+    padding: 8px 0;
+  }
+
+  .category-filters--sticky .filters-inner {
+    padding: 0 16px;
+    gap: 4px;
+  }
+
+  .category-filters--sticky .filters-row {
+    gap: 5px;
   }
 
   .filter-pill {

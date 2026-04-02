@@ -107,33 +107,40 @@ export default function MenuSection() {
           ref={filtersRef}
           className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}
         >
-          <button
-            className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`}
-            onClick={() => setActiveCategory('all')}
-          >
-            <UtensilsCrossed size={14} />
-            {t('menuSection.all')}
-          </button>
-          <button
-            className={`filter-pill filter-pill-veg ${activeCategory === 'vegetarian' ? 'active' : ''}`}
-            onClick={() => setActiveCategory('vegetarian')}
-          >
-            <Vegan size={14} />
-            {lang === 'es' ? 'Vegetariano' : 'Vegetarian'}
-          </button>
-          {categories.map((cat) => {
-            const Icon = categoryIcons[cat.id] || Coffee
+          {(() => {
+            const allPills = [
+              <button key="all" className={`filter-pill ${activeCategory === 'all' ? 'active' : ''}`} onClick={() => setActiveCategory('all')}>
+                <UtensilsCrossed size={14} />{t('menuSection.all')}
+              </button>,
+              <button key="veg" className={`filter-pill filter-pill-veg ${activeCategory === 'vegetarian' ? 'active' : ''}`} onClick={() => setActiveCategory('vegetarian')}>
+                <Vegan size={14} />{lang === 'es' ? 'Vegetariano' : 'Vegetarian'}
+              </button>,
+              ...categories.map((cat) => {
+                const Icon = categoryIcons[cat.id] || Coffee
+                return (
+                  <button key={cat.id} className={`filter-pill ${activeCategory === cat.id ? 'active' : ''}`} onClick={() => setActiveCategory(cat.id)}>
+                    <Icon size={14} />{lang === 'es' ? cat.nameEs : cat.nameEn}
+                  </button>
+                )
+              }),
+            ]
+
+            if (!isSticky) return allPills
+
+            const rowCount = window.innerWidth <= 768 ? 3 : 2
+            const perRow = Math.ceil(allPills.length / rowCount)
+            const rows: typeof allPills[] = []
+            for (let i = 0; i < allPills.length; i += perRow) {
+              rows.push(allPills.slice(i, i + perRow))
+            }
             return (
-              <button
-                key={cat.id}
-                className={`filter-pill ${activeCategory === cat.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                <Icon size={14} />
-                {lang === 'es' ? cat.nameEs : cat.nameEn}
-              </button>
+              <div className="filters-inner">
+                {rows.map((row, i) => (
+                  <div key={i} className="filters-row">{row}</div>
+                ))}
+              </div>
             )
-          })}
+          })()}
         </div>
 
         {grouped || isVegFilter ? (
