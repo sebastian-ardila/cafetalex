@@ -122,12 +122,26 @@ export default function MenuSection() {
     setTimeout(() => { isScrollingRef.current = false }, 1000)
   }
 
-  const allPillDefs = useMemo(() => [
-    { id: 'vegetarian', labelEs: 'Vegetariano', labelEn: 'Vegetarian', isVeg: true },
-    ...categories.map((cat) => ({ id: cat.id, labelEs: cat.nameEs, labelEn: cat.nameEn, isVeg: false })),
-  ], [])
+  // Order pills so row 1 starts with Hamburguesas, row 2 starts with Vegetariano + Desayunos
+  const allPillDefs = useMemo(() => {
+    const catPills = categories.map((cat) => ({ id: cat.id, labelEs: cat.nameEs, labelEn: cat.nameEn, isVeg: false }))
+    const veg = { id: 'vegetarian', labelEs: 'Vegetariano', labelEn: 'Vegetarian', isVeg: true }
+    const breakfast = catPills.find((c) => c.id === 'breakfast')!
+    const rest = catPills.filter((c) => c.id !== 'breakfast')
 
-  // Split pills into rows: 2 desktop, 3 mobile
+    const rowCount = typeof window !== 'undefined' && window.innerWidth <= 768 ? 3 : 2
+    const total = rest.length + 2 // +2 for veg and breakfast
+    const perRow = Math.ceil(total / rowCount)
+
+    // Row 1: first N categories (starts with burgers)
+    const row1 = rest.slice(0, perRow)
+    // Row 2+: vegetariano, desayunos corporativos, then remaining
+    const remaining = rest.slice(perRow)
+    const row2on = [veg, breakfast, ...remaining]
+
+    return [...row1, ...row2on]
+  }, [])
+
   const rowCount = typeof window !== 'undefined' && window.innerWidth <= 768 ? 3 : 2
   const perRow = Math.ceil(allPillDefs.length / rowCount)
   const rows: typeof allPillDefs[] = []
