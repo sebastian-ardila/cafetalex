@@ -6,61 +6,41 @@
   height: 0;
 }
 
-/* Default state: all filters visible, wrapped, left-aligned */
+/* Filters: always sticky, same element in both states */
 .category-filters {
+  position: sticky;
+  top: var(--navbar-h);
+  z-index: 89;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: flex-start;
   margin-bottom: 40px;
+  padding: 12px 0;
+  /* Transition properties for smooth state change */
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s, max-height 0.4s, padding 0.3s;
 }
 
-/* Sticky state: wrapper with single horizontal scroll containing 2 rows */
+/* When scrolled: add background, constrain height, enable scroll */
 .category-filters--sticky {
-  position: sticky;
-  top: var(--navbar-h);
-  z-index: 89;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
+  border-bottom-color: var(--border);
   margin-left: -20px;
   margin-right: -20px;
-  border-bottom: 1px solid var(--border);
-  padding: 10px 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+  padding: 10px 20px;
+  /* 2 rows: pill ~38px + gap 8px = 46px per row, 2 rows + padding */
+  max-height: 116px;
+  overflow: hidden;
+  flex-wrap: wrap;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  display: block;
-  animation: stickySlideIn 0.3s ease-out;
-}
-
-@keyframes stickySlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .category-filters--sticky::-webkit-scrollbar {
   display: none;
-}
-
-.category-filters--sticky .filters-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 0 20px;
-  width: max-content;
-  min-width: 100%;
-}
-
-.category-filters--sticky .filters-row {
-  display: flex;
-  gap: 8px;
 }
 
 .category-filters--sticky .filter-pill {
@@ -136,21 +116,15 @@
   .category-filters {
     gap: 5px;
     margin-bottom: 24px;
+    padding: 8px 0;
   }
 
   .category-filters--sticky {
     margin-left: -16px;
     margin-right: -16px;
-    padding: 8px 0;
-  }
-
-  .category-filters--sticky .filters-inner {
-    padding: 0 16px;
-    gap: 4px;
-  }
-
-  .category-filters--sticky .filters-row {
-    gap: 5px;
+    padding: 8px 16px;
+    /* 3 rows: pill ~28px + gap 5px = 33px per row, 3 rows + padding */
+    max-height: 115px;
   }
 
   .filter-pill {

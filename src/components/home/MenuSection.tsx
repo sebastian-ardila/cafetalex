@@ -144,8 +144,8 @@ export default function MenuSection() {
     ...categories.map((cat) => ({ id: cat.id, labelEs: cat.nameEs, labelEn: cat.nameEn, isVeg: false })),
   ]
 
-  const renderPills = (inSticky: boolean) => {
-    const pills = allPillDefs.map((def) => {
+  const renderPills = () => {
+    return allPillDefs.map((def) => {
       const Icon = categoryIcons[def.id] || Coffee
       const isActive = activeId === def.id
       return (
@@ -160,22 +160,6 @@ export default function MenuSection() {
         </button>
       )
     })
-
-    if (!inSticky) return pills
-
-    const rowCount = window.innerWidth <= 768 ? 3 : 2
-    const perRow = Math.ceil(pills.length / rowCount)
-    const rows: typeof pills[] = []
-    for (let i = 0; i < pills.length; i += perRow) {
-      rows.push(pills.slice(i, i + perRow))
-    }
-    return (
-      <div className="filters-inner">
-        {rows.map((row, i) => (
-          <div key={i} className="filters-row">{row}</div>
-        ))}
-      </div>
-    )
   }
 
   return (
@@ -192,7 +176,7 @@ export default function MenuSection() {
           ref={stickyRef}
           className={`category-filters ${isSticky ? 'category-filters--sticky' : ''}`}
         >
-          {renderPills(isSticky)}
+          {renderPills()}
         </div>
 
         {vegetarianItems.length > 0 && (
