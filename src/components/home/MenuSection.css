@@ -76,22 +76,12 @@
     justify-content: flex-start;
     gap: 5px;
     margin-bottom: 24px;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-  }
-
-  .category-filters::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
   }
 
   .filter-pill {
     padding: 5px 12px;
     font-size: 0.7rem;
-    white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .products-grid {
