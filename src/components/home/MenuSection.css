@@ -15,22 +15,23 @@
   margin-bottom: 40px;
 }
 
-/* Sticky state: 2 rows max, horizontal scroll */
+/* Sticky state: 2 rows, horizontal scroll */
 .category-filters--sticky {
   position: sticky;
   top: var(--navbar-h);
   z-index: 80;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  padding: 12px 0;
   margin-left: -20px;
   margin-right: -20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 12px 20px;
   border-bottom: 1px solid var(--border);
-  flex-wrap: nowrap;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto auto;
   overflow-x: auto;
-  max-height: none;
+  overflow-y: hidden;
+  gap: 6px 8px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -41,7 +42,6 @@
 
 .category-filters--sticky .filter-pill {
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .filter-pill {
@@ -115,11 +115,10 @@
   }
 
   .category-filters--sticky {
-    padding: 10px 0;
     margin-left: -16px;
     margin-right: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 8px 16px;
+    gap: 4px 5px;
   }
 
   .filter-pill {
