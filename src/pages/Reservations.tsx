@@ -43,6 +43,7 @@ export default function Reservations() {
   const isClosed = date !== '' && slots.length === 0
 
   const handleDateChange = (val: string) => {
+    if (val < getTodayStr()) return
     setDate(val)
     const newDay = new Date(val + 'T12:00:00').getDay()
     const newSlots = getTimeSlots(newDay)
