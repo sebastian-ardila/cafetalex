@@ -51,8 +51,9 @@ export default function Reservations() {
   }
 
   const openDatePicker = () => {
-    dateRef.current?.showPicker?.()
-    dateRef.current?.focus()
+    const input = dateRef.current
+    if (!input) return
+    try { input.showPicker() } catch { input.click() }
   }
 
   const nameInvalid = tried && !name.trim()
@@ -138,7 +139,6 @@ Hora: ${timeLabel}${comments ? `\nComentarios: ${comments}` : ''}`
                   value={date}
                   min={getTodayStr()}
                   onChange={(e) => handleDateChange(e.target.value)}
-                  onClick={(e) => e.stopPropagation()}
                 />
               </div>
               {dateInvalid && <span className="error-msg">{t('reservations.dateRequired')}</span>}
