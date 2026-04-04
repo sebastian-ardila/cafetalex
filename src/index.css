@@ -37,6 +37,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  padding-top: var(--navbar-h);
 }
 
 /* Prevent iOS zoom on focus */
