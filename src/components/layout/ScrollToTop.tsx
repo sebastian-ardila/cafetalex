@@ -22,7 +22,9 @@ export default function ScrollToTop() {
       return
     }
 
-    window.scrollTo(0, 0)
+    const scrollRoot = document.getElementById('scroll-root')
+    if (scrollRoot) scrollRoot.scrollTo(0, 0)
+    else window.scrollTo(0, 0)
   }, [pathname])
 
   return null

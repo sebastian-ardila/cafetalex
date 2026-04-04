@@ -8,14 +8,16 @@ import ScrollButtons from './ScrollButtons'
 
 export default function Layout() {
   return (
-    <>
+    <div className="app-shell">
       <Navbar />
-      <Breadcrumb />
-      <Outlet />
-      <Footer />
+      <div id="scroll-root" className="scroll-container">
+        <Breadcrumb />
+        <Outlet />
+        <Footer />
+      </div>
       <CartDrawer />
       <CartFab />
       <ScrollButtons />
-    </>
+    </div>
   )
 }

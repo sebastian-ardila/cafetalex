@@ -7,7 +7,12 @@ export default function Hero() {
   const { t } = useTranslation()
 
   const scrollToMenu = () => {
-    document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' })
+    const el = document.getElementById('menu-section')
+    const scrollRoot = document.getElementById('scroll-root')
+    if (el && scrollRoot) {
+      const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop
+      scrollRoot.scrollTo({ top: y, behavior: 'smooth' })
+    }
   }
 
   return (

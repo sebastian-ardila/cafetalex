@@ -94,7 +94,7 @@ Total: ${formatCOP(total)}`
                 <div className="cart-empty-actions">
                   <button
                     className="btn btn-primary btn-sm"
-                    onClick={() => { closeCart(); setSkipScrollTop(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }}
+                    onClick={() => { closeCart(); setSkipScrollTop(); navigate('/'); setTimeout(() => (() => { const el = document.getElementById('menu-section'); const sr = document.getElementById('scroll-root'); if (el && sr) { const y = el.getBoundingClientRect().top - sr.getBoundingClientRect().top + sr.scrollTop; sr.scrollTo({ top: y, behavior: 'smooth' }) } })(), 100) }}
                   >
                     <UtensilsCrossed size={16} />
                     {t('hero.viewMenu')}

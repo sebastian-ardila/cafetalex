@@ -20,14 +20,13 @@
 
 /* ===== Fixed clone: appears on top when scrolled ===== */
 .category-filters--fixed {
-  position: fixed;
-  top: var(--navbar-h);
+  position: sticky;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 89;
   margin: 0;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(10px);
+  background: #000;
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
   animation: filtersSlideDown 0.25s ease-out;

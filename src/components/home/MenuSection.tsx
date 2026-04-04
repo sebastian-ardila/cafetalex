@@ -70,9 +70,10 @@ export default function MenuSection() {
       // Show fixed when the bottom of original filters goes above the navbar
       setShowFixed(rect.bottom < navbarH)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
+    const scrollRoot = document.getElementById('scroll-root') || window
+    scrollRoot.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => scrollRoot.removeEventListener('scroll', onScroll)
   }, [])
 
   // Clear active pill when on the hero (filters not fixed)
@@ -84,6 +85,7 @@ export default function MenuSection() {
   useEffect(() => {
     const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
     const offset = navbarH + 160
+    const scrollRoot = document.getElementById('scroll-root') || null
     const observer = new IntersectionObserver(
       (entries) => {
         if (isScrollingRef.current) return
@@ -93,7 +95,7 @@ export default function MenuSection() {
           }
         }
       },
-      { rootMargin: `-${offset}px 0px -60% 0px`, threshold: 0 }
+      { rootMargin: `-${offset}px 0px -60% 0px`, threshold: 0, root: scrollRoot }
     )
     allCatIds.forEach((id) => {
       const el = document.getElementById(`cat-${id}`)
@@ -121,10 +123,10 @@ export default function MenuSection() {
     setActiveId(id)
     const el = document.getElementById(`cat-${id}`)
     if (el) {
-      const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
       const fixedH = fixedRef.current?.offsetHeight || 100
-      const y = el.getBoundingClientRect().top + window.scrollY - navbarH - fixedH - 16
-      window.scrollTo({ top: y, behavior: 'smooth' })
+      const scrollRoot = document.getElementById('scroll-root') || document.documentElement
+      const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop - fixedH - 16
+      scrollRoot.scrollTo({ top: y, behavior: 'smooth' })
     }
     setTimeout(() => { isScrollingRef.current = false }, 1000)
   }

@@ -157,7 +157,7 @@ Mensaje: ${message}`
               onClick={() => {
                 setSkipScrollTop()
                 navigate('/')
-                setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
+                setTimeout(() => (() => { const el = document.getElementById('menu-section'); const sr = document.getElementById('scroll-root'); if (el && sr) { const y = el.getBoundingClientRect().top - sr.getBoundingClientRect().top + sr.scrollTop; sr.scrollTo({ top: y, behavior: 'smooth' }) } })(), 100)
               }}
               className="btn btn-primary"
             >

@@ -78,7 +78,7 @@ export default function HoursLocation() {
           <h3>{t('history.ctaTitle')}</h3>
           <p>{t('history.ctaText')}</p>
           <div className="cta-card-buttons">
-            <button onClick={() => { setSkipScrollTop(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+            <button onClick={() => { setSkipScrollTop(); navigate('/'); setTimeout(() => (() => { const el = document.getElementById('menu-section'); const sr = document.getElementById('scroll-root'); if (el && sr) { const y = el.getBoundingClientRect().top - sr.getBoundingClientRect().top + sr.scrollTop; sr.scrollTo({ top: y, behavior: 'smooth' }) } })(), 100) }} className="btn btn-primary">
               <UtensilsCrossed size={18} />
               {t('history.ctaButton')}
             </button>

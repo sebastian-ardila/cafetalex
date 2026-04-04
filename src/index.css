@@ -27,7 +27,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: clip;
 }
 
@@ -37,7 +36,21 @@ body {
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  padding-top: var(--navbar-h);
+  /* No padding-top — navbar is outside the scroll container */
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.scroll-container {
+  flex: 1;
+  overflow-y: auto;
 }
 
 /* Prevent iOS zoom on focus */
