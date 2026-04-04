@@ -46,6 +46,9 @@ select,
 textarea {
   font-size: 16px;
   font-family: inherit;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
 }
 
 a {

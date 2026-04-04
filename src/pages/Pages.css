@@ -30,21 +30,15 @@
   color: var(--text-muted);
 }
 
-/* Form card - same width as info-cards */
+/* Form card */
 .form-card {
   padding: 30px;
-  overflow: hidden;
-}
-
-.form-group {
-  overflow: hidden;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
-  overflow: hidden;
 }
 
 /* Sections - full width */
@@ -159,6 +153,144 @@
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ===== sr-only (hidden date input) ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Date trigger button ===== */
+.date-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.date-btn:hover {
+  border-color: var(--accent);
+}
+
+.date-btn--disabled {
+  opacity: 0.5;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+/* ===== Time slots ===== */
+.time-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.slot-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slot-group-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.slot-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.slot-chip {
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.slot-chip:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.slot-chip.active {
+  border-color: var(--accent);
+  background: rgba(200, 149, 108, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== Validation states ===== */
+.field-error {
+  border-color: #e74c3c !important;
+}
+
+.field-warning {
+  border-color: #e67e22 !important;
+}
+
+.error-msg {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #e74c3c;
+}
+
+.warning-msg {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #e67e22;
+}
+
+.label-error {
+  color: #e74c3c !important;
+}
+
+.group-error {
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 6px;
+}
+
+.btn-disabled-look {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-error-summary {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #e74c3c;
+  margin-top: 8px;
 }
 
 @media (max-width: 768px) {

@@ -41,7 +41,11 @@
     "dineIn": "Para la mesa",
     "delivery": "A domicilio",
     "orderSummary": "Resumen del pedido",
-    "sendWhatsApp": "Enviar pedido por WhatsApp"
+    "sendWhatsApp": "Enviar pedido por WhatsApp",
+    "nameRequired": "Ingresa tu nombre",
+    "paymentRequired": "Selecciona un m\u00e9todo de pago",
+    "orderTypeRequired": "Selecciona el tipo de pedido",
+    "requiredFields": "Completa los campos requeridos"
   },
   "reservations": {
     "title": "Reservar Mesa",
@@ -55,7 +59,17 @@
     "commentsPlaceholder": "Alguna solicitud especial...",
     "submit": "Reservar por WhatsApp",
     "scheduleTitle": "Horarios",
-    "locationTitle": "Ubicaci\u00f3n"
+    "locationTitle": "Ubicaci\u00f3n",
+    "selectDate": "Seleccionar fecha",
+    "selectTime": "Selecciona una hora",
+    "morning": "Ma\u00f1ana",
+    "afternoon": "Tarde",
+    "evening": "Noche",
+    "closedDay": "No hay servicio este d\u00eda. Por favor selecciona otra fecha.",
+    "nameRequired": "Ingresa tu nombre",
+    "dateRequired": "Selecciona una fecha",
+    "timeRequired": "Selecciona una hora",
+    "requiredFields": "Completa los campos requeridos"
   },
   "hours": {
     "title": "Horarios y Ubicaci\u00f3n",
@@ -101,7 +115,12 @@
     "other": "Otros",
     "message": "Mensaje",
     "messagePlaceholder": "Cu\u00e9ntanos m\u00e1s...",
-    "submit": "Enviar por WhatsApp"
+    "submit": "Enviar por WhatsApp",
+    "nameRequired": "Ingresa tu nombre",
+    "emailRequired": "Ingresa tu correo electr\u00f3nico",
+    "interestRequired": "Selecciona un tipo de inter\u00e9s",
+    "messageRequired": "Escribe tu mensaje",
+    "requiredFields": "Completa los campos requeridos"
   },
   "footer": {
     "tagline": "Tienda de Caf\u00e9 Especial",

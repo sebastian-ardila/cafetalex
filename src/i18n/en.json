@@ -41,7 +41,11 @@
     "dineIn": "Dine in",
     "delivery": "Delivery",
     "orderSummary": "Order summary",
-    "sendWhatsApp": "Send order via WhatsApp"
+    "sendWhatsApp": "Send order via WhatsApp",
+    "nameRequired": "Enter your name",
+    "paymentRequired": "Select a payment method",
+    "orderTypeRequired": "Select the order type",
+    "requiredFields": "Complete the required fields"
   },
   "reservations": {
     "title": "Reserve a Table",
@@ -55,7 +59,17 @@
     "commentsPlaceholder": "Any special requests...",
     "submit": "Reserve via WhatsApp",
     "scheduleTitle": "Hours",
-    "locationTitle": "Location"
+    "locationTitle": "Location",
+    "selectDate": "Select a date",
+    "selectTime": "Select a time",
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening",
+    "closedDay": "No service on this day. Please select another date.",
+    "nameRequired": "Enter your name",
+    "dateRequired": "Select a date",
+    "timeRequired": "Select a time",
+    "requiredFields": "Complete the required fields"
   },
   "hours": {
     "title": "Hours & Location",
@@ -101,7 +115,12 @@
     "other": "Other",
     "message": "Message",
     "messagePlaceholder": "Tell us more...",
-    "submit": "Send via WhatsApp"
+    "submit": "Send via WhatsApp",
+    "nameRequired": "Enter your name",
+    "emailRequired": "Enter your email",
+    "interestRequired": "Select an interest type",
+    "messageRequired": "Write your message",
+    "requiredFields": "Complete the required fields"
   },
   "footer": {
     "tagline": "Specialty Coffee Shop",

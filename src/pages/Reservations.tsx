@@ -1,28 +1,76 @@
-import { useState } from 'react'
+import { useState, useRef, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { setSkipScrollTop } from '../components/layout/ScrollToTop'
-import { Clock, MapPin, MessageCircle, UtensilsCrossed, Mail } from 'lucide-react'
+import {
+  Clock,
+  MapPin,
+  MessageCircle,
+  UtensilsCrossed,
+  Mail,
+  CalendarDays,
+  Sun,
+  Sunset,
+  Moon,
+} from 'lucide-react'
 import { useTranslation } from '../i18n/useTranslation'
 import { openWhatsApp } from '../utils/whatsapp'
+import {
+  getTimeSlots,
+  groupSlots,
+  formatTime,
+  formatDateLabel,
+  getTodayStr,
+} from '../data/schedule'
 import './Pages.css'
 
+const groupIcons = { morning: Sun, afternoon: Sunset, evening: Moon } as const
+
 export default function Reservations() {
-  const { t } = useTranslation()
+  const { t, lang } = useTranslation()
+  const navigate = useNavigate()
+  const dateRef = useRef<HTMLInputElement>(null)
+
   const [name, setName] = useState('')
   const [people, setPeople] = useState(2)
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
-  const navigate = useNavigate()
   const [comments, setComments] = useState('')
+  const [tried, setTried] = useState(false)
+
+  const dayOfWeek = date ? new Date(date + 'T12:00:00').getDay() : -1
+  const slots = useMemo(() => (dayOfWeek >= 0 ? getTimeSlots(dayOfWeek) : []), [dayOfWeek])
+  const groups = useMemo(() => groupSlots(slots), [slots])
+  const isClosed = date !== '' && slots.length === 0
+
+  const handleDateChange = (val: string) => {
+    setDate(val)
+    const newDay = new Date(val + 'T12:00:00').getDay()
+    const newSlots = getTimeSlots(newDay)
+    if (time && !newSlots.includes(time)) setTime('')
+  }
+
+  const openDatePicker = () => {
+    dateRef.current?.showPicker()
+  }
+
+  const nameInvalid = tried && !name.trim()
+  const dateInvalid = tried && !date
+  const timeInvalid = tried && !time
+  const hasErrors = !name.trim() || !date || isClosed || !time
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const message = `👋 Hola Cafetalex! Quiero reservar una mesa
+    setTried(true)
+    if (hasErrors) return
 
-👤 Nombre: ${name}
-👥 Personas: ${people}
-📅 Fecha: ${date}
-🕐 Hora: ${time}${comments ? `\n💬 Comentarios: ${comments}` : ''}`
+    const dateLabel = formatDateLabel(date, lang)
+    const timeLabel = formatTime(time)
+    const message = `Hola Cafetalex! Quiero reservar una mesa
+
+Nombre: ${name}
+Personas: ${people}
+Fecha: ${dateLabel}
+Hora: ${timeLabel}${comments ? `\nComentarios: ${comments}` : ''}`
 
     openWhatsApp(message)
   }
@@ -49,18 +97,19 @@ export default function Reservations() {
           </div>
         </div>
 
-        <form className="form-card card" onSubmit={handleSubmit}>
+        <form className="form-card card" noValidate onSubmit={handleSubmit}>
           <div className="form-group">
             <label>{t('reservations.name')}</label>
             <input
               type="text"
-              className="form-control"
+              className={`form-control${nameInvalid ? ' field-error' : ''}`}
               placeholder={t('reservations.namePlaceholder')}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
+            {nameInvalid && <span className="error-msg">{t('reservations.nameRequired')}</span>}
           </div>
+
           <div className="form-row">
             <div className="form-group">
               <label>{t('reservations.people')}</label>
@@ -75,24 +124,67 @@ export default function Reservations() {
             <div className="form-group">
               <label>{t('reservations.date')}</label>
               <input
+                ref={dateRef}
                 type="date"
-                className="form-control"
+                className="sr-only"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
+                min={getTodayStr()}
+                onChange={(e) => handleDateChange(e.target.value)}
               />
-            </div>
-            <div className="form-group">
-              <label>{t('reservations.time')}</label>
-              <input
-                type="time"
-                className="form-control"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-              />
+              <button
+                type="button"
+                className={`date-btn${dateInvalid ? ' field-error' : ''}${isClosed ? ' field-warning' : ''}`}
+                onClick={openDatePicker}
+              >
+                <CalendarDays size={16} />
+                <span>{date ? formatDateLabel(date, lang) : t('reservations.selectDate')}</span>
+              </button>
+              {dateInvalid && <span className="error-msg">{t('reservations.dateRequired')}</span>}
+              {isClosed && <span className="warning-msg">{t('reservations.closedDay')}</span>}
             </div>
           </div>
+
+          <div className="form-group">
+            <label>{t('reservations.time')}</label>
+            {!date ? (
+              <button
+                type="button"
+                className="date-btn date-btn--disabled"
+                onClick={openDatePicker}
+              >
+                <Clock size={16} />
+                <span>{t('reservations.selectTime')}</span>
+              </button>
+            ) : isClosed ? null : (
+              <div className="time-slots">
+                {groups.map((g) => {
+                  const Icon = groupIcons[g.key]
+                  return (
+                    <div key={g.key} className="slot-group">
+                      <span className="slot-group-label">
+                        <Icon size={14} />
+                        {t(`reservations.${g.key}`)}
+                      </span>
+                      <div className="slot-chips">
+                        {g.slots.map((s) => (
+                          <button
+                            key={s}
+                            type="button"
+                            className={`slot-chip${time === s ? ' active' : ''}`}
+                            onClick={() => setTime(s)}
+                          >
+                            {formatTime(s)}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
+            {timeInvalid && !isClosed && <span className="error-msg">{t('reservations.timeRequired')}</span>}
+          </div>
+
           <div className="form-group">
             <label>{t('reservations.comments')}</label>
             <textarea
@@ -103,17 +195,31 @@ export default function Reservations() {
               onChange={(e) => setComments(e.target.value)}
             />
           </div>
-          <button type="submit" className="btn btn-primary btn-block">
+
+          <button
+            type="submit"
+            className={`btn btn-primary btn-block${hasErrors ? ' btn-disabled-look' : ''}`}
+          >
             <MessageCircle size={18} />
             {t('reservations.submit')}
           </button>
+          {tried && hasErrors && (
+            <p className="form-error-summary">{t('reservations.requiredFields')}</p>
+          )}
         </form>
 
         <div className="card cta-card">
           <h3>{t('history.ctaTitle')}</h3>
           <p>{t('history.ctaText')}</p>
           <div className="cta-card-buttons">
-            <button onClick={() => { setSkipScrollTop(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+            <button
+              onClick={() => {
+                setSkipScrollTop()
+                navigate('/')
+                setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
+              }}
+              className="btn btn-primary"
+            >
               <UtensilsCrossed size={18} />
               {t('history.ctaButton')}
             </button>

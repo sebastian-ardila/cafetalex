@@ -31,20 +31,30 @@ export default function Contact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [interest, setInterest] = useState('other')
+  const [interest, setInterest] = useState('')
   const [message, setMessage] = useState('')
+  const [tried, setTried] = useState(false)
+
+  const nameInvalid = tried && !name.trim()
+  const emailInvalid = tried && !email.trim()
+  const interestInvalid = tried && !interest
+  const messageInvalid = tried && !message.trim()
+  const hasErrors = !name.trim() || !email.trim() || !interest || !message.trim()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    setTried(true)
+    if (hasErrors) return
+
     const interestLabel = t(`contact.${interest}`)
-    const msg = `👋 Hola Cafetalex! Me contacto desde su sitio web
+    const msg = `Hola Cafetalex! Me contacto desde su sitio web
 
-👤 Nombre: ${name}
-📧 Email: ${email}
-📱 Telefono: ${phone}
-💼 Interes: ${interestLabel}
+Nombre: ${name}
+Email: ${email}
+Telefono: ${phone || 'No especificado'}
+Interes: ${interestLabel}
 
-💬 Mensaje: ${message}`
+Mensaje: ${message}`
 
     openWhatsApp(msg)
   }
@@ -57,29 +67,29 @@ export default function Contact() {
           <p>{t('contact.subtitle')}</p>
         </div>
 
-        <form className="form-card card" onSubmit={handleSubmit}>
+        <form className="form-card card" noValidate onSubmit={handleSubmit}>
           <div className="form-group">
             <label>{t('contact.name')}</label>
             <input
               type="text"
-              className="form-control"
+              className={`form-control${nameInvalid ? ' field-error' : ''}`}
               placeholder={t('contact.namePlaceholder')}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
+            {nameInvalid && <span className="error-msg">{t('contact.nameRequired')}</span>}
           </div>
           <div className="form-row">
             <div className="form-group">
               <label>{t('contact.email')}</label>
               <input
                 type="email"
-                className="form-control"
+                className={`form-control${emailInvalid ? ' field-error' : ''}`}
                 placeholder={t('contact.emailPlaceholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
+              {emailInvalid && <span className="error-msg">{t('contact.emailRequired')}</span>}
             </div>
             <div className="form-group">
               <label>{t('contact.phone')}</label>
@@ -94,8 +104,8 @@ export default function Contact() {
           </div>
 
           <div className="form-group">
-            <label>{t('contact.interestType')}</label>
-            <div className="radio-group">
+            <label className={interestInvalid ? 'label-error' : ''}>{t('contact.interestType')}</label>
+            <div className={`radio-group${interestInvalid ? ' group-error' : ''}`}>
               {interestOptions.map((opt) => (
                 <div className="radio-option" key={opt.key}>
                   <input
@@ -112,31 +122,45 @@ export default function Contact() {
                 </div>
               ))}
             </div>
+            {interestInvalid && <span className="error-msg">{t('contact.interestRequired')}</span>}
           </div>
 
           <div className="form-group">
             <label>{t('contact.message')}</label>
             <textarea
-              className="form-control"
+              className={`form-control${messageInvalid ? ' field-error' : ''}`}
               rows={4}
               placeholder={t('contact.messagePlaceholder')}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              required
             />
+            {messageInvalid && <span className="error-msg">{t('contact.messageRequired')}</span>}
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block">
+          <button
+            type="submit"
+            className={`btn btn-primary btn-block${hasErrors ? ' btn-disabled-look' : ''}`}
+          >
             <MessageCircle size={18} />
             {t('contact.submit')}
           </button>
+          {tried && hasErrors && (
+            <p className="form-error-summary">{t('contact.requiredFields')}</p>
+          )}
         </form>
 
         <div className="card cta-card">
           <h3>{t('history.ctaTitle')}</h3>
           <p>{t('history.ctaText')}</p>
           <div className="cta-card-buttons">
-            <button onClick={() => { setSkipScrollTop(); navigate('/'); setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100) }} className="btn btn-primary">
+            <button
+              onClick={() => {
+                setSkipScrollTop()
+                navigate('/')
+                setTimeout(() => document.getElementById('menu-section')?.scrollIntoView({ behavior: 'smooth' }), 100)
+              }}
+              className="btn btn-primary"
+            >
               <UtensilsCrossed size={18} />
               {t('history.ctaButton')}
             </button>

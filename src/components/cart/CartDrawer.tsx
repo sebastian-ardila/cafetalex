@@ -15,10 +15,16 @@ export default function CartDrawer() {
 
   const navigate = useNavigate()
   const [name, setName] = useState('')
-  const [payment, setPayment] = useState('cash')
-  const [orderType, setOrderType] = useState('dineIn')
+  const [payment, setPayment] = useState('')
+  const [orderType, setOrderType] = useState('')
+  const [tried, setTried] = useState(false)
 
   if (!isOpen) return null
+
+  const nameInvalid = tried && !name.trim()
+  const paymentInvalid = tried && !payment
+  const orderTypeInvalid = tried && !orderType
+  const hasErrors = !name.trim() || !payment || !orderType
 
   const itemLinePrice = (item: typeof items[0]) => {
     const selAdd = item.selections.reduce((s, sel) => s + sel.priceAdd, 0)
@@ -26,6 +32,9 @@ export default function CartDrawer() {
   }
 
   const handleSendWhatsApp = () => {
+    setTried(true)
+    if (hasErrors) return
+
     const paymentLabel =
       payment === 'transfer'
         ? t('cart.transfer')
@@ -43,20 +52,20 @@ export default function CartDrawer() {
           .map((s) => (lang === 'es' ? s.nameEs : s.nameEn))
           .join(', ')
         const detail = selsText ? ` (${selsText})` : ''
-        return `☕ ${item.qty}x ${itemName}${detail} ${formatCOP(itemLinePrice(item))}`
+        return `${item.qty}x ${itemName}${detail} ${formatCOP(itemLinePrice(item))}`
       })
       .join('\n')
 
-    const message = `👋 Hola Cafetalex! Quiero hacer un pedido
+    const message = `Hola Cafetalex! Quiero hacer un pedido
 
-👤 Nombre: ${name || 'No especificado'}
-🍽️ Tipo: ${orderTypeLabel}
-💳 Pago: ${paymentLabel}
+Nombre: ${name}
+Tipo: ${orderTypeLabel}
+Pago: ${paymentLabel}
 
-📋 Pedido:
+Pedido:
 ${itemLines}
 
-💰 Total: ${formatCOP(total)}`
+Total: ${formatCOP(total)}`
 
     openWhatsApp(message)
   }
@@ -66,7 +75,7 @@ ${itemLines}
       <div className="cart-drawer" onClick={(e) => e.stopPropagation()}>
         <div className="cart-header">
           {step === 2 && (
-            <button className="cart-back" onClick={() => setStep(1)}>
+            <button className="cart-back" onClick={() => { setStep(1); setTried(false) }}>
               <ArrowLeft size={18} />
             </button>
           )}
@@ -133,16 +142,17 @@ ${itemLines}
                 <label>{t('cart.customerName')}</label>
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control${nameInvalid ? ' field-error' : ''}`}
                   placeholder={t('cart.customerNamePlaceholder')}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
+                {nameInvalid && <span className="error-msg">{t('cart.nameRequired')}</span>}
               </div>
 
               <div className="form-group">
-                <label>{t('cart.paymentMethod')}</label>
-                <div className="radio-group">
+                <label className={paymentInvalid ? 'label-error' : ''}>{t('cart.paymentMethod')}</label>
+                <div className={`radio-group${paymentInvalid ? ' group-error' : ''}`}>
                   {(['transfer', 'card', 'cash'] as const).map((opt) => (
                     <div className="radio-option" key={opt}>
                       <input
@@ -156,11 +166,12 @@ ${itemLines}
                     </div>
                   ))}
                 </div>
+                {paymentInvalid && <span className="error-msg">{t('cart.paymentRequired')}</span>}
               </div>
 
               <div className="form-group">
-                <label>{t('cart.orderType')}</label>
-                <div className="radio-group">
+                <label className={orderTypeInvalid ? 'label-error' : ''}>{t('cart.orderType')}</label>
+                <div className={`radio-group${orderTypeInvalid ? ' group-error' : ''}`}>
                   {(['dineIn', 'delivery'] as const).map((opt) => (
                     <div className="radio-option" key={opt}>
                       <input
@@ -174,6 +185,7 @@ ${itemLines}
                     </div>
                   ))}
                 </div>
+                {orderTypeInvalid && <span className="error-msg">{t('cart.orderTypeRequired')}</span>}
               </div>
 
               <div className="cart-summary card">
@@ -199,15 +211,18 @@ ${itemLines}
               </div>
 
               <button
-                className="btn btn-primary btn-block"
+                className={`btn btn-primary btn-block${hasErrors ? ' btn-disabled-look' : ''}`}
                 onClick={handleSendWhatsApp}
               >
                 <MessageCircle size={18} />
                 {t('cart.sendWhatsApp')}
               </button>
+              {tried && hasErrors && (
+                <p className="form-error-summary">{t('cart.requiredFields')}</p>
+              )}
               <button
                 className="btn btn-outline btn-block btn-sm"
-                onClick={() => setStep(1)}
+                onClick={() => { setStep(1); setTried(false) }}
               >
                 {t('cart.back')}
               </button>
