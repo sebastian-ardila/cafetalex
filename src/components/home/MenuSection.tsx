@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import {
   Beef,
   UtensilsCrossed,
@@ -52,91 +52,108 @@ const categoryIcons: Record<string, typeof Coffee> = {
 
 const allCatIds = ['vegetarian', ...categories.map((c) => c.id)]
 
+function getScrollRoot(): HTMLElement {
+  return document.getElementById('scroll-root') || document.documentElement
+}
+
 export default function MenuSection() {
   const { t, lang } = useTranslation()
-  const [isStuck, setIsStuck] = useState(false)
-  const [activeId, setActiveId] = useState<string>('')
-  const filtersRef = useRef<HTMLDivElement>(null)
+  const [activeId, setActiveId] = useState<string | null>(null)
+  const stickyBarRef = useRef<HTMLDivElement>(null)
+  const pillRefs = useRef<Map<string, HTMLButtonElement>>(new Map())
   const isScrollingRef = useRef(false)
 
-  // Detect when filters are stuck at top of scroll container
+  // Scroll-spy: detect active category via scroll position (not IntersectionObserver)
   useEffect(() => {
-    const scrollRoot = document.getElementById('scroll-root')
-    if (!scrollRoot) return
+    const scrollRoot = getScrollRoot()
+    const rafId = { current: 0 }
+
     const onScroll = () => {
-      const el = filtersRef.current
-      if (!el) return
-      const containerTop = scrollRoot.getBoundingClientRect().top
-      const rect = el.getBoundingClientRect()
-      setIsStuck(rect.top <= containerTop + 1)
-    }
-    scrollRoot.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => scrollRoot.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // Clear active pill when not stuck (viewing hero area)
-  useEffect(() => {
-    if (!isStuck) setActiveId('')
-  }, [isStuck])
-
-  // Track which category section is visible
-  useEffect(() => {
-    const scrollRoot = document.getElementById('scroll-root')
-    if (!scrollRoot) return
-    const filtersH = filtersRef.current?.offsetHeight || 100
-    const offset = filtersH + 40
-    const observer = new IntersectionObserver(
-      (entries) => {
+      cancelAnimationFrame(rafId.current)
+      rafId.current = requestAnimationFrame(() => {
         if (isScrollingRef.current) return
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id.replace('cat-', ''))
+
+        const barH = stickyBarRef.current?.offsetHeight ?? 100
+        const rootTop = scrollRoot.getBoundingClientRect().top
+        const detectionLine = rootTop + barH + 60
+
+        // Check if menu section is in view
+        const menuEl = document.getElementById('menu-section')
+        if (menuEl) {
+          const menuRect = menuEl.getBoundingClientRect()
+          if (menuRect.bottom < rootTop || menuRect.top > rootTop + scrollRoot.clientHeight) {
+            setActiveId(null)
+            return
           }
         }
-      },
-      { rootMargin: `-${offset}px 0px -60% 0px`, threshold: 0, root: scrollRoot }
-    )
-    allCatIds.forEach((id) => {
-      const el = document.getElementById(`cat-${id}`)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
+
+        // Find section whose top is closest to (but above) the detection line
+        let best: string | null = null
+        let bestTop = -Infinity
+
+        for (const id of allCatIds) {
+          const el = document.getElementById(`cat-${id}`)
+          if (!el) continue
+          const top = el.getBoundingClientRect().top
+          if (top <= detectionLine && top > bestTop) {
+            bestTop = top
+            best = id
+          }
+        }
+
+        setActiveId(best)
+      })
+    }
+
+    scrollRoot.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => {
+      scrollRoot.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(rafId.current)
+    }
   }, [])
 
-  // Auto-scroll filters horizontally to show active pill (without affecting vertical scroll)
+  // Auto-scroll pill bar horizontally — only when pill is out of view
   useEffect(() => {
-    if (!isStuck || !activeId || !filtersRef.current) return
-    const pill = filtersRef.current.querySelector(`[data-cat="${activeId}"]`) as HTMLElement
-    if (!pill) return
-    const container = filtersRef.current
-    const pillLeft = pill.offsetLeft
-    const pillWidth = pill.offsetWidth
-    const containerWidth = container.clientWidth
-    container.scrollTo({
-      left: pillLeft - containerWidth / 2 + pillWidth / 2,
-      behavior: 'smooth',
-    })
-  }, [isStuck, activeId])
+    if (!activeId) return
+    const btn = pillRefs.current.get(activeId)
+    const container = stickyBarRef.current
+    if (!btn || !container) return
+
+    const bRect = btn.getBoundingClientRect()
+    const cRect = container.getBoundingClientRect()
+
+    if (bRect.left < cRect.left || bRect.right > cRect.right) {
+      const pillLeft = btn.offsetLeft
+      const pillWidth = btn.offsetWidth
+      const containerWidth = container.clientWidth
+      container.scrollTo({
+        left: pillLeft - containerWidth / 2 + pillWidth / 2,
+        behavior: 'smooth',
+      })
+    }
+  }, [activeId])
 
   const vegetarianItems = menuItems.filter((item) => item.vegetarian)
   const categoryGroups = categories
     .map((cat) => ({ ...cat, items: menuItems.filter((item) => item.category === cat.id) }))
     .filter((g) => g.items.length > 0)
 
-  const scrollToCategory = (id: string) => {
+  const scrollToCategory = useCallback((id: string) => {
     isScrollingRef.current = true
     setActiveId(id)
+
     const el = document.getElementById(`cat-${id}`)
     if (el) {
-      const scrollRoot = document.getElementById('scroll-root')
-      if (!scrollRoot) return
-      const filtersH = filtersRef.current?.offsetHeight || 100
-      const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop - filtersH - 16
+      const scrollRoot = getScrollRoot()
+      const rootTop = scrollRoot.getBoundingClientRect().top
+      const barH = stickyBarRef.current?.offsetHeight ?? 100
+      const y = el.getBoundingClientRect().top - rootTop + scrollRoot.scrollTop - barH - 16
       scrollRoot.scrollTo({ top: y, behavior: 'smooth' })
     }
+
     setTimeout(() => { isScrollingRef.current = false }, 1000)
-  }
+  }, [])
 
   // Pill definitions ordered: row1 starts with burgers, row2 starts with veg+breakfast
   const allPillDefs = useMemo(() => {
@@ -167,10 +184,7 @@ export default function MenuSection() {
         </div>
 
         {/* Sticky category filters */}
-        <div
-          ref={filtersRef}
-          className={`category-filters${isStuck ? ' category-filters--stuck' : ''}`}
-        >
+        <div ref={stickyBarRef} className="category-filters">
           <div className="filters-inner">
             {rows.map((row, ri) => (
               <div key={ri} className="filters-row">
@@ -179,6 +193,7 @@ export default function MenuSection() {
                   return (
                     <button
                       key={def.id}
+                      ref={(el) => { if (el) pillRefs.current.set(def.id, el); else pillRefs.current.delete(def.id) }}
                       data-cat={def.id}
                       className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''} ${activeId === def.id ? 'active' : ''}`}
                       onClick={() => scrollToCategory(def.id)}

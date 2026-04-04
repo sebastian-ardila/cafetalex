@@ -15,18 +15,12 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  transition: background 0.2s, border-color 0.2s;
+  background: #000;
+  border-bottom: 1px solid var(--border);
 }
 
 .category-filters::-webkit-scrollbar {
   display: none;
-}
-
-/* When stuck at the top of the scroll container */
-.category-filters--stuck {
-  background: #000;
-  border-bottom: 1px solid var(--border);
-  padding: 10px 0;
 }
 
 /* ===== Inner wrapper ===== */
@@ -120,10 +114,6 @@
     margin-right: -16px;
     padding: 8px 0;
     margin-bottom: 24px;
-  }
-
-  .category-filters--stuck {
-    padding: 8px 0;
   }
 
   .filters-inner {
