@@ -125,7 +125,10 @@ Hora: ${timeLabel}${comments ? `\nComentarios: ${comments}` : ''}`
             </div>
             <div className="form-group">
               <label>{t('reservations.date')}</label>
-              <div className={`date-btn${dateInvalid ? ' field-error' : ''}${isClosed ? ' field-warning' : ''}`}>
+              <div
+                className={`date-btn${dateInvalid ? ' field-error' : ''}${isClosed ? ' field-warning' : ''}`}
+                onClick={openDatePicker}
+              >
                 <CalendarDays size={16} />
                 <span>{date ? formatDateLabel(date, lang) : t('reservations.selectDate')}</span>
                 <input
@@ -135,6 +138,7 @@ Hora: ${timeLabel}${comments ? `\nComentarios: ${comments}` : ''}`
                   value={date}
                   min={getTodayStr()}
                   onChange={(e) => handleDateChange(e.target.value)}
+                  onClick={(e) => e.stopPropagation()}
                 />
               </div>
               {dateInvalid && <span className="error-msg">{t('reservations.dateRequired')}</span>}
