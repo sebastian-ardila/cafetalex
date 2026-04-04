@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import {
   Beef,
   UtensilsCrossed,
@@ -54,38 +54,38 @@ const allCatIds = ['vegetarian', ...categories.map((c) => c.id)]
 
 export default function MenuSection() {
   const { t, lang } = useTranslation()
-  const [showFixed, setShowFixed] = useState(false)
+  const [isStuck, setIsStuck] = useState(false)
   const [activeId, setActiveId] = useState<string>('')
   const filtersRef = useRef<HTMLDivElement>(null)
-  const fixedRef = useRef<HTMLDivElement>(null)
   const isScrollingRef = useRef(false)
 
-  // Show fixed bar when original filters scroll out above the navbar
+  // Detect when filters are stuck at top of scroll container
   useEffect(() => {
+    const scrollRoot = document.getElementById('scroll-root')
+    if (!scrollRoot) return
     const onScroll = () => {
       const el = filtersRef.current
       if (!el) return
-      const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
+      const containerTop = scrollRoot.getBoundingClientRect().top
       const rect = el.getBoundingClientRect()
-      // Show fixed when the bottom of original filters goes above the navbar
-      setShowFixed(rect.bottom < navbarH)
+      setIsStuck(rect.top <= containerTop + 1)
     }
-    const scrollRoot = document.getElementById('scroll-root') || window
     scrollRoot.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => scrollRoot.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Clear active pill when on the hero (filters not fixed)
+  // Clear active pill when not stuck (viewing hero area)
   useEffect(() => {
-    if (!showFixed) setActiveId('')
-  }, [showFixed])
+    if (!isStuck) setActiveId('')
+  }, [isStuck])
 
   // Track which category section is visible
   useEffect(() => {
-    const navbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--navbar-h')) || 64
-    const offset = navbarH + 160
-    const scrollRoot = document.getElementById('scroll-root') || null
+    const scrollRoot = document.getElementById('scroll-root')
+    if (!scrollRoot) return
+    const filtersH = filtersRef.current?.offsetHeight || 100
+    const offset = filtersH + 40
     const observer = new IntersectionObserver(
       (entries) => {
         if (isScrollingRef.current) return
@@ -104,14 +104,12 @@ export default function MenuSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Auto-scroll fixed bar to show active pill
-  const scrollActivePillIntoView = useCallback(() => {
-    if (!showFixed || !activeId || !fixedRef.current) return
-    const pill = fixedRef.current.querySelector(`[data-cat="${activeId}"]`) as HTMLElement
+  // Auto-scroll filters to show active pill
+  useEffect(() => {
+    if (!isStuck || !activeId || !filtersRef.current) return
+    const pill = filtersRef.current.querySelector(`[data-cat="${activeId}"]`) as HTMLElement
     if (pill) pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-  }, [showFixed, activeId])
-
-  useEffect(() => { scrollActivePillIntoView() }, [scrollActivePillIntoView])
+  }, [isStuck, activeId])
 
   const vegetarianItems = menuItems.filter((item) => item.vegetarian)
   const categoryGroups = categories
@@ -123,9 +121,10 @@ export default function MenuSection() {
     setActiveId(id)
     const el = document.getElementById(`cat-${id}`)
     if (el) {
-      const fixedH = fixedRef.current?.offsetHeight || 100
-      const scrollRoot = document.getElementById('scroll-root') || document.documentElement
-      const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop - fixedH - 16
+      const scrollRoot = document.getElementById('scroll-root')
+      if (!scrollRoot) return
+      const filtersH = filtersRef.current?.offsetHeight || 100
+      const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop - filtersH - 16
       scrollRoot.scrollTo({ top: y, behavior: 'smooth' })
     }
     setTimeout(() => { isScrollingRef.current = false }, 1000)
@@ -151,26 +150,6 @@ export default function MenuSection() {
     rows.push(allPillDefs.slice(i, i + perRow))
   }
 
-  const renderRows = () =>
-    rows.map((row, ri) => (
-      <div key={ri} className="filters-row">
-        {row.map((def) => {
-          const Icon = categoryIcons[def.id] || Coffee
-          return (
-            <button
-              key={def.id}
-              data-cat={def.id}
-              className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''} ${activeId === def.id ? 'active' : ''}`}
-              onClick={() => scrollToCategory(def.id)}
-            >
-              <Icon size={14} />
-              {lang === 'es' ? def.labelEs : def.labelEn}
-            </button>
-          )
-        })}
-      </div>
-    ))
-
   return (
     <section id="menu-section" className="menu-section">
       <div className="container">
@@ -179,21 +158,32 @@ export default function MenuSection() {
           <p>{t('menuSection.subtitle')}</p>
         </div>
 
-        {/* Original filters — always in normal document flow */}
-        <div ref={filtersRef} className="category-filters">
+        {/* Sticky category filters */}
+        <div
+          ref={filtersRef}
+          className={`category-filters${isStuck ? ' category-filters--stuck' : ''}`}
+        >
           <div className="filters-inner">
-            {renderRows()}
+            {rows.map((row, ri) => (
+              <div key={ri} className="filters-row">
+                {row.map((def) => {
+                  const Icon = categoryIcons[def.id] || Coffee
+                  return (
+                    <button
+                      key={def.id}
+                      data-cat={def.id}
+                      className={`filter-pill ${def.isVeg ? 'filter-pill-veg' : ''} ${activeId === def.id ? 'active' : ''}`}
+                      onClick={() => scrollToCategory(def.id)}
+                    >
+                      <Icon size={14} />
+                      {lang === 'es' ? def.labelEs : def.labelEn}
+                    </button>
+                  )
+                })}
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* Fixed clone — appears when original scrolls out */}
-        {showFixed && (
-          <div ref={fixedRef} className="category-filters category-filters--fixed">
-            <div className="filters-inner">
-              {renderRows()}
-            </div>
-          </div>
-        )}
 
         {allPillDefs.map((def) => {
           const Icon = categoryIcons[def.id] || Coffee

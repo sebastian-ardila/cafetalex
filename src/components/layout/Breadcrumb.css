@@ -1,6 +1,6 @@
 .breadcrumb {
   position: sticky;
-  top: var(--navbar-h);
+  top: 0;
   z-index: 90;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);

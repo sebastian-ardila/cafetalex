@@ -50,7 +50,8 @@ export default function Reservations() {
   }
 
   const openDatePicker = () => {
-    dateRef.current?.showPicker()
+    dateRef.current?.showPicker?.()
+    dateRef.current?.focus()
   }
 
   const nameInvalid = tried && !name.trim()
@@ -123,22 +124,18 @@ Hora: ${timeLabel}${comments ? `\nComentarios: ${comments}` : ''}`
             </div>
             <div className="form-group">
               <label>{t('reservations.date')}</label>
-              <input
-                ref={dateRef}
-                type="date"
-                className="sr-only"
-                value={date}
-                min={getTodayStr()}
-                onChange={(e) => handleDateChange(e.target.value)}
-              />
-              <button
-                type="button"
-                className={`date-btn${dateInvalid ? ' field-error' : ''}${isClosed ? ' field-warning' : ''}`}
-                onClick={openDatePicker}
-              >
+              <div className={`date-btn${dateInvalid ? ' field-error' : ''}${isClosed ? ' field-warning' : ''}`}>
                 <CalendarDays size={16} />
                 <span>{date ? formatDateLabel(date, lang) : t('reservations.selectDate')}</span>
-              </button>
+                <input
+                  ref={dateRef}
+                  type="date"
+                  className="date-input-overlay"
+                  value={date}
+                  min={getTodayStr()}
+                  onChange={(e) => handleDateChange(e.target.value)}
+                />
+              </div>
               {dateInvalid && <span className="error-msg">{t('reservations.dateRequired')}</span>}
               {isClosed && <span className="warning-msg">{t('reservations.closedDay')}</span>}
             </div>

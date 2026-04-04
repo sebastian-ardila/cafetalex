@@ -2,8 +2,11 @@
   padding: 40px 0 60px;
 }
 
-/* ===== Filters: normal flow, horizontal scroll ===== */
+/* ===== Filters: sticky within scroll container ===== */
 .category-filters {
+  position: sticky;
+  top: 0;
+  z-index: 89;
   margin-bottom: 40px;
   margin-left: -20px;
   margin-right: -20px;
@@ -12,29 +15,18 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .category-filters::-webkit-scrollbar {
   display: none;
 }
 
-/* ===== Fixed clone: appears on top when scrolled ===== */
-.category-filters--fixed {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 89;
-  margin: 0;
+/* When stuck at the top of the scroll container */
+.category-filters--stuck {
   background: #000;
   border-bottom: 1px solid var(--border);
   padding: 10px 0;
-  animation: filtersSlideDown 0.25s ease-out;
-}
-
-@keyframes filtersSlideDown {
-  from { opacity: 0; transform: translateY(-100%); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== Inner wrapper ===== */
@@ -130,7 +122,7 @@
     margin-bottom: 24px;
   }
 
-  .category-filters--fixed {
+  .category-filters--stuck {
     padding: 8px 0;
   }
 
