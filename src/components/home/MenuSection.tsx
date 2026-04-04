@@ -104,11 +104,19 @@ export default function MenuSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Auto-scroll filters to show active pill
+  // Auto-scroll filters horizontally to show active pill (without affecting vertical scroll)
   useEffect(() => {
     if (!isStuck || !activeId || !filtersRef.current) return
     const pill = filtersRef.current.querySelector(`[data-cat="${activeId}"]`) as HTMLElement
-    if (pill) pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    if (!pill) return
+    const container = filtersRef.current
+    const pillLeft = pill.offsetLeft
+    const pillWidth = pill.offsetWidth
+    const containerWidth = container.clientWidth
+    container.scrollTo({
+      left: pillLeft - containerWidth / 2 + pillWidth / 2,
+      behavior: 'smooth',
+    })
   }, [isStuck, activeId])
 
   const vegetarianItems = menuItems.filter((item) => item.vegetarian)
