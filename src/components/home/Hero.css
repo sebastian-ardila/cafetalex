@@ -109,6 +109,11 @@
   margin-top: 10px;
 }
 
+.hero-actions-secondary {
+  display: flex;
+  gap: 12px;
+}
+
 @media (max-width: 768px) {
   .hero {
     max-height: 700px;
@@ -125,5 +130,24 @@
 
   .hero-subtitle {
     font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .hero-btn-main {
+    width: 100%;
+  }
+
+  .hero-actions-secondary {
+    width: 100%;
+  }
+
+  .hero-actions-secondary .btn {
+    flex: 1;
+    white-space: nowrap;
   }
 }

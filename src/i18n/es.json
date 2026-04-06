@@ -2,7 +2,7 @@
   "nav": {
     "menu": "Carta",
     "hours": "Horarios y Ubicaci\u00f3n",
-    "history": "Historia",
+    "history": "Conócenos",
     "contact": "Contacto",
     "reservations": "Reservas"
   },
@@ -14,7 +14,10 @@
     "viewMenu": "Ver nuestra carta",
     "reserveTable": "Reservar mesa",
     "reviewTripadvisor": "Opinar en TripAdvisor",
-    "reviewGoogle": "Opinar en Google"
+    "reviewGoogle": "Opinar en Google",
+    "visitShop": "Visita la tienda",
+    "reserveShort": "Reservas",
+    "shopShort": "Tienda"
   },
   "menuSection": {
     "title": "Nuestra Carta",
@@ -89,9 +92,9 @@
     "orderWhatsApp": "Pedir por WhatsApp"
   },
   "history": {
-    "title": "Nuestra Historia",
-    "subtitle": "Conoce la historia detr\u00e1s de Cafetalex",
-    "content": "Cafetalex naci\u00f3 de la pasi\u00f3n por el caf\u00e9 de origen en el coraz\u00f3n del Eje Cafetero colombiano. Ubicados en Pereira, nos dedicamos a ofrecer una experiencia \u00fanica de caf\u00e9 especial, donde cada taza cuenta una historia de dedicaci\u00f3n, desde la finca hasta tu mesa.\n\nNuestro compromiso es con la calidad, la tradici\u00f3n cafetera y la innovaci\u00f3n en cada preparaci\u00f3n. Trabajamos directamente con caficultores locales para garantizar que cada grano refleje lo mejor de nuestra tierra.\n\nEn Cafetalex no solo servimos caf\u00e9, creamos momentos. Un espacio donde la cultura del caf\u00e9 especial se encuentra con la calidez de nuestra gente.",
+    "title": "Con\u00f3cenos",
+    "subtitle": "Descubre qui\u00e9nes somos y qu\u00e9 nos mueve",
+    "content": "Cafetalex naci\u00f3 como un emprendimiento familiar con la pasi\u00f3n por el caf\u00e9 de origen en el coraz\u00f3n del Eje Cafetero colombiano. Ubicados en Pereira, nos dedicamos a ofrecer una experiencia \u00fanica de caf\u00e9 especial, donde cada taza cuenta una historia de dedicaci\u00f3n, desde la finca hasta tu mesa.\n\nSomos un caf\u00e9 colaborativo. Todos los lunes, diferentes caficultores visitan Cafetalex para hablar de caf\u00e9, compartir sus conocimientos y acercar el campo a la ciudad. Es un espacio donde la comunidad cafetera se re\u00fane y donde cada semana puedes descubrir un origen diferente.\n\nNuestro compromiso es con la calidad, la tradici\u00f3n cafetera y la innovaci\u00f3n en cada preparaci\u00f3n. Trabajamos directamente con caficultores locales para garantizar que cada grano refleje lo mejor de nuestra tierra.\n\nEn Cafetalex no solo servimos caf\u00e9, creamos momentos. Un espacio donde la cultura del caf\u00e9 especial se encuentra con la calidez de nuestra gente.",
     "ctaTitle": "\u00bfListo para probar?",
     "ctaText": "Descubre nuestra carta completa",
     "ctaButton": "Ver nuestra carta",

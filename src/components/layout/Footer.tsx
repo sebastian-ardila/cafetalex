@@ -1,11 +1,6 @@
-import {
-  Instagram,
-  Facebook,
-  MapPin,
-  Navigation,
-  MessageCircle,
-  Star,
-} from 'lucide-react'
+import { MapPin } from 'lucide-react'
+import { FaInstagram, FaFacebookF, FaTripadvisor, FaWaze, FaWhatsapp } from 'react-icons/fa'
+import { SiGooglemaps } from 'react-icons/si'
 import { useTranslation } from '../../i18n/useTranslation'
 import './Footer.css'
 
@@ -51,7 +46,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Instagram size={18} />
+              <FaInstagram size={18} />
               <span>@cafetalex_pereira</span>
             </a>
             <a
@@ -59,7 +54,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Facebook size={18} />
+              <FaFacebookF size={18} />
               <span>cafetalexpereira</span>
             </a>
             <a
@@ -67,7 +62,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Star size={18} />
+              <FaTripadvisor size={18} />
               <span>TripAdvisor</span>
             </a>
             <a
@@ -75,7 +70,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Navigation size={18} />
+              <FaWaze size={18} />
               <span>Waze</span>
             </a>
             <a
@@ -83,7 +78,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MapPin size={18} />
+              <SiGooglemaps size={18} />
               <span>Google Maps</span>
             </a>
             <a
@@ -91,7 +86,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MessageCircle size={18} />
+              <FaWhatsapp size={18} />
               <span>+57 300 782 3310</span>
             </a>
           </div>

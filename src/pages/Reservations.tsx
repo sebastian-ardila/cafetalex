@@ -4,7 +4,6 @@ import { setSkipScrollTop } from '../components/layout/ScrollToTop'
 import {
   Clock,
   MapPin,
-  MessageCircle,
   UtensilsCrossed,
   Mail,
   CalendarDays,
@@ -12,6 +11,7 @@ import {
   Sunset,
   Moon,
 } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useTranslation } from '../i18n/useTranslation'
 import { openWhatsApp } from '../utils/whatsapp'
 import {
@@ -200,7 +200,7 @@ Hora: ${timeLabel}${comments ? `\nComentarios: ${comments}` : ''}`
             type="submit"
             className={`btn btn-primary btn-block${hasErrors ? ' btn-disabled-look' : ''}`}
           >
-            <MessageCircle size={18} />
+            <FaWhatsapp size={18} />
             {t('reservations.submit')}
           </button>
           {tried && hasErrors && (

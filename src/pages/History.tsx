@@ -30,6 +30,15 @@ export default function History() {
             ))}
         </div>
 
+        <div className="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Z0fkiuGqRhQ"
+            title="Cafetalex - Café Colaborativo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
         <div className="card cta-card">
           <h3>{t('history.ctaTitle')}</h3>
           <p>{t('history.ctaText')}</p>

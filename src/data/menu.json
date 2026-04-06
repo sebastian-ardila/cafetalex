@@ -119,6 +119,12 @@
       "nameEs": "Desayunos Corporativos",
       "nameEn": "Corporate Breakfast",
       "icon": "🥚"
+    },
+    {
+      "id": "shop",
+      "nameEs": "Tienda",
+      "nameEn": "Shop",
+      "icon": "🛍️"
     }
   ],
   "items": [
@@ -3741,6 +3747,206 @@
         {
           "es": "2 unidades",
           "en": "2 pieces"
+        }
+      ]
+    },
+    {
+      "id": "prensa-francesa",
+      "category": "shop",
+      "nameEs": "Prensa Francesa",
+      "nameEn": "French Press",
+      "price": 45000,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Método de inmersión completa",
+          "en": "Full immersion brewing method"
+        },
+        {
+          "emoji": "🫖",
+          "es": "Capacidad 350ml",
+          "en": "350ml capacity"
+        }
+      ],
+      "badges": [
+        {
+          "es": "Método de filtrado",
+          "en": "Brewing method"
+        }
+      ]
+    },
+    {
+      "id": "v60",
+      "category": "shop",
+      "nameEs": "V60",
+      "nameEn": "V60",
+      "price": 35000,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Método de goteo por vertido",
+          "en": "Pour-over drip method"
+        },
+        {
+          "emoji": "📐",
+          "es": "Diseño cónico con espirales internas",
+          "en": "Conical design with internal spirals"
+        }
+      ],
+      "badges": [
+        {
+          "es": "Método de filtrado",
+          "en": "Brewing method"
+        }
+      ]
+    },
+    {
+      "id": "sifon-japones",
+      "category": "shop",
+      "nameEs": "Sifón Japonés",
+      "nameEn": "Japanese Siphon",
+      "price": 180000,
+      "ingredients": [
+        {
+          "emoji": "🔬",
+          "es": "Extracción por vacío y presión",
+          "en": "Vacuum and pressure extraction"
+        },
+        {
+          "emoji": "🔥",
+          "es": "Incluye quemador de alcohol",
+          "en": "Includes alcohol burner"
+        }
+      ],
+      "badges": [
+        {
+          "es": "Método de filtrado",
+          "en": "Brewing method"
+        }
+      ]
+    },
+    {
+      "id": "chemex",
+      "category": "shop",
+      "nameEs": "Chemex",
+      "nameEn": "Chemex",
+      "price": 120000,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Método de goteo con filtro grueso",
+          "en": "Drip method with thick filter"
+        },
+        {
+          "emoji": "🫖",
+          "es": "Capacidad 6 tazas",
+          "en": "6-cup capacity"
+        }
+      ],
+      "badges": [
+        {
+          "es": "Método de filtrado",
+          "en": "Brewing method"
+        }
+      ]
+    },
+    {
+      "id": "cafe-media-libra",
+      "category": "shop",
+      "nameEs": "Café Media Libra",
+      "nameEn": "Coffee Half Pound",
+      "price": 25000,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café de origen, tostión media",
+          "en": "Origin coffee, medium roast"
+        },
+        {
+          "emoji": "📦",
+          "es": "250g — molido o en grano",
+          "en": "250g — ground or whole bean"
+        }
+      ],
+      "badges": [
+        {
+          "es": "250g",
+          "en": "250g"
+        }
+      ]
+    },
+    {
+      "id": "cafe-una-libra",
+      "category": "shop",
+      "nameEs": "Café Una Libra",
+      "nameEn": "Coffee One Pound",
+      "price": 45000,
+      "ingredients": [
+        {
+          "emoji": "☕",
+          "es": "Café de origen, tostión media",
+          "en": "Origin coffee, medium roast"
+        },
+        {
+          "emoji": "📦",
+          "es": "500g — molido o en grano",
+          "en": "500g — ground or whole bean"
+        }
+      ],
+      "badges": [
+        {
+          "es": "500g",
+          "en": "500g"
+        }
+      ]
+    },
+    {
+      "id": "filtros-v60",
+      "category": "shop",
+      "nameEs": "Filtros para V60",
+      "nameEn": "V60 Filters",
+      "price": 15000,
+      "ingredients": [
+        {
+          "emoji": "📄",
+          "es": "Filtros de papel blanqueado",
+          "en": "Bleached paper filters"
+        },
+        {
+          "emoji": "📦",
+          "es": "Caja de 100 unidades",
+          "en": "Box of 100 units"
+        }
+      ],
+      "badges": [
+        {
+          "es": "100 unidades",
+          "en": "100 units"
+        }
+      ]
+    },
+    {
+      "id": "molino-manual",
+      "category": "shop",
+      "nameEs": "Molino Manual",
+      "nameEn": "Manual Grinder",
+      "price": 85000,
+      "ingredients": [
+        {
+          "emoji": "⚙️",
+          "es": "Muelas cónicas de cerámica",
+          "en": "Ceramic conical burrs"
+        },
+        {
+          "emoji": "🎚️",
+          "es": "Ajuste de molienda graduable",
+          "en": "Adjustable grind setting"
+        }
+      ],
+      "badges": [
+        {
+          "es": "Accesorio",
+          "en": "Accessory"
         }
       ]
     }

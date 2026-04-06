@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { setSkipScrollTop } from '../components/layout/ScrollToTop'
 import { Clock, MapPin, Navigation, UtensilsCrossed, CalendarCheck, Truck } from 'lucide-react'
+import { FaWaze } from 'react-icons/fa'
+import { SiGooglemaps } from 'react-icons/si'
 import { useTranslation } from '../i18n/useTranslation'
 import './Pages.css'
 
@@ -28,7 +30,7 @@ export default function HoursLocation() {
               rel="noopener noreferrer"
               className="btn btn-outline"
             >
-              <Navigation size={18} />
+              <FaWaze size={18} />
               {t('hours.openWaze')}
             </a>
             <a
@@ -37,7 +39,7 @@ export default function HoursLocation() {
               rel="noopener noreferrer"
               className="btn btn-outline"
             >
-              <MapPin size={18} />
+              <SiGooglemaps size={18} />
               {t('hours.openGoogleMaps')}
             </a>
           </div>

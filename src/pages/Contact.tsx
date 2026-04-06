@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { setSkipScrollTop } from '../components/layout/ScrollToTop'
 import {
-  MessageCircle,
   Building2,
   Package,
   Handshake,
@@ -12,6 +11,7 @@ import {
   UtensilsCrossed,
   CalendarCheck,
 } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useTranslation } from '../i18n/useTranslation'
 import { openWhatsApp } from '../utils/whatsapp'
 import './Pages.css'
@@ -141,7 +141,7 @@ Mensaje: ${message}`
             type="submit"
             className={`btn btn-primary btn-block${hasErrors ? ' btn-disabled-look' : ''}`}
           >
-            <MessageCircle size={18} />
+            <FaWhatsapp size={18} />
             {t('contact.submit')}
           </button>
           {tried && hasErrors && (

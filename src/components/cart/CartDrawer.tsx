@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { setSkipScrollTop } from '../layout/ScrollToTop'
-import { X, ArrowLeft, MessageCircle, Trash2, UtensilsCrossed, CalendarCheck } from 'lucide-react'
+import { X, ArrowLeft, Trash2, UtensilsCrossed, CalendarCheck } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useTranslation } from '../../i18n/useTranslation'
 import { useCartStore } from '../../store/cartStore'
 import { openWhatsApp, formatCOP } from '../../utils/whatsapp'
@@ -214,7 +215,7 @@ Total: ${formatCOP(total)}`
                 className={`btn btn-primary btn-block${hasErrors ? ' btn-disabled-look' : ''}`}
                 onClick={handleSendWhatsApp}
               >
-                <MessageCircle size={18} />
+                <FaWhatsapp size={18} />
                 {t('cart.sendWhatsApp')}
               </button>
               {tried && hasErrors && (

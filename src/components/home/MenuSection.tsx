@@ -20,6 +20,7 @@ import {
   Milk,
   Candy,
   Droplets,
+  ShoppingBag,
 } from 'lucide-react'
 import { useTranslation } from '../../i18n/useTranslation'
 import { categories, menuItems } from '../../data/menu'
@@ -47,6 +48,7 @@ const categoryIcons: Record<string, typeof Coffee> = {
   coldCakes: CakeSlice,
   cookies: Cookie,
   breakfast: Egg,
+  shop: ShoppingBag,
   vegetarian: Vegan,
 }
 

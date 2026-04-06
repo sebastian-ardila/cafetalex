@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Star, ExternalLink } from 'lucide-react'
+import { ExternalLink, ShoppingBag, UtensilsCrossed, CalendarCheck } from 'lucide-react'
+import { FaTripadvisor, FaGoogle } from 'react-icons/fa'
 import { useTranslation } from '../../i18n/useTranslation'
 import './Hero.css'
 
@@ -11,6 +12,16 @@ export default function Hero() {
     const scrollRoot = document.getElementById('scroll-root')
     if (el && scrollRoot) {
       const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop
+      scrollRoot.scrollTo({ top: y, behavior: 'smooth' })
+    }
+  }
+
+  const scrollToShop = () => {
+    const el = document.getElementById('cat-shop')
+    const scrollRoot = document.getElementById('scroll-root')
+    if (el && scrollRoot) {
+      const barH = document.querySelector('.category-filters')?.clientHeight ?? 100
+      const y = el.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top + scrollRoot.scrollTop - barH - 16
       scrollRoot.scrollTo({ top: y, behavior: 'smooth' })
     }
   }
@@ -43,7 +54,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="hero-review-btn"
           >
-            <Star size={14} />
+            <FaTripadvisor size={14} />
             {t('hero.reviewTripadvisor')}
             <ExternalLink size={12} />
           </a>
@@ -53,19 +64,27 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="hero-review-btn"
           >
-            <Star size={14} />
+            <FaGoogle size={14} />
             {t('hero.reviewGoogle')}
             <ExternalLink size={12} />
           </a>
         </div>
 
         <div className="hero-actions">
-          <button onClick={scrollToMenu} className="btn btn-primary">
+          <button onClick={scrollToMenu} className="btn btn-primary hero-btn-main">
+            <UtensilsCrossed size={18} />
             {t('hero.viewMenu')}
           </button>
-          <Link to="/reservations" className="btn btn-outline">
-            {t('hero.reserveTable')}
-          </Link>
+          <div className="hero-actions-secondary">
+            <Link to="/reservations" className="btn btn-outline">
+              <CalendarCheck size={18} />
+              {t('hero.reserveShort')}
+            </Link>
+            <button onClick={scrollToShop} className="btn btn-outline">
+              <ShoppingBag size={18} />
+              {t('hero.shopShort')}
+            </button>
+          </div>
         </div>
       </div>
     </section>

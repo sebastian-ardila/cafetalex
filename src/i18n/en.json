@@ -2,7 +2,7 @@
   "nav": {
     "menu": "Menu",
     "hours": "Hours & Location",
-    "history": "History",
+    "history": "About Us",
     "contact": "Contact",
     "reservations": "Reservations"
   },
@@ -14,7 +14,10 @@
     "viewMenu": "View our menu",
     "reserveTable": "Reserve a table",
     "reviewTripadvisor": "Review on TripAdvisor",
-    "reviewGoogle": "Review on Google"
+    "reviewGoogle": "Review on Google",
+    "visitShop": "Visit the shop",
+    "reserveShort": "Reservations",
+    "shopShort": "Shop"
   },
   "menuSection": {
     "title": "Our Menu",
@@ -89,9 +92,9 @@
     "orderWhatsApp": "Order via WhatsApp"
   },
   "history": {
-    "title": "Our Story",
-    "subtitle": "Learn the story behind Cafetalex",
-    "content": "Cafetalex was born from a passion for origin coffee in the heart of Colombia's Coffee Region. Located in Pereira, we are dedicated to offering a unique specialty coffee experience, where every cup tells a story of dedication, from the farm to your table.\n\nOur commitment is to quality, coffee tradition, and innovation in every preparation. We work directly with local coffee growers to ensure that every bean reflects the best of our land.\n\nAt Cafetalex, we don't just serve coffee, we create moments. A space where specialty coffee culture meets the warmth of our people.",
+    "title": "About Us",
+    "subtitle": "Discover who we are and what drives us",
+    "content": "Cafetalex was born as a family venture from a passion for origin coffee in the heart of Colombia's Coffee Region. Located in Pereira, we are dedicated to offering a unique specialty coffee experience, where every cup tells a story of dedication, from the farm to your table.\n\nWe are a collaborative coffee shop. Every Monday, different coffee growers visit Cafetalex to talk about coffee, share their knowledge, and bring the countryside closer to the city. It's a space where the coffee community comes together and where every week you can discover a different origin.\n\nOur commitment is to quality, coffee tradition, and innovation in every preparation. We work directly with local coffee growers to ensure that every bean reflects the best of our land.\n\nAt Cafetalex, we don't just serve coffee, we create moments. A space where specialty coffee culture meets the warmth of our people.",
     "ctaTitle": "Ready to try?",
     "ctaText": "Discover our full menu",
     "ctaButton": "View our menu",
