@@ -1,0 +1,191 @@
+/* Overlay */
+.table-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Modal */
+.table-modal {
+  background: #e8dace;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 380px;
+  padding: 24px;
+  color: #1a0e06;
+}
+
+/* Header */
+.table-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.table-modal-header h3 {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a0e06;
+}
+
+.table-modal-close,
+.table-modal-back {
+  color: #1a0e06;
+  opacity: 0.6;
+  padding: 4px;
+}
+
+.table-modal-close:hover,
+.table-modal-back:hover {
+  opacity: 1;
+}
+
+/* Current table */
+.table-modal-current {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #1a0e06;
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.table-modal-current strong {
+  font-size: 1.3rem;
+  font-weight: 800;
+  opacity: 1;
+}
+
+/* Grid 20 mesas */
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.table-grid-btn {
+  height: 48px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: rgba(200, 149, 108, 0.3);
+  color: rgba(26, 14, 6, 0.7);
+  transition: all 0.2s;
+}
+
+.table-grid-btn:hover {
+  background: rgba(200, 149, 108, 0.5);
+}
+
+.table-grid-btn.active {
+  background: #1a0e06;
+  color: var(--accent);
+}
+
+/* QR button */
+.table-qr-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1a0e06;
+  border: 1px solid rgba(26, 14, 6, 0.2);
+  background: transparent;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.table-qr-btn:hover {
+  border-color: rgba(26, 14, 6, 0.5);
+}
+
+/* Remove table */
+.table-remove-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #1a0e06;
+  opacity: 0.5;
+  padding: 8px;
+  transition: opacity 0.2s;
+}
+
+.table-remove-btn:hover {
+  opacity: 0.8;
+}
+
+/* QR Scanner */
+.qr-scanner-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qr-reader {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.qr-error {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #c0392b;
+}
+
+/* Confirmation overlay */
+.table-confirmed-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-confirmed-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.table-confirmed-icon {
+  color: var(--accent);
+}
+
+.table-confirmed-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.table-confirmed-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .table-confirmed-number {
+    font-size: 6rem;
+  }
+}

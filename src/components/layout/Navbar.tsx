@@ -11,9 +11,12 @@ import {
   X,
   Globe,
 } from 'lucide-react'
+import { MdTableRestaurant } from 'react-icons/md'
 import { useTranslation } from '../../i18n/useTranslation'
 import { setSkipScrollTop } from './ScrollToTop'
 import { useCartStore } from '../../store/cartStore'
+import { useTable } from '../../context/TableContext'
+import TableModal from '../table/TableModal'
 import './Navbar.css'
 
 const navLinks = [
@@ -31,6 +34,8 @@ export default function Navbar() {
   const cartCount = useCartStore((s) => s.getCount())
   const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [tableModalOpen, setTableModalOpen] = useState(false)
+  const { tableNumber, hasTable } = useTable()
 
   const handleNavClick = (to: string) => {
     if (to === '/') {
@@ -70,6 +75,14 @@ export default function Navbar() {
           </div>
 
           <div className="navbar-actions">
+            <button
+              className={`table-badge${hasTable ? ' table-badge-active' : ''}`}
+              onClick={() => setTableModalOpen(true)}
+            >
+              <MdTableRestaurant size={16} />
+              <span>{hasTable ? `Mesa ${tableNumber}` : 'Mesa'}</span>
+            </button>
+
             <button
               className="lang-toggle"
               onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
@@ -111,6 +124,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <TableModal open={tableModalOpen} onClose={() => setTableModalOpen(false)} />
     </>
   )
 }

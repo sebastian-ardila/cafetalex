@@ -165,6 +165,64 @@
   margin-top: 3px;
 }
 
+/* Table indicator */
+.cart-table-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #000;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+}
+
+.cart-table-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cart-table-number {
+  font-size: 1.2rem;
+  font-weight: 800;
+  flex: 1;
+}
+
+.cart-table-change {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.cart-table-change:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* Table grid in cart */
+.cart-table-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.cart-table-btn {
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: rgba(200, 149, 108, 0.15);
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.cart-table-btn:hover {
+  background: rgba(200, 149, 108, 0.3);
+  color: var(--text);
+}
+
 .summary-total {
   display: flex;
   justify-content: space-between;

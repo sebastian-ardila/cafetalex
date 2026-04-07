@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { setSkipScrollTop } from '../layout/ScrollToTop'
 import { X, ArrowLeft, Trash2, UtensilsCrossed, CalendarCheck } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
+import { MdTableRestaurant } from 'react-icons/md'
 import { useTranslation } from '../../i18n/useTranslation'
 import { useCartStore } from '../../store/cartStore'
+import { useTable } from '../../context/TableContext'
 import { openWhatsApp, formatCOP } from '../../utils/whatsapp'
 import CartItem from './CartItem'
 import './CartDrawer.css'
@@ -12,20 +14,43 @@ import './CartDrawer.css'
 export default function CartDrawer() {
   const { t, lang } = useTranslation()
   const { items, isOpen, step, closeCart, setStep, clear, getTotal } = useCartStore()
+  const { tableNumber: urlTable, hasTable: hasUrlTable } = useTable()
   const total = getTotal()
 
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [payment, setPayment] = useState('')
   const [orderType, setOrderType] = useState('')
+  const [localTable, setLocalTable] = useState('')
+  const [address, setAddress] = useState('')
   const [tried, setTried] = useState(false)
 
+  // Auto-fill table from URL when selecting dineIn
+  useEffect(() => {
+    if (orderType === 'dineIn' && hasUrlTable && !localTable) {
+      setLocalTable(urlTable)
+    }
+  }, [orderType, hasUrlTable, urlTable, localTable])
+
   if (!isOpen) return null
+
+  const handleOrderType = (type: string) => {
+    setOrderType(type)
+    if (type === 'dineIn' && hasUrlTable) {
+      setLocalTable(urlTable)
+    } else if (type === 'delivery') {
+      setLocalTable('')
+    }
+  }
 
   const nameInvalid = tried && !name.trim()
   const paymentInvalid = tried && !payment
   const orderTypeInvalid = tried && !orderType
+  const tableInvalid = tried && orderType === 'dineIn' && !localTable
+  const addressInvalid = tried && orderType === 'delivery' && !address.trim()
   const hasErrors = !name.trim() || !payment || !orderType
+    || (orderType === 'dineIn' && !localTable)
+    || (orderType === 'delivery' && !address.trim())
 
   const itemLinePrice = (item: typeof items[0]) => {
     const selAdd = item.selections.reduce((s, sel) => s + sel.priceAdd, 0)
@@ -46,6 +71,10 @@ export default function CartDrawer() {
     const orderTypeLabel =
       orderType === 'dineIn' ? t('cart.dineIn') : t('cart.delivery')
 
+    const locationLine = orderType === 'dineIn'
+      ? `📍 En mesa\n🪑 Mesa ${localTable}`
+      : `📍 Domicilio\n🏠 ${address}`
+
     const itemLines = items
       .map((item) => {
         const itemName = lang === 'es' ? item.nameEs : item.nameEn
@@ -61,6 +90,7 @@ export default function CartDrawer() {
 
 Nombre: ${name}
 Tipo: ${orderTypeLabel}
+${locationLine}
 Pago: ${paymentLabel}
 
 Pedido:
@@ -180,7 +210,7 @@ Total: ${formatCOP(total)}`
                         id={`type-${opt}`}
                         name="orderType"
                         checked={orderType === opt}
-                        onChange={() => setOrderType(opt)}
+                        onChange={() => handleOrderType(opt)}
                       />
                       <label htmlFor={`type-${opt}`}>{t(`cart.${opt}`)}</label>
                     </div>
@@ -188,6 +218,67 @@ Total: ${formatCOP(total)}`
                 </div>
                 {orderTypeInvalid && <span className="error-msg">{t('cart.orderTypeRequired')}</span>}
               </div>
+
+              {/* Table selection for dineIn */}
+              {orderType === 'dineIn' && (
+                <div className="form-group">
+                  {localTable ? (
+                    <div className="cart-table-indicator">
+                      <MdTableRestaurant size={20} />
+                      <span className="cart-table-label">
+                        {lang === 'en' ? 'Table' : 'Mesa'}
+                      </span>
+                      <span className="cart-table-number">{localTable}</span>
+                      <button
+                        className="cart-table-change"
+                        onClick={() => setLocalTable('')}
+                      >
+                        {lang === 'en' ? 'Change' : 'Cambiar'}
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <label className={tableInvalid ? 'label-error' : ''}>
+                        {lang === 'en' ? 'Table number' : 'Número de mesa'}
+                      </label>
+                      <div className={`cart-table-grid${tableInvalid ? ' group-error' : ''}`}>
+                        {Array.from({ length: 20 }, (_, i) => String(i + 1)).map((n) => (
+                          <button
+                            key={n}
+                            className="cart-table-btn"
+                            onClick={() => setLocalTable(n)}
+                          >
+                            {n}
+                          </button>
+                        ))}
+                      </div>
+                      {tableInvalid && <span className="error-msg">
+                        {lang === 'en' ? 'Select a table' : 'Selecciona una mesa'}
+                      </span>}
+                    </>
+                  )}
+                </div>
+              )}
+
+              {/* Address for delivery */}
+              {orderType === 'delivery' && (
+                <div className="form-group">
+                  <label className={addressInvalid ? 'label-error' : ''}>
+                    {lang === 'en' ? 'Delivery address' : 'Dirección de entrega'}
+                  </label>
+                  <input
+                    type="text"
+                    className={`form-control${addressInvalid ? ' field-error' : ''}`}
+                    placeholder={lang === 'en' ? 'Enter your address' : 'Ingresa tu dirección'}
+                    autoComplete="street-address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                  {addressInvalid && <span className="error-msg">
+                    {lang === 'en' ? 'Enter your address' : 'Ingresa tu dirección'}
+                  </span>}
+                </div>
+              )}
 
               <div className="cart-summary card">
                 <h4>{t('cart.orderSummary')}</h4>
