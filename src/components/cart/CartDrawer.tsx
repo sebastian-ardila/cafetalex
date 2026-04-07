@@ -25,12 +25,14 @@ export default function CartDrawer() {
   const [address, setAddress] = useState('')
   const [tried, setTried] = useState(false)
 
-  // Auto-fill table from URL when selecting dineIn
+  // Auto-fill table from URL only when first selecting dineIn
+  const [tableCleared, setTableCleared] = useState(false)
+
   useEffect(() => {
-    if (orderType === 'dineIn' && hasUrlTable && !localTable) {
+    if (orderType === 'dineIn' && hasUrlTable && !localTable && !tableCleared) {
       setLocalTable(urlTable)
     }
-  }, [orderType, hasUrlTable, urlTable, localTable])
+  }, [orderType, hasUrlTable, urlTable, localTable, tableCleared])
 
   if (!isOpen) return null
 
@@ -231,7 +233,7 @@ Total: ${formatCOP(total)}`
                       <span className="cart-table-number">{localTable}</span>
                       <button
                         className="cart-table-change"
-                        onClick={() => setLocalTable('')}
+                        onClick={() => { setLocalTable(''); setTableCleared(true) }}
                       >
                         {lang === 'en' ? 'Change' : 'Cambiar'}
                       </button>
@@ -246,7 +248,7 @@ Total: ${formatCOP(total)}`
                           <button
                             key={n}
                             className="cart-table-btn"
-                            onClick={() => setLocalTable(n)}
+                            onClick={() => { setLocalTable(n); setTableCleared(false) }}
                           >
                             {n}
                           </button>
